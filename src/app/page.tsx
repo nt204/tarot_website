@@ -18,128 +18,117 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#080708] text-[#F3E7D3] flex flex-col selection:bg-[#D4AF37]/30 selection:text-[#F3E7D3]">
-      {/* 1. Header */}
+      {/* 1. Header tinh gọn */}
       <Header
         onOpenCatalog={() => setIsCatalogOpen(true)}
         onScrollToTable={scrollToTable}
       />
 
-      {/* 2. Hero Section (Design matched with reference screenshot) */}
+      {/* 2. Hero Section: ngắn, sâu sắc, giữ vòng tròn chiêm tinh */}
       <HeroSection onStartReading={scrollToTable} />
 
-      {/* 3. Main Interactive Reading Board */}
+      {/* 3. Khu vực trải bài tương tác */}
       <main className="flex-1 w-full">
         <TarotTable />
 
-        {/* 4. Section: Giới thiệu các kiểu trải bài */}
-        <section id="spreads" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#221D17]">
+        {/* 4. Hướng dẫn ba bước đơn giản */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-[#201B15]">
           <div className="text-center space-y-2 mb-12">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-serif">
-              ✦ CÁC THỂ THỨC TRẢI BÀI ✦
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#F3E7D3]">
-              Lựa Chọn Kiểu Trải Bài Phù Hợp
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#F3E7D3]">
+              Ba bước cho một buổi trải bài
             </h2>
-            <p className="text-sm text-[#A89885] max-w-xl mx-auto">
-              Mỗi kiểu trải bài mang một cấu trúc năng lượng riêng biệt, giúp bạn tiếp cận câu trả lời từ nhiều góc độ.
+            <p className="text-xs sm:text-sm text-[#8C7A65]">
+              Dành một chút thời gian tĩnh lặng để kết nối với chính mình.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Spread 1: Một lá hôm nay */}
-            <div className="p-8 rounded-2xl bg-[#121014] border border-[#3A3226] space-y-4 hover:border-[#D4AF37] transition-all">
-              <span className="w-10 h-10 rounded-full bg-[#2A2216] text-[#D4AF37] flex items-center justify-center font-serif text-lg font-bold border border-[#7C6339]">
-                1
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-xl bg-[#121014] border border-[#2B231C] space-y-3">
+              <span className="text-xs font-serif text-[#D4AF37] tracking-widest uppercase block">
+                Bước 01
               </span>
-              <h3 className="font-serif text-xl font-bold text-[#F3E7D3]">
-                Một Lá Hôm Nay (Daily Focus)
+              <h3 className="font-serif text-lg font-bold text-[#F3E7D3]">
+                Đặt câu hỏi
               </h3>
-              <p className="text-xs sm:text-sm text-[#B3A492] leading-relaxed">
-                Rút 1 lá bài duy nhất để cảm nhận dòng chảy năng lượng chủ đạo trong ngày. Lá bài này cố định cho mỗi người dùng trong ngày (theo múi giờ Việt Nam), giúp bạn giữ tâm thế an tĩnh và định hướng hành vi đúng đắn.
+              <p className="text-xs text-[#B3A492] leading-relaxed">
+                Nghĩ về điều bạn đang băn khoăn nhất. Một câu hỏi rõ ràng sẽ giúp thông điệp trở nên sâu sắc và có trọng tâm hơn.
               </p>
-              <ul className="text-xs text-[#A89885] space-y-1.5 pt-2 border-t border-[#221D17]">
-                <li>✦ Vị trí: Điều nên chú ý hôm nay</li>
-                <li>✦ Tự động lưu giữ kết quả khi tải lại trang</li>
-              </ul>
             </div>
 
-            {/* Spread 2: Ba lá định hướng */}
-            <div className="p-8 rounded-2xl bg-[#121014] border border-[#3A3226] space-y-4 hover:border-[#D4AF37] transition-all">
-              <span className="w-10 h-10 rounded-full bg-[#2A2216] text-[#D4AF37] flex items-center justify-center font-serif text-lg font-bold border border-[#7C6339]">
-                3
+            <div className="p-6 rounded-xl bg-[#121014] border border-[#2B231C] space-y-3">
+              <span className="text-xs font-serif text-[#D4AF37] tracking-widest uppercase block">
+                Bước 02
               </span>
-              <h3 className="font-serif text-xl font-bold text-[#F3E7D3]">
-                Ba Lá Định Hướng (3-Card Guidance)
+              <h3 className="font-serif text-lg font-bold text-[#F3E7D3]">
+                Chọn bài
               </h3>
-              <p className="text-xs sm:text-sm text-[#B3A492] leading-relaxed">
-                Mô hình giải quyết vấn đề 3 chiều kinh điển: phân tích hoàn cảnh hiện tại, nhận diện điểm mù/trở ngại cần cẩn trọng và gợi mở hành động đột phá tiếp theo.
+              <p className="text-xs text-[#B3A492] leading-relaxed">
+                Lắng lại vài giây trong lúc xào bài, sau đó dùng trực giác để chọn những lá bài bạn cảm thấy thu hút nhất.
               </p>
-              <ul className="text-xs text-[#A89885] space-y-1.5 pt-2 border-t border-[#221D17]">
-                <li>✦ Lá 1: Năng lượng hiện tại bạn đang đối diện</li>
-                <li>✦ Lá 2: Trở ngại tiềm ẩn hoặc điểm cần lưu tâm</li>
-                <li>✦ Lá 3: Hướng hành động mang lại kết quả tích cực</li>
-              </ul>
+            </div>
+
+            <div className="p-6 rounded-xl bg-[#121014] border border-[#2B231C] space-y-3">
+              <span className="text-xs font-serif text-[#D4AF37] tracking-widest uppercase block">
+                Bước 03
+              </span>
+              <h3 className="font-serif text-lg font-bold text-[#F3E7D3]">
+                Đọc thông điệp
+              </h3>
+              <p className="text-xs text-[#B3A492] leading-relaxed">
+                Khám phá ý nghĩa từng lá bài, sự liên kết giữa chúng và những gợi ý hành động thiết thực cho bước đi tiếp theo.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* 5. Section: Đạo Đức & Nguyên Tắc Xem Tarot */}
-        <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0C0B0E] border-t border-[#221D17]">
-          <div className="max-w-4xl mx-auto space-y-8 text-center">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-serif">
-              ✦ TRIẾT LÝ TAROT CHÂN CHÍNH ✦
-            </span>
-            <h2 className="text-3xl font-serif font-bold text-[#F3E7D3]">
-              Tarot Là Tấm Gương Phản Chiếu Tâm Trí
+        {/* 5. Một khoảng lặng về Tarot (nhẹ nhàng, không hành chính) */}
+        <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0C0B0E] border-t border-[#201B15]">
+          <div className="max-w-3xl mx-auto space-y-4 text-center">
+            <h2 className="text-2xl font-serif font-bold text-[#F3E7D3]">
+              Tarot là tấm gương soi chiếu nội tâm
             </h2>
-            <div className="text-sm text-[#B3A492] leading-relaxed space-y-4 text-justify font-sans">
-              <p>
-                Tại <strong>TarotReader.me</strong>, chúng tôi xem Tarot như một công cụ chiêm nghiệm tâm lý học chiều sâu và thấu thị bản thân, thay vì bói toán định mệnh cố định. Tương lai luôn nằm trong tay bạn qua từng lựa chọn ở hiện tại.
-              </p>
-              <p>
-                <strong>Nguyên tắc đạo đức của hệ thống:</strong>
-                <br />
-                • <strong>Không bói trộm suy nghĩ người khác:</strong> Khi bạn hỏi về cảm xúc của ai đó, hệ thống và AI sẽ luôn hướng bạn trở về tự nhận thức cảm xúc và ranh giới lành mạnh của chính mình.
-                <br />
-                • <strong>Lá bài ngược không phải là xui xẻo:</strong> Năng lượng ngược phản ánh sự nghẽn lại, cần soi xét nội tâm sâu hơn trước khi bộc lộ ra bên ngoài.
-                <br />
-                • <strong>Quyền tự quyết:</strong> Mọi thông điệp từ lá bài và AI chỉ mang tính chất tham vấn và gợi mở tư duy, không thay thế cho quyết định pháp lý, y tế hoặc chuyên gia tâm lý.
-              </p>
-            </div>
+            <p className="text-xs sm:text-sm text-[#B3A492] leading-relaxed font-sans">
+              Tarot không định đoạt tương lai hay thay thế cho những quyết định của bạn. Mỗi lá bài mở ra như một góc nhìn đa chiều, giúp bạn nhận diện những điểm mù, thấu suốt cảm xúc thật và tìm thấy sự bình an để bước tiếp.
+            </p>
           </div>
         </section>
 
-        {/* 6. Section: FAQ */}
-        <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-[#221D17]">
+        {/* 6. FAQ thu gọn thực tế */}
+        <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto border-t border-[#201B15]">
           <div className="text-center space-y-2 mb-10">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-serif">
-              ✦ GIẢI ĐÁP THẮC MẮC ✦
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#F3E7D3]">
-              Câu Hỏi Thường Gặp
+            <h2 className="text-2xl font-serif font-bold text-[#F3E7D3]">
+              Những điều bạn có thể thắc mắc
             </h2>
           </div>
 
-          <div className="space-y-4 text-xs sm:text-sm">
+          <div className="space-y-4">
             {[
               {
-                q: 'Website có thu phí xem bài không?',
-                a: 'Hoàn toàn miễn phí 100%! Bạn có thể rút bài, đọc nghĩa cơ bản và trải nghiệm luận giải cùng AI mà không mất bất kỳ khoản phí nào.'
+                q: 'Tôi nên đặt câu hỏi như thế nào?',
+                a: 'Hãy đặt câu hỏi mở và tập trung vào chính bạn, ví dụ: “Tôi nên chú ý điều gì lúc này?” hoặc “Tôi có thể làm gì để cải thiện tình hình?”. Tránh các câu hỏi đóng Có/Không để nhận được góc nhìn sâu sắc hơn.'
               },
               {
-                q: 'Nếu không có kết nối AI, tôi vẫn xem bài được chứ?',
-                a: 'Chắc chắn rồi! Hệ thống hoạt động theo Mô hình Lai (Hybrid). Toàn bộ 78 lá bài đã được dịch sẵn dữ liệu tiếng Việt chuyên sâu trong cơ sở dữ liệu. Bạn có thể đọc nghĩa đầy đủ ngay lập tức với tốc độ 0ms.'
+                q: 'Tôi có cần biết Tarot trước khi xem không?',
+                a: 'Không cần. Mọi lá bài đều có tên gọi, biểu tượng và phần diễn giải chi tiết bằng tiếng Việt để bạn có thể dễ dàng cảm nhận và liên hệ với câu chuyện của mình.'
               },
               {
-                q: 'Khi tôi tải lại trang (reload), các lá bài có bị mất không?',
-                a: 'Không. Phiên trải bài được lưu trữ trên server với ID định danh riêng. Khi reload hoặc truy cập lại, các lá bài, chiều xuôi/ngược và luận giải đều được giữ nguyên vẹn.'
+                q: 'Lá bài ngược có phải là điềm xấu không?',
+                a: 'Không. Trong Tarot, lá bài ngược thường chỉ ra nguồn năng lượng đang bị trì trệ, sự chậm lại cần thiết, hoặc lời nhắc nhở bạn nên nhìn sâu vào nội tâm thay vì vội vã hành động.'
+              },
+              {
+                q: 'Tôi có thể xem lại trải bài của mình không?',
+                a: 'Có. Phiên trải bài của bạn được lưu lại an toàn trên hệ thống. Khi tải lại trang hoặc quay lại, bạn vẫn có thể xem lại đầy đủ các lá bài và phần luận giải cũ.'
+              },
+              {
+                q: 'Phần luận giải được tạo như thế nào?',
+                a: 'Phần luận giải được tạo tự động từ ý nghĩa các lá bài, vị trí trong trải bài và thông tin bạn chia sẻ, kết hợp mô hình phân tích ngôn ngữ để đưa ra câu trả lời sát với hoàn cảnh của bạn nhất.'
               }
             ].map((faq, i) => (
-              <div key={i} className="p-5 rounded-xl bg-[#121014] border border-[#2B231C]">
-                <h4 className="font-serif font-bold text-[#D4AF37] mb-2 text-sm sm:text-base">
+              <div key={i} className="p-5 rounded-xl bg-[#121014] border border-[#26201B] space-y-1.5">
+                <h4 className="font-serif font-bold text-[#D4AF37] text-sm">
                   {faq.q}
                 </h4>
-                <p className="text-[#B3A492] leading-relaxed font-sans">
+                <p className="text-xs text-[#B3A492] leading-relaxed font-sans">
                   {faq.a}
                 </p>
               </div>
@@ -148,12 +137,12 @@ export default function Home() {
         </section>
       </main>
 
-      {/* 7. Footer */}
-      <footer className="w-full py-8 border-t border-[#221D17] bg-[#060506] text-center text-xs text-[#8C7A65] space-y-2">
-        <p className="font-serif tracking-widest uppercase text-[#B3A492]">
-          ✦ TAROTREADER.ME – KẾT NỐI NĂNG LƯỢNG VŨ TRỤ ✦
+      {/* 7. Footer tinh giản */}
+      <footer className="w-full py-8 border-t border-[#201B15] bg-[#060506] text-center text-xs text-[#7A6B5B] space-y-2">
+        <p className="font-serif tracking-widest uppercase text-[#A89885]">
+          TAROT READER
         </p>
-        <p>© 2026 Tarot Reader Web. Bộ bài chuẩn Rider-Waite-Smith 78 Cards. Tích hợp AI Gemini 3.7 Flash.</p>
+        <p>© 2026 Tarot Reader. Bộ bài chuẩn Rider-Waite 78 lá.</p>
       </footer>
 
       {/* 8. Bách khoa toàn thư Modal */}

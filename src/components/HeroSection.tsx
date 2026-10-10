@@ -26,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartReading }) => {
               className="space-y-3"
             >
               <span className="text-xs sm:text-sm font-serif tracking-[0.25em] text-[#D4AF37] uppercase block font-medium">
-                ✦ MỘT KHOẢNG LẶNG ĐỂ HIỂU MÌNH ✦
+                DÀNH MỘT KHOẢNG LẶNG CHO CHÍNH MÌNH
               </span>
               <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#E8D7BE] leading-[1.2]">
                 Điều gì đang khiến bạn băn khoăn?
@@ -39,29 +39,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartReading }) => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-[#B3A492] text-sm sm:text-base leading-relaxed max-w-2xl font-sans font-light"
             >
-              Đặt câu hỏi, chọn những lá bài và khám phá góc nhìn mới về tình cảm, công việc hay những lựa chọn trước mắt. Mỗi trải bài là một lời gợi mở để bạn lắng nghe bản thân.
+              Có những lúc, bạn cần một góc nhìn khác để hiểu rõ điều mình đang trải qua. Hãy mang theo câu hỏi của bạn, chọn những lá bài và khám phá lời gợi mở cho bước tiếp theo.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="pt-4 flex flex-wrap items-center gap-4"
+              className="pt-4 flex flex-col sm:flex-row sm:items-center gap-4"
             >
               <button
                 onClick={onStartReading}
-                className="px-8 py-3.5 bg-[#FAF6EE] hover:bg-[#D4AF37] text-[#14100D] font-serif font-bold text-sm tracking-[0.15em] uppercase rounded-sm transition-all shadow-[0_4px_25px_rgba(212,175,55,0.25)] hover:shadow-[0_6px_30px_rgba(212,175,55,0.45)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 group cursor-pointer"
+                className="w-fit px-8 py-3.5 bg-[#FAF6EE] hover:bg-[#D4AF37] text-[#14100D] font-serif font-bold text-sm tracking-[0.15em] uppercase rounded-sm transition-all shadow-[0_4px_25px_rgba(212,175,55,0.25)] hover:shadow-[0_6px_30px_rgba(212,175,55,0.45)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 group cursor-pointer"
               >
                 <span className="text-[#8C6D34] group-hover:text-[#14100D] transition-colors">✦</span>
                 Bắt đầu trải bài
               </button>
 
-              <div className="flex flex-wrap items-center gap-2 text-xs text-[#8C7A65] tracking-wider font-medium pl-1 sm:pl-2">
-                <span>78 lá Tarot</span>
-                <span>·</span>
-                <span>Luận giải tiếng Việt</span>
-                <span>·</span>
-                <span>Khám phá theo câu hỏi của bạn</span>
+              <div className="text-xs text-[#8C7A65] tracking-wide font-medium">
+                Tình cảm · Công việc · Những lựa chọn trong cuộc sống
               </div>
             </motion.div>
           </div>

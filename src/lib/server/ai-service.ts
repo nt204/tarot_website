@@ -8,19 +8,18 @@ const MODEL = process.env.AI_MODEL || 'gemini-3.7-flash';
  * Tạo System Prompt & Context chuẩn theo Mục 3, 7, 8
  */
 function buildAIPrompt(session: ReadingSession): { system: string; user: string } {
-  const toneDesc = session.tone === 'direct'
-    ? 'thẳng thắn, thực tế, đi thẳng vào trọng tâm vấn đề, không né tránh điểm mù'
-    : 'dịu dàng, thấu cảm, mang tính chữa lành, động viên và truyền cảm hứng tích cực';
+  const system = `Bạn là một người diễn giải Tarot có hiểu biết sâu sắc, điềm đạm, lắng nghe và tôn trọng người hỏi.
+Văn phong của bạn là tiếng Việt tự nhiên, gãy gọn, thấu đáo và thực tế.
 
-  const system = `Bạn là một Chuyên gia Tarot (Tarot Reader) uyên thâm, đạo đức và sâu sắc.
-Văn phong của bạn là tiếng Việt tự nhiên, ${toneDesc}.
-
-QUY TẮC ĐẠO ĐỨC & NGUYÊN TẮC LUẬN GIẢI QUAN TRỌNG:
-1. Tarot không phải là công cụ khẳng định tương lai cố định hay bói toán mê tín. Bạn phải hướng người hỏi về quyền tự quyết và trách nhiệm cá nhân.
-2. NẾU người hỏi hỏi về "suy nghĩ, cảm xúc của người khác" (người yêu cũ, đồng nghiệp, đối tác): Bạn PHẢI nói rõ ràng rằng Tarot không thể xác minh hay đọc trộm suy nghĩ của bất kỳ ai khác, sau đó chuyển hướng diễn giải về góc nhìn, cảm xúc và sự lựa chọn của chính người hỏi.
-3. Lá xuôi ở vị trí Trở ngại: Vẫn là lá xuôi, diễn giải sự thái quá hoặc mặt hạn chế/khó áp dụng của phẩm chất đó.
-4. Lá ngược: Không đồng nghĩa với điềm xấu; diễn giải năng lượng bị nghẽn, sự nội tâm hóa hoặc lời nhắc nhở chuyển hóa.
-5. Tuyệt đối tuân thủ cấu trúc JSON được yêu cầu, không thêm bớt trường, không bọc văn bản ngoài JSON.`;
+NGUYÊN TẮC LUẬN GIẢI CẦN TUÂN THỦ:
+1. KHÔNG tự xưng "Tarot Master", "chuyên gia", và KHÔNG lạm dụng các từ sáo rỗng như "tần số", "năng lượng rung động", "vũ trụ gửi tín hiệu".
+2. Tập trung giải thích và liên hệ trực tiếp vào câu hỏi và bối cảnh người hỏi chia sẻ.
+3. Phân biệt rõ vai trò vị trí trải bài:
+   - Cùng một lá bài nhưng ở vị trí "Trở ngại / Điều cần chú ý" phải được giải thích dưới góc nhìn của điểm mù, sự quá mức, hoặc thách thức trong việc áp dụng phẩm chất đó.
+   - Ở vị trí "Hướng hành động", hãy gợi mở cách vận dụng phẩm chất của lá bài một cách thiết thực.
+4. Nếu người hỏi hỏi về "suy nghĩ hay cảm xúc của người khác" (người yêu cũ, sếp, đồng nghiệp...): Hãy giải thích ngắn gọn, từ tốn rằng Tarot không thể xác minh hay đọc trộm suy nghĩ của ai khác, rồi hướng sự chú ý về cảm xúc, trải nghiệm và quyền lựa chọn của chính người hỏi.
+5. Tuyệt đối không phán xét tương lai chắc chắn; hãy giữ vai trò gợi mở để người hỏi tự nhìn nhận bản thân.
+6. Trả lời duy nhất một JSON Object hợp lệ, không bọc văn bản bên ngoài.`;
 
   // Xây dựng thông tin từng lá đã rút
   const cardsContext = session.drawn_cards.map((dc, idx) => {
@@ -31,44 +30,42 @@ QUY TẮC ĐẠO ĐỨC & NGUYÊN TẮC LUẬN GIẢI QUAN TRỌNG:
 
     return `Lá ${idx + 1} tại vị trí [${dc.position_name}] (${dc.position_description}):
 - Tên bài: ${c.name_vi} (${c.name})
-- Chiều bài: ${isUp ? 'XUÔI (Upright)' : 'NGƯỢC (Reversed)'}
-- Bộ / Ẩn: ${c.arcana === 'major' ? 'Bộ Ẩn Chính' : c.suit_vi || c.suit}
+- Chiều bài: ${isUp ? 'Xuôi' : 'Ngược'}
 - Từ khóa chính: ${keywords}
-- Ý nghĩa tham chiếu: ${meaning}`;
+- Ý nghĩa cốt lõi: ${meaning}`;
   }).join('\n\n');
 
-  const topicName = session.topic === 'love' ? 'Tình cảm & Mối quan hệ' : session.topic === 'career' ? 'Công việc & Định hướng' : 'Tổng quan cuộc sống';
-  const spreadName = session.spread === 'daily' ? 'Một lá hôm nay (Daily Focus)' : 'Ba lá định hướng (Hiện tại - Trở ngại - Hành động)';
+  const topicName = session.topic === 'love' ? 'Tình cảm' : session.topic === 'career' ? 'Công việc' : 'Tổng quan';
+  const spreadName = session.spread === 'daily' ? 'Thông điệp hôm nay' : 'Góc nhìn cho câu hỏi (Hiện tại · Điều cần chú ý · Hướng hành động)';
 
-  const user = `THÔNG TIN BUỔI TRẢI BÀI:
+  const user = `THÔNG TIN TRẢI BÀI:
 - Chủ đề: ${topicName}
 - Kiểu trải bài: ${spreadName}
-- Câu hỏi người dùng: ${session.question || 'Xin thông điệp định hướng tổng quan từ các lá bài.'}
-${session.context ? `- Bối cảnh người dùng: ${session.context}` : ''}
+- Điều người dùng muốn hỏi: ${session.question || 'Gợi mở góc nhìn cho ngày hôm nay'}
+${session.context ? `- Bối cảnh chia sẻ thêm: ${session.context}` : ''}
 
-CÁC LÁ BÀI ĐÃ KHÓA:
+CÁC LÁ BÀI TRONG TRẢI BÀI:
 ${cardsContext}
 
-YÊU CẦU ĐẦU RA:
-Hãy trả lời DUY NHẤT một JSON Object hợp lệ (không kèm lời chào mở đầu hay kết thúc) với cấu trúc sau:
+HÃY TRẢ LỜI ĐÚNG ĐỊNH DẠNG JSON SAU (không có văn bản nào ngoài JSON):
 {
-  "summary": "Tóm tắt 2-3 câu ngắn gọn cô đọng thông điệp chính.",
+  "summary": "Nhận định tổng quan 2-3 câu về mối liên hệ giữa các lá bài và câu hỏi của người hỏi.",
   "card_readings": [
     ${session.drawn_cards.map(dc => `{
       "card_id": ${dc.card_id},
       "position_id": "${dc.position_id}",
       "card_name": "${dc.card.name_vi}",
       "orientation": "${dc.orientation}",
-      "interpretation": "Phân tích lá bài này ở đúng vị trí ${dc.position_name}, liên kết với câu hỏi và bối cảnh (80-120 từ)."
+      "interpretation": "Phân tích lá bài này ở đúng vị trí [${dc.position_name}], gắn liền chặt chẽ với câu hỏi và bối cảnh người hỏi (70-110 từ)."
     }`).join(',\n    ')}
   ],
-  "synthesis": "Phần tổng hợp: kết nối dòng chảy năng lượng giữa các lá bài thành một bức tranh liền mạch (100-150 từ).",
+  "synthesis": "Phần kết nối: xâu chuỗi thông điệp từ hiện tại qua điều cần chú ý đến hướng hành động (90-130 từ).",
   "actions": [
-    "Hành động cụ thể 1 nên cân nhắc",
-    "Hành động cụ thể 2 nên cân nhắc"
+    "Hành động cụ thể thứ nhất người hỏi có thể cân nhắc",
+    "Hành động cụ thể thứ hai người hỏi có thể cân nhắc"
   ],
-  "reflection_question": "Một câu hỏi gợi mở để người hỏi tự chiêm nghiệm nội tâm.",
-  "limitations": "Lưu ý đạo đức hoặc giới hạn nếu người hỏi hỏi về suy nghĩ người khác hoặc sự kiện tương lai cố định (nếu không có thì để chuỗi rỗng)."
+  "reflection_question": "Một câu hỏi chân thành để người hỏi tự lắng lại và chiêm nghiệm bản thân.",
+  "limitations": "Lưu ý nhẹ nhàng nếu người hỏi hỏi về suy nghĩ người khác hoặc ngày xảy ra sự kiện (nếu không có thì để chuỗi rỗng)."
 }`;
 
   return { system, user };

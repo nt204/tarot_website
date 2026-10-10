@@ -21,46 +21,34 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCatalog, onScrollToTable }
         </Link>
 
         {/* Center: Nav links */}
-        <nav className="hidden md:flex items-center space-x-6 text-xs lg:text-sm font-medium tracking-wider uppercase">
+        <nav className="hidden md:flex items-center space-x-8 text-xs lg:text-sm font-medium tracking-wide">
           <button
             onClick={onScrollToTable}
-            className="flex items-center gap-1.5 text-[#D4AF37] hover:text-[#F3E7D3] transition-colors"
+            className="text-[#D4AF37] hover:text-[#F3E7D3] transition-colors cursor-pointer"
           >
-            <span className="text-[10px]">✦</span> XEM TAROT
+            Xem bài
           </button>
           <button
             onClick={onOpenCatalog}
-            className="flex items-center gap-1.5 text-[#C4B7A6] hover:text-[#D4AF37] transition-colors"
+            className="text-[#B3A492] hover:text-[#D4AF37] transition-colors cursor-pointer"
           >
-            <span className="text-[10px] text-[#8C7A65]">✦</span> Ý NGHĨA LÁ BÀI
+            Khám phá lá bài
           </button>
           <a
-            href="#spreads"
-            className="flex items-center gap-1.5 text-[#C4B7A6] hover:text-[#D4AF37] transition-colors"
-          >
-            <span className="text-[10px] text-[#8C7A65]">✦</span> KIỂU TRẢI BÀI
-          </a>
-          <a
             href="#about"
-            className="flex items-center gap-1.5 text-[#C4B7A6] hover:text-[#D4AF37] transition-colors"
+            className="text-[#B3A492] hover:text-[#D4AF37] transition-colors"
           >
-            <span className="text-[10px] text-[#8C7A65]">✦</span> GIỚI THIỆU
-          </a>
-          <a
-            href="#faq"
-            className="flex items-center gap-1.5 text-[#C4B7A6] hover:text-[#D4AF37] transition-colors"
-          >
-            <span className="text-[10px] text-[#8C7A65]">✦</span> HỎI ĐÁP
+            Về Tarot
           </a>
         </nav>
 
-        {/* Right: Auth / Action Button */}
+        {/* Right: Auth (Nút phụ) */}
         <div className="flex items-center gap-3">
           <button
             onClick={onScrollToTable}
-            className="px-4 py-2 border border-[#7C6339] hover:border-[#D4AF37] bg-[#14100D] hover:bg-[#1E1712] text-[#D4AF37] text-xs font-semibold tracking-widest uppercase transition-all shadow-sm hover:shadow-[0_0_15px_rgba(212,175,55,0.2)] rounded-sm"
+            className="px-3.5 py-1.5 border border-[#3E3428] hover:border-[#7C6339] text-[#9E8E7C] hover:text-[#D4AF37] text-xs font-serif tracking-wider transition-colors rounded-sm cursor-pointer"
           >
-            ĐĂNG NHẬP
+            Đăng nhập
           </button>
         </div>
       </div>
