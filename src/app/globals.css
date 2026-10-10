@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #080708;
+  --foreground: #F3E7D3;
+}
+
+body {
+  background: #080708;
+  color: #F3E7D3;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Typography tokens */
+.font-serif {
+  font-family: 'Cinzel', serif;
+}
+
+.font-garamond {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-sans {
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+/* CSS 3D Transforms for Tarot Card Flipping (Section 3.4 tarot-animation-engine) */
+.card-scene {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F0E13;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E271F;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
