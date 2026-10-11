@@ -529,7 +529,7 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     await handleStartSession(trimmed, 'Lời băn khoăn của người xem: ' + trimmed, detectedTopic);
   };
 
-  // Giữ bàn trải bài ở giữa màn hình khi xào bài
+  // Giữ bàn trải bài ở giữa màn hình khi xào bài & khi bốc bài
   useEffect(() => {
     if (step === 'shuffling') {
       const scrollTimer = setTimeout(() => {
@@ -549,11 +549,27 @@ export const TarotTable: React.FC<TarotTableProps> = ({
       setFanDealt(false);
       setHoveredCardIndex(null);
 
+      // Tự động căn giữa hoàn hảo bàn chọn bài (3 ô và quạt bài) trên PC & Mobile
+      const scrollTimer = setTimeout(() => {
+        const target = document.getElementById('tarot-table');
+        if (target) {
+          const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          target.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'start'
+          });
+        }
+      }, 80);
+
       // Sau khi quạt bài xòe ra hoàn tất (~2.2s), chuyển sang chế độ tương tác siêu nhạy (zero delay khi hover/unhover)
       const timer = setTimeout(() => {
         setFanDealt(true);
       }, FAN_DEAL_DURATION_MS);
-      return () => clearTimeout(timer);
+
+      return () => {
+        clearTimeout(scrollTimer);
+        clearTimeout(timer);
+      };
     } else {
       setFanDealt(false);
       setHoveredCardIndex(null);
@@ -973,7 +989,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
       id="tarot-table"
       className={`relative w-full scroll-mt-20 px-4 sm:px-6 lg:px-8 bg-[#080708] text-[#EEE6D8] overflow-hidden ${
         step === 'picking'
-          ? 'min-h-[calc(100vh-76px)] flex items-center justify-center py-2 sm:py-6'
+          ? 'min-h-[calc(100vh-80px)] flex flex-col items-center justify-center py-2 sm:py-3'
           : step === 'config'
           ? 'pt-8 sm:pt-20 md:pt-28 pb-4 sm:pb-14'
           : 'min-h-[560px] pt-10 sm:pt-20 pb-12 sm:pb-20'
@@ -1234,7 +1250,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
 
         {/* ================= STAGE 2B: QUY TRÌNH BUNG QUẠT BÀI & BỐC 3 LÁ ================= */}
         {step === 'picking' && (
-          <div id="tarot-picking-board" className="relative w-full flex flex-col items-center justify-center space-y-3 sm:space-y-6 animate-fade-in py-1">
+          <div id="tarot-picking-board" className="relative w-full flex flex-col items-center justify-center space-y-2.5 sm:space-y-4 md:space-y-4 animate-fade-in py-1">
             {/* Vầng hào quang bàn trải bài thiêng liêng (Sacred Altar Aura) */}
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_60%_at_50%_60%,rgba(201,168,92,0.07),rgba(0,0,0,0))] -z-10" />
 
@@ -1255,11 +1271,11 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
 
             {/* Tiêu đề sảnh bốc bài */}
             <div id="picking-title-area" className="text-center space-y-1">
-              <h2 className="text-xl sm:text-3xl md:text-4xl font-heading font-normal text-[#C9A85C] uppercase tracking-[0.05em] leading-tight">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-normal text-[#C9A85C] uppercase tracking-[0.05em] leading-tight">
                 Hãy chọn {requiredCount} lá bài bạn cảm thấy thu hút nhất
               </h2>
               <div className="min-h-[20px] flex items-center justify-center">
-                <p className="text-xs sm:text-base text-[#BDB4A8] font-body transition-opacity duration-500">
+                <p className="text-xs sm:text-sm text-[#BDB4A8] font-body transition-opacity duration-500">
                   Đã chọn: <span className="text-[#C9A85C] font-semibold">{selectedSlotIds.length}</span> / {requiredCount} lá · Bấm vào từng lá bài để rút lên ô
                 </p>
               </div>
@@ -1268,7 +1284,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
             {/* ================= 3 Ô MỤC TIÊU (NÉT LIỀN HOÀN TOÀN, VIỀN KÉP ÁNH KIM SANG TRỌNG) ================= */}
             <div
               ref={targetSlotsContainerRef}
-              className="flex items-center justify-center gap-2 sm:gap-5 py-1 sm:py-2 will-change-transform"
+              className="flex items-center justify-center gap-2 sm:gap-4 md:gap-5 py-0.5 sm:py-1 will-change-transform"
             >
               {Array.from({ length: requiredCount }).map((_, idx) => {
                 const isPicked = selectedSlotIds.length > idx;
@@ -1276,23 +1292,23 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                   <div
                     key={idx}
                     ref={(el) => { slotTargetRefs.current[idx] = el; }}
-                    className={`relative w-[92px] sm:w-30 md:w-34 h-[126px] sm:h-44 md:h-50 rounded-xl transition-all duration-500 flex flex-col items-center justify-center overflow-hidden ${isPicked
+                    className={`relative w-[92px] sm:w-28 md:w-32 h-[126px] sm:h-38 md:h-44 rounded-xl transition-all duration-500 flex flex-col items-center justify-center overflow-hidden ${isPicked
                         ? 'border border-[#C9A85C] bg-[#121016] shadow-[0_0_25px_rgba(201,168,92,0.4)]'
                         : 'border border-[#5A4732] bg-[#0E0C10]/85 shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]'
                       }`}
                   >
                     {!isPicked && (
-                      <div className="flex flex-col items-center justify-center p-1.5 sm:p-3 text-center space-y-1 sm:space-y-2 w-full h-full select-none">
+                      <div className="flex flex-col items-center justify-center p-1.5 sm:p-2.5 text-center space-y-1 sm:space-y-1.5 w-full h-full select-none">
                         {/* Viền trang trí kép bên trong - hoàn toàn liền nét */}
                         <div className="absolute inset-1.5 sm:inset-2 border border-[#C9A85C]/20 rounded-lg pointer-events-none" />
-                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-[#7C6339] bg-[#181410] flex items-center justify-center text-[10px] sm:text-xs text-[#C9A85C] font-heading font-medium">
+                        <div className="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full border border-[#7C6339] bg-[#181410] flex items-center justify-center text-[10px] sm:text-xs text-[#C9A85C] font-heading font-medium">
                           {idx + 1}
                         </div>
                         <span className="text-[9px] sm:text-xs text-[#E0D2C0] font-heading uppercase tracking-wide px-0.5 text-center leading-tight">
                           {idx === 0 ? 'Hiện tại' : idx === 1 ? 'Cần chú ý' : 'Hành động'}
                         </span>
                         <div className="w-6 sm:w-8 h-[1px] bg-[#5A4732]" />
-                        <span className="text-[8px] sm:text-[10px] text-[#8C7A65] font-body">
+                        <span className="text-[8px] sm:text-[9.5px] text-[#8C7A65] font-body">
                           {idx === 0 ? 'Năng lượng' : idx === 1 ? 'Thử thách' : 'Lời khuyên'}
                         </span>
                       </div>
@@ -1316,7 +1332,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
             <div
               key={`fan-board-${readingId || 'active'}`}
               ref={fanContainerRef}
-              className="relative w-full max-w-4xl h-44 sm:h-80 md:h-92 flex items-center justify-center px-1 sm:px-4 overflow-visible mt-1 sm:mt-6 will-change-transform"
+              className="relative w-full max-w-4xl h-44 sm:h-68 md:h-76 flex items-center justify-center px-1 sm:px-4 overflow-visible mt-0.5 sm:mt-2 will-change-transform"
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 {fanCards.map((slot, index) => {
@@ -1400,7 +1416,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                           stiffness: 450,
                           damping: 32
                         }}
-                        className={`w-[70px] sm:w-30 md:w-36 h-[110px] sm:h-46 md:h-56 rounded-lg sm:rounded-xl border bg-[#0C0B0E] overflow-hidden shadow-2xl transition-colors duration-150 relative ${
+                        className={`w-[70px] sm:w-28 md:w-32 h-[110px] sm:h-42 md:h-48 rounded-lg sm:rounded-xl border bg-[#0C0B0E] overflow-hidden shadow-2xl transition-colors duration-150 relative ${
                           isHovered ? 'border-[#C9A85C]' : 'border-[#7C6339]'
                         }`}
                       >
