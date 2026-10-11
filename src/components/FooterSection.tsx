@@ -67,85 +67,88 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenCatalog, onS
             </div>
           </div>
 
-          {/* Cột 2: Trải bài (ở giữa) */}
-          <div className="md:col-span-3 lg:col-span-3 space-y-3 text-left">
-            <h4 className="font-heading text-lg font-normal text-[#EEE6D8] tracking-[0.05em] uppercase">
-              Trải bài
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <button
-                  type="button"
-                  onClick={onScrollToTable ? onScrollToTable : () => scrollToSection('tarot-table')}
-                  className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
-                >
-                  Tarot 3 lá
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={onScrollToTable ? onScrollToTable : () => scrollToSection('tarot-table')}
-                  className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
-                >
-                  Thông điệp hôm nay
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('topics')}
-                  className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
-                >
-                  Tình cảm
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('topics')}
-                  className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
-                >
-                  Công việc
-                </button>
-              </li>
-            </ul>
-          </div>
+          {/* Cột 2 & Cột 3: Trải bài & Khám phá (Trên mobile chung 1 hàng 2 cột, desktop hiển thị bình thường) */}
+          <div className="grid grid-cols-2 gap-6 sm:gap-8 md:contents">
+            {/* Cột 2: Trải bài */}
+            <div className="md:col-span-3 lg:col-span-3 space-y-3 text-left">
+              <h4 className="font-heading text-base sm:text-lg font-normal text-[#EEE6D8] tracking-[0.05em] uppercase">
+                Trải bài
+              </h4>
+              <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <button
+                    type="button"
+                    onClick={onScrollToTable ? onScrollToTable : () => scrollToSection('tarot-table')}
+                    className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
+                  >
+                    Tarot 3 lá
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={onScrollToTable ? onScrollToTable : () => scrollToSection('tarot-table')}
+                    className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
+                  >
+                    Thông điệp hôm nay
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection('topics')}
+                    className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
+                  >
+                    Tình cảm
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection('topics')}
+                    className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
+                  >
+                    Công việc
+                  </button>
+                </li>
+              </ul>
+            </div>
 
-          {/* Cột 3: Khám phá (bên phải) */}
-          <div className="md:col-span-3 lg:col-span-4 space-y-3 text-left">
-            <h4 className="font-heading text-lg font-normal text-[#EEE6D8] tracking-[0.05em] uppercase">
-              Khám phá
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <button
-                  type="button"
-                  onClick={onOpenCatalog ? onOpenCatalog : () => scrollToSection('about-tarot')}
-                  className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
-                >
-                  Ý nghĩa 78 lá bài
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('about-tarot')}
-                  className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
-                >
-                  Về Tarot
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('faq')}
-                  className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
-                >
-                  Câu hỏi thường gặp
-                </button>
-              </li>
-            </ul>
+            {/* Cột 3: Khám phá */}
+            <div className="md:col-span-3 lg:col-span-4 space-y-3 text-left">
+              <h4 className="font-heading text-base sm:text-lg font-normal text-[#EEE6D8] tracking-[0.05em] uppercase">
+                Khám phá
+              </h4>
+              <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <button
+                    type="button"
+                    onClick={onOpenCatalog ? onOpenCatalog : () => scrollToSection('about-tarot')}
+                    className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
+                  >
+                    Ý nghĩa 78 lá bài
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection('about-tarot')}
+                    className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
+                  >
+                    Về Tarot
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection('faq')}
+                    className="hover:text-[#C9A85C] transition-colors cursor-pointer text-left"
+                  >
+                    Câu hỏi thường gặp
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
