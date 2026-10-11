@@ -30,7 +30,7 @@ export const TopicsSection: React.FC<TopicsSectionProps> = ({ onSelectTopic }) =
       spread: 'three_cards' as const,
       title: 'Định Hướng Bản Thân',
       description: 'Khám phá nội tâm và tìm thấy điểm tựa vững vàng bên trong.',
-      image: '/cards/17_Star.jpg'
+      image: '/cards/09_Hermit.jpg'
     },
     {
       id: 'general' as TopicType,
