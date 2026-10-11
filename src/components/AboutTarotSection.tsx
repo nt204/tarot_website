@@ -55,13 +55,13 @@ export const AboutTarotSection: React.FC<AboutTarotSectionProps> = ({ onLearnMor
             </div>
 
             {/* Ảnh trên Mobile: Nhỏ hơn 1 chút, đặt ngay dưới text "TAROT LÀ GÌ?" */}
-            <div className="block lg:hidden py-1">
-              <div className="relative w-full max-w-[250px] mx-auto aspect-[3/4] rounded-2xl overflow-hidden border border-[#5C4A33] shadow-[0_12px_32px_rgba(0,0,0,0.85)] group">
+            <div className="block lg:hidden my-3">
+              <div className="relative w-full max-w-[220px] mx-auto aspect-[3/4] rounded-2xl overflow-hidden border border-[#5C4A33] shadow-[0_12px_32px_rgba(0,0,0,0.85)] group">
                 <Image
                   src="/tram_tarot_reader.jpg"
                   alt="Trạm Tarot - Dừng một chút, hiểu mình hơn"
                   fill
-                  sizes="(max-width: 640px) 250px, 45vw"
+                  sizes="(max-width: 640px) 220px, 45vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080708]/60 via-transparent to-transparent pointer-events-none" />
