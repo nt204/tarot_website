@@ -97,8 +97,8 @@ ${cardsContext}
 HÃY XUẤT RA CHÍNH XÁC MỘT JSON OBJECT THEO SCHEMA SAU:
 {
   "headline": "Tiêu đề lớn tóm tắt mâu thuẫn/tâm trạng cốt lõi (khoảng 6–12 từ, phong cách Cormorant Garamond như 'Giữa mong muốn gần nhau và những điều chưa nói').",
-  "summary": "Đoạn 1 của Góc nhìn tổng thể: Nêu trực diện mâu thuẫn chính người xem đang bối rối, không phán xét, giàu cảm xúc và sắc sảo (khoảng 60-80 từ).",
-  "synthesis": "Đoạn 2 của Góc nhìn tổng thể: Làm rõ mối liên hệ giữa các lá, gợi mở hướng nhìn nhận tích cực để người xem tìm thấy sự an tâm và thấu hiểu (khoảng 60-80 từ).",
+  "summary": "Góc nhìn tổng thể: Nêu trực diện thông điệp cốt lõi và mâu thuẫn chính người xem đang băn khoăn, giọng văn giàu cảm xúc, thấu cảm và sắc sảo (khoảng 60-90 từ).",
+  "synthesis": "Mối liên kết giữa các quân bài: Phân tích sự tương tác, đối trọng và dòng chảy chuyển hóa năng lượng giữa các lá bài trong trải bài này (sự liên kết từ lá này qua lá khác), gợi mở bức tranh liền mạch giúp người xem thấu hiểu sâu sắc (khoảng 90-130 từ).",
   "card_readings": [
     ${session.drawn_cards.map(dc => `{
       "card_id": ${dc.card_id},

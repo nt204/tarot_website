@@ -931,10 +931,12 @@ ${cardsText}
 GÓC NHÌN TỔNG THỂ:
 ${aiResult?.headline || 'Chiêm nghiệm nội tâm'}
 ${aiResult?.summary || ''}
-${aiResult?.synthesis || ''}
 
 PHÂN TÍCH TỪNG LÁ:
 ${aiResult?.card_readings?.map((cr, i) => `${getPositionDisplay(i)} · ${cr.card_name}\n${cr.interpretation}`).join('\n\n') || ''}
+
+MỐI LIÊN KẾT GIỮA CÁC QUÂN BÀI:
+${aiResult?.synthesis || ''}
 
 HAI ĐIỀU BẠN CÓ THỂ THỬ:
 1. ${aiResult?.actions?.[0] || ''}
@@ -1586,12 +1588,6 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                               {aiResult.summary}
                             </p>
                           )}
-
-                          {aiResult?.synthesis && (
-                            <p className="text-[18px] text-[#BDB4A8] font-body leading-[1.8]">
-                              {aiResult.synthesis}
-                            </p>
-                          )}
                         </motion.div>
 
                         {/* 4. PHÂN TÍCH TỪNG LÁ - Animation staggered theo từng lá */}
@@ -1631,6 +1627,30 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                             );
                           })}
                         </div>
+
+                        {/* 4.5. MỐI LIÊN KẾT GIỮA CÁC QUÂN BÀI (DÒNG CHẢY KẾT NỐI NĂNG LƯỢNG) */}
+                        {aiResult?.synthesis && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 35 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                            className="p-6 sm:p-8 rounded-2xl bg-[#14101A]/85 border border-[#3E2F20] shadow-[0_10px_35px_rgba(0,0,0,0.5)] space-y-3.5 text-left"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className="text-[#C9A85C] text-base">✦</span>
+                              <span className="text-xs uppercase tracking-[0.2em] text-[#C9A85C] font-heading font-medium">
+                                Mối liên kết giữa các quân bài
+                              </span>
+                            </div>
+                            <h4 className="font-heading text-2xl sm:text-[26px] text-[#EEE6D8] font-normal leading-snug">
+                              Dòng chảy năng lượng & Sự tương tác
+                            </h4>
+                            <p className="text-[18px] text-[#DDD0BE] font-body leading-[1.8]">
+                              {aiResult.synthesis}
+                            </p>
+                          </motion.div>
+                        )}
 
                         {/* 5. HAI BƯỚC GỢI Ý - Animation khi lướt tới */}
                         {aiResult?.actions && aiResult.actions.length > 0 && (

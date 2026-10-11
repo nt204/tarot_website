@@ -88517,5 +88517,1102 @@
     ],
     "drawn_cards": [],
     "retry_count": 0
+  },
+  "e3af21e8-71ae-48f0-9ca6-352383211e89": {
+    "reading_id": "e3af21e8-71ae-48f0-9ca6-352383211e89",
+    "created_at": "2026-10-11T09:53:26.730Z",
+    "updated_at": "2026-10-11T09:53:26.730Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "general",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "ok",
+    "context": "Lời băn khoăn của người xem: ok",
+    "status": "selecting",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_e641a9f9",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_bf28250a",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_2a488c5f",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_0f0891ac",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_58c33782",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_11e9cb21",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_ac8a535d",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_25baa236",
+        "card_id": 55,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_aa4fe240",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_ee5d40cd",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_991bf5bd",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_288b7826",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_ad404f92",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_b9e5f05e",
+        "card_id": 45,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_3b92f56f",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_e7bf3900",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_38c93c49",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_d068deb2",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_c3477eb3",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_4f584e57",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_d36f6904",
+        "card_id": 64,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_599473d8",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_985e4f5b",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_03b24338",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_b53508a4",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_784b4ce4",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_b391f784",
+        "card_id": 40,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_ac21a169",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_08a590ee",
+        "card_id": 16,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_c6ff48a7",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_7ee9e562",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_98de3f2c",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_b33cdd67",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_efa79c51",
+        "card_id": 54,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_1015bd4f",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_97f4704a",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_b9c1ce52",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_67e22884",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_338bd3c6",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_64c590c3",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_b7a0e1b2",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_e7449497",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_d102c6a8",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_32444692",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_d9def992",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_0502e8cc",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_89acff64",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_b9f61538",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_2aa8aae1",
+        "card_id": 41,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_241b0511",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_49a31ad9",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_8405edf0",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_b19bc4b5",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_57a95461",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_23cffef6",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_5160090f",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_a2d95ffa",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_07644a60",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_e2c484fc",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_de5ce37f",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_1f607204",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_5103b20f",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_735cbae5",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_cbce696d",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_fe83fa7b",
+        "card_id": 3,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_0ed5c449",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_753fbc8c",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_9a1ee2ed",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_e5fb14bc",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_37092128",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_ff624bde",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_36c985dd",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_214d7779",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_0a0732e9",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_dc7e28cf",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_89b67463",
+        "card_id": 42,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_6584b9bc",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_6773488f",
+        "card_id": 33,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [],
+    "retry_count": 0
+  },
+  "ecd08189-13fa-48c7-8bd7-b3ed2c092572": {
+    "reading_id": "ecd08189-13fa-48c7-8bd7-b3ed2c092572",
+    "created_at": "2026-10-11T09:53:26.830Z",
+    "updated_at": "2026-10-11T09:54:02.033Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "general",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "ok",
+    "context": "Lời băn khoăn của người xem: ok",
+    "status": "completed",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_d3f2ddea",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_37a667db",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_bb5aaaf3",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_c2ac264b",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_85c9c933",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_6c6207a0",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_dc576881",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_74452899",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_056e3ade",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_4605ac54",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_59370250",
+        "card_id": 16,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_6802fd56",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_f2b9c89e",
+        "card_id": 33,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_efe0591c",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_c9e59a27",
+        "card_id": 3,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_f07684d1",
+        "card_id": 40,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_f426688a",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_fa5faf6c",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_1badf334",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_9793cbd7",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_85c5deb8",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_e3879443",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_d58b8f27",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_4a27b5dd",
+        "card_id": 41,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_0f25a59e",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_f5bd8537",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_e389f1ad",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_7b73619d",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_c896e13e",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_8d0e341d",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_c6a1ba08",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_5c5ff0cf",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_ec8daa15",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_92109ae9",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_6c028333",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_273d836d",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_b46488e1",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_907d4e0e",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_7b71b3ef",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_53892700",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_03ee03bb",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_4147c87d",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_b719cb7b",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_7ab66ad5",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_3f220a77",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_01bb83a7",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_dd625d77",
+        "card_id": 64,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_74541c9e",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_3a095851",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_fe7a1ed2",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_53589d44",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_56cd84e0",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_e9d7a7fe",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_64c36af5",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_a2ca54da",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_adce4678",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_791049bf",
+        "card_id": 54,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_6bb9a138",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_ed19015d",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_033abaf0",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_342af8ef",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_5a6d7bbe",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_9a6aa06e",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_397d488c",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_16abbfd1",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_d759243d",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_eaf85611",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_e14348e0",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_abc0873d",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_4e74f72a",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_a4b692d2",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_2da50545",
+        "card_id": 55,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_8a955d02",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_71c702ec",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_2437d090",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_6ef960a5",
+        "card_id": 45,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_207b604b",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_42629476",
+        "card_id": 42,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [
+      {
+        "card_id": 4,
+        "position_id": "present",
+        "position_name": "Lá 1: Hiện tại",
+        "position_description": "Năng lượng hiện thời, hoàn cảnh thực tế bạn đang đối diện.",
+        "orientation": "upright",
+        "card": {
+          "id": 4,
+          "name": "The Emperor",
+          "arcana": "major",
+          "suit": null,
+          "number_numerology": 4,
+          "element": "Fire",
+          "planet": "Mars",
+          "zodiac": "Aries",
+          "yes_no": "yes",
+          "yes_no_reversed": "no",
+          "keywords_upright": [
+            "structure",
+            "authority",
+            "stability",
+            "leadership",
+            "discipline"
+          ],
+          "keywords_reversed": [
+            "rigidity",
+            "control issues",
+            "domination",
+            "lack of discipline",
+            "abuse of power"
+          ],
+          "meaning_upright": "Structure, authority, stability, leadership, discipline.",
+          "meaning_reversed": "Rigidity, control issues, domination, lack of discipline, abuse of power.",
+          "love": "commitment, stability, protection, a structured relationship",
+          "love_reversed": "control issues, rigidity, domination, emotional coldness",
+          "career": "leadership, structure, authority, long-term career stability",
+          "career_reversed": "abuse of power, inflexibility, lack of discipline, unstable authority",
+          "mood": "Steady, resolute, composed.",
+          "mood_reversed": "tense, controlling, frustrated",
+          "spiritual": "spiritual discipline, inner authority, grounded leadership, creating stable foundations",
+          "spiritual_reversed": "rigid beliefs, misused authority, loss of self-discipline, unstable foundations",
+          "image": "cards/04_Emperor.jpg",
+          "name_vi": "Hoàng Đế",
+          "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
+          "keywords_upright_vi": [
+            "cấu trúc",
+            "quyền lực",
+            "sự vững chãi",
+            "khả năng lãnh đạo",
+            "tính kỷ luật"
+          ],
+          "keywords_reversed_vi": [
+            "sự cứng nhắc",
+            "áp đặt kiểm soát",
+            "thống trị",
+            "thiếu kỷ luật",
+            "lạm quyền"
+          ],
+          "meaning_upright_vi": "Trật tự và quy củ, uy quyền tối cao, sự vững chãi kiên cố, bản lĩnh dẫn đầu và kỷ luật nghiêm minh.",
+          "meaning_reversed_vi": "Bảo thủ cứng nhắc, nhu cầu kiểm soát độc đoán, xu hướng áp chế, vô kỷ luật buông thả và lạm dụng quyền hạn.",
+          "love_vi": "Cam kết lâu bền, mối quan hệ ổn định an toàn, sự chở che bảo bọc, gắn kết dựa trên nền tảng vững chắc.",
+          "love_reversed_vi": "Kiểm soát ngột ngạt, gia trưởng cố chấp, áp đặt đối phương, sự lạnh lùng khô khan về cảm xúc.",
+          "career_vi": "Khí chất lãnh đạo kiệt xuất, thiết lập quy chuẩn rõ ràng, khẳng định quyền uy, vị thế nghề nghiệp vững vàng bền vững.",
+          "career_reversed_vi": "Lạm quyền ức hiếp, tư duy độc đoán không chịu đổi mới, thiếu kỷ luật tự giác, vị thế lung lay mất uy tín.",
+          "spiritual_vi": "Kỷ luật trên con đường tu tập, làm chủ ý chí nội tâm, khả năng lãnh đạo từ gốc rễ vững chãi, dựng xây nền tảng tinh thần kiên cố.",
+          "spiritual_reversed_vi": "Giáo điều đóng khung, lạm dụng niềm tin áp đặt người khác, suy giảm kỷ luật bản thân, nền móng tâm linh rạn nứt."
+        },
+        "resolved_meaning": {
+          "primary_text": "Trật tự và quy củ, uy quyền tối cao, sự vững chãi kiên cố, bản lĩnh dẫn đầu và kỷ luật nghiêm minh.",
+          "is_vietnamese": true,
+          "keywords": [
+            "cấu trúc",
+            "quyền lực",
+            "sự vững chãi",
+            "khả năng lãnh đạo",
+            "tính kỷ luật"
+          ],
+          "topic": "general",
+          "orientation": "upright",
+          "general_meaning": "Trật tự và quy củ, uy quyền tối cao, sự vững chãi kiên cố, bản lĩnh dẫn đầu và kỷ luật nghiêm minh."
+        }
+      },
+      {
+        "card_id": 70,
+        "position_id": "obstacle",
+        "position_name": "Lá 2: Trở ngại hoặc điều cần chú ý",
+        "position_description": "Yếu tố cản trở, điểm mù hoặc điều bạn cần lưu tâm cẩn trọng.",
+        "orientation": "upright",
+        "card": {
+          "id": 70,
+          "name": "Seven of Pentacles",
+          "arcana": "minor",
+          "suit": "pentacles",
+          "number_numerology": 7,
+          "element": "Earth",
+          "planet": "Saturn",
+          "zodiac": "Taurus",
+          "yes_no": "maybe",
+          "yes_no_reversed": "no",
+          "keywords_upright": [
+            "patience",
+            "assessment",
+            "long-term view",
+            "slow growth",
+            "waiting for harvest"
+          ],
+          "keywords_reversed": [
+            "impatience",
+            "wasted effort",
+            "poor returns",
+            "giving up early",
+            "misdirected work"
+          ],
+          "meaning_upright": "Patience, assessment, long-term view, slow growth, waiting for harvest.",
+          "meaning_reversed": "Impatience, wasted effort, poor returns, giving up early, misdirected work.",
+          "love": "patience in a relationship, evaluating romantic progress, long-term investment, waiting for love to grow",
+          "love_reversed": "impatience, wasted effort, giving up too early, poor returns",
+          "career": "long-term career investment, reviewing progress, patient growth, waiting for results",
+          "career_reversed": "impatience, wasted effort, poor returns, giving up early",
+          "mood": "Patient, evaluative.",
+          "mood_reversed": "impatient, discouraged, restless",
+          "spiritual": "patient spiritual growth, reflecting on progress, trusting gradual development, tending long-term intentions",
+          "spiritual_reversed": "impatience, misdirected effort, giving up too soon, poor returns on growth",
+          "image": "cards/Pents07.jpg",
+          "name_vi": "Bảy Tiền",
+          "suit_vi": "Tiền (Pentacles)",
+          "keywords_upright_vi": [
+            "kiên nhẫn",
+            "đánh giá thành quả",
+            "tầm nhìn dài hạn",
+            "phát triển chậm mà chắc",
+            "chờ đợi mùa gặt"
+          ],
+          "keywords_reversed_vi": [
+            "nóng vội",
+            "lãng phí công sức",
+            "thu hoạch kém",
+            "từ bỏ quá sớm",
+            "định hướng sai lầm"
+          ],
+          "meaning_upright_vi": "Sự kiên nhẫn, dừng lại để đánh giá tiến trình, tầm nhìn dài hạn, sự phát triển vững chắc và giai đoạn bình tâm chờ đợi vụ mùa thu hoạch.",
+          "meaning_reversed_vi": "Sự nóng vội, công sức đổ sông đổ biển, lợi tức không như mong đợi, nản lòng thoái lui quá sớm hoặc đặt nỗ lực sai chỗ.",
+          "love_vi": "Sự kiên nhẫn trong tình cảm, cùng nhìn nhận lại chặng đường gắn bó, đầu tư lâu dài và để tình yêu lớn dần theo thời gian.",
+          "love_reversed_vi": "Sự nôn nóng làm hỏng chuyện, cảm giác uổng phí tâm tư, vội vàng buông tay hoặc thất vọng vì kỳ vọng không được đền đáp.",
+          "career_vi": "Đầu tư bền bỉ cho sự nghiệp, xem xét lại tiến độ công việc, tích lũy từng bước và kiên tâm chờ đợi thành quả nở rộ.",
+          "career_reversed_vi": "Mất kiên nhẫn, nỗ lực không mang lại kết quả xứng đáng, từ bỏ dự án dở dang hoặc phí hoài công sức vào hướng đi bế tắc.",
+          "spiritual_vi": "Sự phát triển tâm linh từ tốn, chiêm nghiệm lại hành trình trưởng thành, tin tưởng vào quy luật tự nhiên và nuôi dưỡng ý niệm lâu dài.",
+          "spiritual_reversed_vi": "Tâm lý nóng vội muốn thấy kết quả ngay, tu tập sai lệch, dễ nản lòng thoái chí khi chưa nhận thấy sự biến chuyển nội tâm."
+        },
+        "resolved_meaning": {
+          "primary_text": "Sự kiên nhẫn, dừng lại để đánh giá tiến trình, tầm nhìn dài hạn, sự phát triển vững chắc và giai đoạn bình tâm chờ đợi vụ mùa thu hoạch.",
+          "is_vietnamese": true,
+          "keywords": [
+            "kiên nhẫn",
+            "đánh giá thành quả",
+            "tầm nhìn dài hạn",
+            "phát triển chậm mà chắc",
+            "chờ đợi mùa gặt"
+          ],
+          "topic": "general",
+          "orientation": "upright",
+          "general_meaning": "Sự kiên nhẫn, dừng lại để đánh giá tiến trình, tầm nhìn dài hạn, sự phát triển vững chắc và giai đoạn bình tâm chờ đợi vụ mùa thu hoạch."
+        }
+      },
+      {
+        "card_id": 3,
+        "position_id": "action",
+        "position_name": "Lá 3: Hướng hành động nên cân nhắc",
+        "position_description": "Lời khuyên hành động và hướng đi nên cân nhắc tiếp theo.",
+        "orientation": "upright",
+        "card": {
+          "id": 3,
+          "name": "The Empress",
+          "arcana": "major",
+          "suit": null,
+          "number_numerology": 3,
+          "element": "Earth",
+          "planet": "Venus",
+          "zodiac": "Taurus",
+          "yes_no": "yes",
+          "yes_no_reversed": "no",
+          "keywords_upright": [
+            "abundance",
+            "nurturing",
+            "fertility",
+            "creativity",
+            "sensuality"
+          ],
+          "keywords_reversed": [
+            "creative block",
+            "smothering",
+            "self-neglect",
+            "dependence",
+            "stagnation"
+          ],
+          "meaning_upright": "Abundance, nurturing, fertility, creativity, sensuality.",
+          "meaning_reversed": "Creative block, smothering, self-neglect, dependence, stagnation.",
+          "love": "nurturing love, affection, sensuality, emotional abundance",
+          "love_reversed": "smothering, neglect, dependence, blocked affection",
+          "career": "creative growth, supportive workplace, productive abundance, nurturing a project",
+          "career_reversed": "creative block, stagnation, lack of support, unproductive effort",
+          "mood": "Warm, sensual, content.",
+          "mood_reversed": "drained, insecure, restless",
+          "spiritual": "connection with nature, creative life force, receptive abundance, nurturing spiritual growth",
+          "spiritual_reversed": "creative stagnation, self-neglect, disconnection from nature, blocked nurturing energy",
+          "image": "cards/03_Empress.jpg",
+          "name_vi": "Hoàng Hậu",
+          "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
+          "keywords_upright_vi": [
+            "sự trù phú",
+            "nuôi dưỡng",
+            "sức sinh sôi",
+            "tính sáng tạo",
+            "sự gợi cảm"
+          ],
+          "keywords_reversed_vi": [
+            "tắc nghẽn sáng tạo",
+            "bao bọc thái quá",
+            "bỏ bê bản thân",
+            "phụ thuộc",
+            "trì trệ"
+          ],
+          "meaning_upright_vi": "Sự trù phú dồi dào, tình mẫu tử nuôi dưỡng, sự sinh sôi nảy nở, dòng chảy sáng tạo tuôn trào và vẻ đẹp gợi cảm tự nhiên.",
+          "meaning_reversed_vi": "Bế tắc sức sáng tạo, sự kiểm soát ngột ngạt, lãng quên chăm sóc chính mình, tâm lý ỷ lại phụ thuộc và trì trệ không lối thoát.",
+          "love_vi": "Tình yêu thương chăm sóc ấm áp, tình cảm nồng hậu, sự gắn kết xúc cảm ngọt ngào, tình yêu ngập tràn hạnh phúc và đủ đầy.",
+          "love_reversed_vi": "Sự quan tâm quá mức gây ngột ngạt, bỏ bê thiếu thấu cảm, quá lệ thuộc vào đối phương, dòng chảy yêu thương bị ngăn trở.",
+          "career_vi": "Sự phát triển mạnh mẽ về sáng tạo, môi trường làm việc nâng đỡ hỗ trợ, kết quả gặt hái bội thu, tận tâm vun đắp cho dự án.",
+          "career_reversed_vi": "Ý tưởng cạn kiệt, công việc đình trệ, thiếu sự hậu thuẫn và tài nguyên, nỗ lực bỏ ra không thu lại thành quả.",
+          "spiritual_vi": "Giao hòa với Mẹ Thiên Nhiên, tiếp nhận sinh lực sáng tạo của vũ trụ, tâm thế đón nhận thịnh vượng, nuôi dưỡng tâm hồn phát triển.",
+          "spiritual_reversed_vi": "Tinh thần héo mòn cạn kiệt, xao lãng chữa lành bản thân, đứt gãy kết nối với tự nhiên, năng lượng nuôi dưỡng bị tắc nghẽn."
+        },
+        "resolved_meaning": {
+          "primary_text": "Sự trù phú dồi dào, tình mẫu tử nuôi dưỡng, sự sinh sôi nảy nở, dòng chảy sáng tạo tuôn trào và vẻ đẹp gợi cảm tự nhiên.",
+          "is_vietnamese": true,
+          "keywords": [
+            "sự trù phú",
+            "nuôi dưỡng",
+            "sức sinh sôi",
+            "tính sáng tạo",
+            "sự gợi cảm"
+          ],
+          "topic": "general",
+          "orientation": "upright",
+          "general_meaning": "Sự trù phú dồi dào, tình mẫu tử nuôi dưỡng, sự sinh sôi nảy nở, dòng chảy sáng tạo tuôn trào và vẻ đẹp gợi cảm tự nhiên."
+        }
+      }
+    ],
+    "retry_count": 0,
+    "ai_result": {
+      "headline": "Từ kỷ luật kiểm soát đến khả năng nuôi dưỡng",
+      "summary": "Bạn có thể đang gồng mình duy trì một guồng quay quy củ, nơi mọi thứ phải nằm trong tầm kiểm soát. Khi câu hỏi chỉ vỏn vẹn một lời bỏ ngỏ, có lẽ bạn cũng đang dùng sự thận trọng để bao bọc một điều chưa tiện gọi tên. Mâu thuẫn nằm ở chỗ: sự vững vàng hiện tại giúp bạn an tâm, nhưng việc giữ chặt mọi khuôn khổ lại đang khiến bạn thấy kiệt sức.",
+      "card_readings": [
+        {
+          "card_id": 4,
+          "position_id": "present",
+          "card_name": "The Emperor",
+          "orientation": "upright",
+          "interpretation": "Ở vị trí hiện tại, The Emperor phản ánh hình ảnh bạn đang đóng vai trò người nắm giữ luật chơi hoặc cố gắng thiết lập trật tự trong đời sống cá nhân hay công việc. Bạn dựa vào lý trí, sự kỷ luật và khả năng chịu trách nhiệm. Tuy nhiên, việc luôn phải là điểm tựa kiên cố dễ tạo ra áp lực ngầm: bạn ngại bộc lộ sự bối rối và có xu hướng gạt cảm xúc sang một bên để giải quyết vấn đề."
+        },
+        {
+          "card_id": 70,
+          "position_id": "obstacle",
+          "card_name": "Seven of Pentacles",
+          "orientation": "upright",
+          "interpretation": "Lá bài này nhắc bạn rằng kết quả không thể đến nhanh hơn chỉ vì bạn thúc ép. Điều cần chú ý ở đây là cảm giác nôn nóng hoặc hoài nghi khi thấy công sức mình bỏ ra chưa đơm hoa kết trái ngay lập tức. Đây là lúc cần dừng lại để quan sát tiến trình thay vì cố can thiệp sâu thêm. Bạn cần phân biệt giữa việc 'chờ đợi một cách chủ động' và việc 'ngừng cố gắng trong bất an'."
+        },
+        {
+          "card_id": 3,
+          "position_id": "action",
+          "card_name": "The Empress",
+          "orientation": "upright",
+          "interpretation": "Như một đối trọng hoàn hảo cho The Emperor, The Empress khuyên bạn hãy chuyển từ trạng thái 'quản lý' sang trạng thái 'nuôi dưỡng'. Hãy cho phép bản thân thả lỏng sự cứng nhắc, chăm sóc các nhu cầu thể chất và cảm xúc vốn bị bỏ quên. Hãy tiếp cận vấn đề của bạn bằng sự thấu hiểu mềm mỏng, tạo điều kiện thuận lợi nhất để mọi việc tự nhiên phát triển thay vì gò ép nó vào khuôn mẫu có sẵn."
+        }
+      ],
+      "synthesis": "Bộ ba lá bài vẽ nên một hành trình cân bằng tuyệt đẹp giữa The Emperor và The Empress. Sự vững chãi bạn đã dày công dựng lên không hề uổng phí, nhưng nó đã đến lúc cần khoảng dừng của Seven of Pentacles để thở, trước khi chuyển giao sang sự mềm mại, trù phú mà The Empress mời gọi. Kiểm soát giúp bạn định hình, nhưng chỉ có sự kiên nhẫn và lòng trắc ẩn mới giúp bạn tận hưởng kết quả.",
+      "actions": [
+        "Viết ra giấy một việc bạn đang cố kiểm soát chặt chẽ và chọn cách lùi lại một bước, chỉ quan sát tiến độ trong vòng 3 ngày tới.",
+        "Dành trọn vẹn một buổi tối cho một hoạt động thuần túy nuôi dưỡng giác quan và cơ thể: một bữa ăn ngon, giấc ngủ sớm hoặc không gian yên tĩnh không lịch trình."
+      ],
+      "reflection_question": "Nếu buông bớt sự kiểm soát cứng nhắc vào lúc này, điều tồi tệ nhất bạn sợ sẽ xảy ra thực sự là gì?",
+      "limitations": "",
+      "model_used": "gemini-3.7-flash",
+      "generated_at": "2026-10-11T09:54:02.033Z"
+    }
   }
 }
