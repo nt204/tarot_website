@@ -730,7 +730,7 @@ export const TarotTable: React.FC<TarotTableProps> = ({
       setFlyingSlotIds((prev) => [...prev, slotId]);
 
       // Lấy thẻ bài thực tế bên trong
-      const innerCard = (cardEl.querySelector('.rounded-xl') as HTMLElement) || cardEl;
+      const innerCard = (cardEl.querySelector('[data-fan-card-inner]') as HTMLElement) || (cardEl.querySelector('.rounded-xl') as HTMLElement) || cardEl;
       const sourceRect = innerCard.getBoundingClientRect();
       const targetRect = targetEl.getBoundingClientRect();
 
@@ -740,7 +740,7 @@ export const TarotTable: React.FC<TarotTableProps> = ({
 
       // Góc nghiêng ban đầu của lá bài trên quạt
       const totalCards = fanCards.length;
-      const currentMaxAngle = isMobile ? 42 : 54;
+      const currentMaxAngle = isMobile ? 36 : 54;
       const stepAngle = totalCards > 1 ? currentMaxAngle / (totalCards - 1) : 0;
       const cardAngle = -currentMaxAngle / 2 + cardIndex * stepAngle;
 
@@ -1231,12 +1231,12 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
 
         {/* ================= STAGE 2B: QUY TRÌNH BUNG QUẠT BÀI & BỐC 3 LÁ ================= */}
         {step === 'picking' && (
-          <div id="tarot-picking-board" className="relative w-full flex flex-col items-center justify-center space-y-4 sm:space-y-6 animate-fade-in py-1">
+          <div id="tarot-picking-board" className="relative w-full flex flex-col items-center justify-center space-y-3 sm:space-y-6 animate-fade-in py-1">
             {/* Vầng hào quang bàn trải bài thiêng liêng (Sacred Altar Aura) */}
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_60%_at_50%_60%,rgba(201,168,92,0.07),rgba(0,0,0,0))] -z-10" />
 
             {/* Thanh điều hướng quay lại & trạng thái */}
-            <div className="w-full flex items-center justify-between pb-1 max-w-4xl px-2 z-20">
+            <div className="w-full flex items-center justify-between pb-0.5 max-w-4xl px-2 z-20">
               <button
                 type="button"
                 onClick={handleResetToHome}
@@ -1252,11 +1252,11 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
 
             {/* Tiêu đề sảnh bốc bài */}
             <div id="picking-title-area" className="text-center space-y-1">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-normal text-[#C9A85C] uppercase tracking-[0.05em] leading-[1.2]">
+              <h2 className="text-xl sm:text-3xl md:text-4xl font-heading font-normal text-[#C9A85C] uppercase tracking-[0.05em] leading-tight">
                 Hãy chọn {requiredCount} lá bài bạn cảm thấy thu hút nhất
               </h2>
-              <div className="min-h-[24px] flex items-center justify-center">
-                <p className="text-sm sm:text-base text-[#BDB4A8] font-body transition-opacity duration-500">
+              <div className="min-h-[20px] flex items-center justify-center">
+                <p className="text-xs sm:text-base text-[#BDB4A8] font-body transition-opacity duration-500">
                   Đã chọn: <span className="text-[#C9A85C] font-semibold">{selectedSlotIds.length}</span> / {requiredCount} lá · Bấm vào từng lá bài để rút lên ô
                 </p>
               </div>
@@ -1265,7 +1265,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
             {/* ================= 3 Ô MỤC TIÊU (NÉT LIỀN HOÀN TOÀN, VIỀN KÉP ÁNH KIM SANG TRỌNG) ================= */}
             <div
               ref={targetSlotsContainerRef}
-              className="flex items-center justify-center gap-2 sm:gap-5 py-2 will-change-transform"
+              className="flex items-center justify-center gap-2 sm:gap-5 py-1 sm:py-2 will-change-transform"
             >
               {Array.from({ length: requiredCount }).map((_, idx) => {
                 const isPicked = selectedSlotIds.length > idx;
@@ -1273,24 +1273,24 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                   <div
                     key={idx}
                     ref={(el) => { slotTargetRefs.current[idx] = el; }}
-                    className={`relative w-24 sm:w-30 md:w-34 h-36 sm:h-44 md:h-50 rounded-xl transition-all duration-500 flex flex-col items-center justify-center overflow-hidden ${isPicked
+                    className={`relative w-[92px] sm:w-30 md:w-34 h-[126px] sm:h-44 md:h-50 rounded-xl transition-all duration-500 flex flex-col items-center justify-center overflow-hidden ${isPicked
                         ? 'border border-[#C9A85C] bg-[#121016] shadow-[0_0_25px_rgba(201,168,92,0.4)]'
                         : 'border border-[#5A4732] bg-[#0E0C10]/85 shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]'
                       }`}
                   >
                     {!isPicked && (
-                      <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 text-center space-y-1.5 sm:space-y-2 w-full h-full select-none">
+                      <div className="flex flex-col items-center justify-center p-1.5 sm:p-3 text-center space-y-1 sm:space-y-2 w-full h-full select-none">
                         {/* Viền trang trí kép bên trong - hoàn toàn liền nét */}
                         <div className="absolute inset-1.5 sm:inset-2 border border-[#C9A85C]/20 rounded-lg pointer-events-none" />
                         <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-[#7C6339] bg-[#181410] flex items-center justify-center text-[10px] sm:text-xs text-[#C9A85C] font-heading font-medium">
                           {idx + 1}
                         </div>
-                        <span className="text-[10px] sm:text-xs text-[#E0D2C0] font-heading uppercase tracking-wider sm:tracking-widest px-0.5 truncate max-w-full">
-                          {getPositionDisplay(idx)}
+                        <span className="text-[9px] sm:text-xs text-[#E0D2C0] font-heading uppercase tracking-wide px-0.5 text-center leading-tight">
+                          {idx === 0 ? 'Hiện tại' : idx === 1 ? 'Cần chú ý' : 'Hành động'}
                         </span>
                         <div className="w-6 sm:w-8 h-[1px] bg-[#5A4732]" />
-                        <span className="text-[9px] sm:text-[10px] text-[#8C7A65] font-body truncate">
-                          {idx === 0 ? 'Hiện tại' : idx === 1 ? 'Thử thách' : 'Lời khuyên'}
+                        <span className="text-[8px] sm:text-[10px] text-[#8C7A65] font-body">
+                          {idx === 0 ? 'Năng lượng' : idx === 1 ? 'Thử thách' : 'Lời khuyên'}
                         </span>
                       </div>
                     )}
@@ -1313,7 +1313,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
             <div
               key={`fan-board-${readingId || 'active'}`}
               ref={fanContainerRef}
-              className="relative w-full max-w-4xl h-56 sm:h-80 md:h-92 flex items-center justify-center px-2 sm:px-4 overflow-visible mt-2 sm:mt-6 will-change-transform"
+              className="relative w-full max-w-4xl h-44 sm:h-80 md:h-92 flex items-center justify-center px-1 sm:px-4 overflow-visible mt-1 sm:mt-6 will-change-transform"
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 {fanCards.map((slot, index) => {
@@ -1326,13 +1326,13 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                     !isZoomingIn &&
                     selectedSlotIds.length < requiredCount;
                   const isHovered = isFanInteractive && hoveredCardIndex === index && !isSelected;
-                  const maxAngle = isMobile ? 42 : 54;
+                  const maxAngle = isMobile ? 36 : 54;
                   const stepAngle = maxAngle / (total - 1);
                   const angle = -maxAngle / 2 + index * stepAngle;
                   const normalized = (index - (total - 1) / 2) / ((total - 1) / 2);
-                  const arcHeight = isMobile ? 14 : 26;
+                  const arcHeight = isMobile ? 10 : 26;
                   const offsetY = Math.pow(normalized, 2) * arcHeight;
-                  const spacing = isMobile ? 14.5 : 28;
+                  const spacing = isMobile ? 11 : 28;
                   const offsetX = (index - (total - 1) / 2) * spacing;
 
                   return (
@@ -1353,7 +1353,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                       onMouseLeave={() => {
                         setHoveredCardIndex((prev) => (prev === index ? null : prev));
                       }}
-                      initial={{ x: 0, y: isMobile ? 35 : 50, rotate: 0, opacity: 0 }}
+                      initial={{ x: 0, y: isMobile ? 25 : 50, rotate: 0, opacity: 0 }}
                       animate={{
                         x: offsetX,
                         y: offsetY, // Khung neo giữ nguyên tọa độ, chống tuyệt đối việc tụt chuột khỏi mép dưới
@@ -1386,17 +1386,18 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                       {/* Vùng nhận diện chuột chỉ mở rộng nhẹ phía trên để bắt đầu nhô của lá bài */}
                       <div className="absolute -top-7 inset-x-0 bottom-0 pointer-events-auto" />
 
-                      {/* Nhấc vừa vặn theo khe quạt bài (-18px trên mobile / -25px trên desktop) */}
+                      {/* Nhấc vừa vặn theo khe quạt bài (-14px trên mobile / -25px trên desktop) */}
                       <motion.div
+                        data-fan-card-inner="true"
                         animate={{
-                          y: isHovered ? (isMobile ? -18 : -25) : 0
+                          y: isHovered ? (isMobile ? -14 : -25) : 0
                         }}
                         transition={{
                           type: 'spring',
                           stiffness: 450,
                           damping: 32
                         }}
-                        className={`w-20 sm:w-30 md:w-36 h-32 sm:h-46 md:h-56 rounded-lg sm:rounded-xl border bg-[#0C0B0E] overflow-hidden shadow-2xl transition-colors duration-150 relative ${
+                        className={`w-[70px] sm:w-30 md:w-36 h-[110px] sm:h-46 md:h-56 rounded-lg sm:rounded-xl border bg-[#0C0B0E] overflow-hidden shadow-2xl transition-colors duration-150 relative ${
                           isHovered ? 'border-[#C9A85C]' : 'border-[#7C6339]'
                         }`}
                       >
