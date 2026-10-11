@@ -331,6 +331,8 @@ export const CardCatalogModal: React.FC<CardCatalogModalProps> = ({
                     src={c.image.startsWith('/') ? c.image : `/${c.image}`}
                     alt={c.name_vi}
                     fill
+                    loading="lazy"
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 20vw, 15vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

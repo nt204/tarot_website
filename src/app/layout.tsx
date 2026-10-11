@@ -19,6 +19,7 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://tramtarot.vn'),
   title: 'Trạm Tarot – Dừng một chút, hiểu mình hơn.',
   description: 'Trạm Tarot là điểm dừng chân lắng đọng để bạn kết nối lại với chính mình qua 78 lá bài Tarot chuẩn Rider-Waite và những lời luận giải ấm áp, thấu cảm.',
   keywords: ['trạm tarot', 'dừng một chút hiểu mình hơn', 'bói bài tarot', 'tarot online', 'tarot ai', 'rider waite', 'trải bài tarot'],
