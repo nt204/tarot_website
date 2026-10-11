@@ -1,121 +1,95 @@
 'use client';
 
 import React from 'react';
+import { RealDataSummary } from '@/types/business';
 
-interface MockUser {
-  id: string;
-  email: string;
-  plan: 'Khám phá (0đ)' | 'Chuyên sâu (VIP)' | 'Đồng hành (Tháng)';
-  deepCredits: number;
-  totalReadings: number;
-  lastActive: string;
+interface UserManagementViewProps {
+  realUsers?: RealDataSummary['realUsers'];
 }
 
-const MOCK_USERS: MockUser[] = [
-  {
-    id: 'u_1',
-    email: 'th***@gmail.com',
-    plan: 'Chuyên sâu (VIP)',
-    deepCredits: 1,
-    totalReadings: 4,
-    lastActive: '10 phút trước'
-  },
-  {
-    id: 'u_2',
-    email: 'ng***@gmail.com',
-    plan: 'Đồng hành (Tháng)',
-    deepCredits: 8,
-    totalReadings: 12,
-    lastActive: '1 giờ trước'
-  },
-  {
-    id: 'u_3',
-    email: 'ha***@gmail.com',
-    plan: 'Chuyên sâu (VIP)',
-    deepCredits: 0,
-    totalReadings: 3,
-    lastActive: '3 giờ trước'
-  },
-  {
-    id: 'u_4',
-    email: 'khach_an_danh_189@tarot.me',
-    plan: 'Khám phá (0đ)',
-    deepCredits: 0,
-    totalReadings: 1,
-    lastActive: '15 phút trước'
-  },
-  {
-    id: 'u_5',
-    email: 'khach_an_danh_192@tarot.me',
-    plan: 'Khám phá (0đ)',
-    deepCredits: 0,
-    totalReadings: 2,
-    lastActive: '25 phút trước'
-  }
-];
-
-export const UserManagementView: React.FC = () => {
+export const UserManagementView: React.FC<UserManagementViewProps> = ({ realUsers = [] }) => {
   return (
     <div className="space-y-6">
-      <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold font-heading text-slate-800">
+          <h2 className="text-xl font-bold text-slate-900 tracking-tight">
             Quản lý Người dùng & Hạn mức (User & Quota Management)
           </h2>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Theo dõi người dùng, gói thành viên đang kích hoạt và hạn mức lượt chuyên sâu còn lại
+          <p className="text-sm text-slate-600 mt-0.5">
+            Trích xuất trực tiếp từ danh sách thiết bị và phiên trải bài thực tế trong cơ sở dữ liệu
           </p>
         </div>
-        <div className="text-xs text-slate-500 font-medium">
-          Tổng người dùng trong tháng: <span className="font-bold text-slate-800">10.000+</span>
+        <div className="text-sm text-slate-700 bg-slate-100 px-3.5 py-1.5 rounded-xl border border-slate-200 font-medium">
+          Người dùng hoạt động: <span className="font-bold text-slate-900">{realUsers.length} tài khoản/thiết bị</span>
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-xs">
+          <table className="w-full text-left border-collapse text-sm">
             <thead>
-              <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase tracking-wider text-[11px]">
-                <th className="py-3 px-4">Tài khoản (Đã che danh tính)</th>
+              <tr className="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold text-xs uppercase tracking-wider">
+                <th className="py-3 px-4">Định danh người dùng</th>
                 <th className="py-3 px-4">Gói dịch vụ</th>
-                <th className="py-3 px-4">Lượt chuyên sâu còn lại</th>
                 <th className="py-3 px-4">Tổng lượt trải bài</th>
-                <th className="py-3 px-4">Hoạt động gần nhất</th>
-                <th className="py-3 px-4 text-right">Quyền lợi</th>
+                <th className="py-3 px-4">Hoàn tất AI</th>
+                <th className="py-3 px-4">Chủ đề quan tâm</th>
+                <th className="py-3 px-4">Câu hỏi gần nhất</th>
+                <th className="py-3 px-4 text-right">Thao tác</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 text-slate-700">
-              {MOCK_USERS.map((user) => (
-                <tr key={user.id} className="hover:bg-slate-50/60 transition-colors">
-                  <td className="py-3 px-4 font-mono font-medium text-slate-800">{user.email}</td>
-                  <td className="py-3 px-4">
-                    <span
-                      className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold ${
-                        user.plan.includes('Đồng hành')
-                          ? 'bg-purple-50 text-purple-700 border border-purple-200'
-                          : user.plan.includes('Chuyên sâu')
-                          ? 'bg-amber-50 text-amber-700 border border-amber-200'
-                          : 'bg-slate-100 text-slate-600'
-                      }`}
-                    >
-                      {user.plan}
-                    </span>
-                  </td>
-                  <td className="py-3 px-4 font-mono font-bold text-blue-600">
-                    {user.deepCredits} lượt
-                  </td>
-                  <td className="py-3 px-4 font-mono">{user.totalReadings}</td>
-                  <td className="py-3 px-4 text-slate-400">{user.lastActive}</td>
-                  <td className="py-3 px-4 text-right">
-                    <button
-                      onClick={() => alert(`Đã cấp thêm 1 lượt chuyên sâu cho ${user.email}`)}
-                      className="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-medium transition-colors"
-                    >
-                      + Tặng lượt
-                    </button>
+              {realUsers.length === 0 ? (
+                <tr>
+                  <td colSpan={7} className="py-8 text-center text-slate-400">
+                    Chưa có dữ liệu người dùng
                   </td>
                 </tr>
-              ))}
+              ) : (
+                realUsers.map((user) => (
+                  <tr key={user.id} className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-3.5 px-4 font-mono font-medium text-slate-900">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                        <span>{user.displayId}</span>
+                      </div>
+                    </td>
+                    <td className="py-3.5 px-4">
+                      <span
+                        className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold ${
+                          user.plan.includes('VIP')
+                            ? 'bg-amber-100 text-amber-800'
+                            : 'bg-slate-100 text-slate-700'
+                        }`}
+                      >
+                        {user.plan}
+                      </span>
+                    </td>
+                    <td className="py-3.5 px-4 font-mono font-bold text-blue-700 text-sm">
+                      {user.sessionsCount} lượt
+                    </td>
+                    <td className="py-3.5 px-4 font-mono text-purple-700 font-semibold">
+                      {user.completedCount} lượt
+                    </td>
+                    <td className="py-3.5 px-4">
+                      <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-800 text-xs font-medium">
+                        {user.topTopic}
+                      </span>
+                    </td>
+                    <td className="py-3.5 px-4 text-xs text-slate-600 italic max-w-xs truncate">
+                      &ldquo;{user.lastQuestion}&rdquo;
+                    </td>
+                    <td className="py-3.5 px-4 text-right">
+                      <button
+                        onClick={() => alert(`Đã cấp thêm 1 lượt trải bài chuyên sâu cho ${user.displayId}`)}
+                        className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-medium transition-colors cursor-pointer"
+                      >
+                        + Tặng lượt
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

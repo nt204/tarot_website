@@ -223,3 +223,23 @@ nextjs-portal,
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* =========================================================
+   GIAO DIỆN ADMIN: FONT CHỮ SẮC NÉT, HIỆN ĐẠI, DỄ ĐỌC
+   ========================================================= */
+.admin-portal,
+.admin-portal * {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.admin-portal h1,
+.admin-portal h2,
+.admin-portal h3,
+.admin-portal h4,
+.admin-portal h5,
+.admin-portal h6,
+.admin-portal .font-heading {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  letter-spacing: -0.015em !important;
+}
+

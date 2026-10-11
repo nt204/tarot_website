@@ -12,7 +12,8 @@ import {
   Order,
   AiServiceStat,
   SystemAuditLog,
-  OrderStatus
+  OrderStatus,
+  RealDataSummary
 } from '@/types/business';
 
 interface BlogItem {
@@ -45,6 +46,7 @@ export default function AdminBlogsPage() {
 
   // Business state
   const [businessMetrics, setBusinessMetrics] = useState<BusinessMetrics | null>(null);
+  const [realStats, setRealStats] = useState<RealDataSummary | null>(null);
   const [orders, setOrders] = useState<Order[]>([]);
   const [aiStats, setAiStats] = useState<AiServiceStat | null>(null);
   const [auditLogs, setAuditLogs] = useState<SystemAuditLog[]>([]);
@@ -115,6 +117,7 @@ export default function AdminBlogsPage() {
         const data = await res.json();
         if (data.success) {
           setBusinessMetrics(data.metrics);
+          setRealStats(data.realStats);
           setOrders(data.orders);
           setAiStats(data.aiStats);
           setAuditLogs(data.auditLogs);
@@ -581,9 +584,9 @@ export default function AdminBlogsPage() {
     );
   }
 
-  // 3. Màn hình Bảng điều khiển Quản trị Blog (Đã đăng nhập)
+  // 3. Màn hình Bảng điều khiển Quản trị (Đã đăng nhập)
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
+    <div className="admin-portal min-h-screen bg-slate-50 text-slate-800 font-sans antialiased">
       {/* Top Header Navbar */}
       <header className="sticky top-0 z-30 w-full bg-white border-b border-slate-200 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xs">
         <div className="flex items-center gap-3">
@@ -691,6 +694,7 @@ export default function AdminBlogsPage() {
             ) : businessMetrics ? (
               <BusinessOverviewView
                 metrics={businessMetrics}
+                realStats={realStats || undefined}
                 onRefresh={fetchBusinessData}
               />
             ) : (
@@ -711,10 +715,12 @@ export default function AdminBlogsPage() {
         )}
 
         {/* 3. Module Users */}
-        {activeTab === 'users' && <UserManagementView />}
+        {activeTab === 'users' && <UserManagementView realUsers={realStats?.realUsers} />}
 
         {/* 4. Module AI Management */}
-        {activeTab === 'ai' && aiStats && <AiManagementView aiStats={aiStats} />}
+        {activeTab === 'ai' && aiStats && (
+          <AiManagementView aiStats={aiStats} realStats={realStats || undefined} />
+        )}
 
         {/* 5. Module System & Security */}
         {activeTab === 'security' && <SystemSecurityView auditLogs={auditLogs} />}

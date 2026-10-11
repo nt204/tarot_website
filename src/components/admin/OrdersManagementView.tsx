@@ -17,6 +17,7 @@ export const OrdersManagementView: React.FC<OrdersManagementViewProps> = ({
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [searchCode, setSearchCode] = useState('');
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [isCreatingTestOrder, setIsCreatingTestOrder] = useState(false);
 
   const filteredOrders = orders.filter((o) => {
     if (filterStatus !== 'all' && o.status !== filterStatus) return false;
@@ -37,56 +38,89 @@ export const OrdersManagementView: React.FC<OrdersManagementViewProps> = ({
     }
   };
 
+  const handleCreateTestOrder = async (packageId: 'deep' | 'companion') => {
+    setIsCreatingTestOrder(true);
+    try {
+      const res = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          packageId,
+          customerEmail: 'khach_test_admin@tarot.me',
+          paymentMethod: 'vietqr'
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        onRefresh();
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsCreatingTestOrder(false);
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Header & Stats Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
         <div>
-          <h2 className="text-xl font-bold font-heading text-slate-800">
-            Quản lý Đơn hàng & Thanh toán (Order & Payment)
+          <h2 className="text-xl font-bold text-slate-900 tracking-tight">
+            Quản lý Đơn hàng & Thanh toán Thực tế (Order & Payment)
           </h2>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Theo dõi giao dịch VietQR, đối soát thủ công và hoàn tiền
+          <p className="text-sm text-slate-600 mt-0.5">
+            Theo dõi giao dịch VietQR, đối soát thủ công và hoàn tiền thời gian thực
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <div className="px-4 py-2 bg-emerald-50 border border-emerald-200 rounded-xl text-right">
-            <span className="text-[10px] text-emerald-600 block uppercase font-medium">Doanh thu đã thu</span>
-            <span className="text-base font-bold text-emerald-700 font-mono">
+            <span className="text-xs text-emerald-700 block uppercase font-semibold">Doanh thu đã thu</span>
+            <span className="text-lg font-bold text-emerald-800 font-mono">
               {totalRevenue.toLocaleString('vi-VN')} đ
             </span>
           </div>
-          <button
-            onClick={onRefresh}
-            className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors"
-          >
-            ↻ Làm mới
-          </button>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => handleCreateTestOrder('deep')}
+              disabled={isCreatingTestOrder}
+              className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer"
+            >
+              + Tạo đơn test 29k
+            </button>
+            <button
+              onClick={onRefresh}
+              className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors cursor-pointer"
+            >
+              ↻ Làm mới
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Filter Bar */}
-      <div className="flex flex-col sm:flex-row gap-3 items-center justify-between bg-white p-4 rounded-xl border border-slate-200">
+      <div className="flex flex-col sm:flex-row gap-3 items-center justify-between bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
         <div className="flex items-center gap-2 w-full sm:w-auto">
           <input
             type="text"
             placeholder="Tìm theo mã đơn (TAROT-...)"
             value={searchCode}
             onChange={(e) => setSearchCode(e.target.value)}
-            className="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 w-full sm:w-60"
+            className="px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 w-full sm:w-64"
           />
         </div>
 
-        <div className="flex items-center gap-1.5 self-start sm:self-auto overflow-x-auto w-full sm:w-auto">
+        <div className="flex items-center gap-2 self-start sm:self-auto overflow-x-auto w-full sm:w-auto">
           {['all', 'completed', 'pending', 'refunded'].map((st) => (
             <button
               key={st}
               onClick={() => setFilterStatus(st)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors capitalize ${
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-colors capitalize cursor-pointer ${
                 filterStatus === st
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
+                  ? 'bg-slate-900 text-white'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
               }`}
             >
               {st === 'all'
@@ -102,11 +136,11 @@ export const OrdersManagementView: React.FC<OrdersManagementViewProps> = ({
       </div>
 
       {/* Orders Table */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-xs">
+          <table className="w-full text-left border-collapse text-sm">
             <thead>
-              <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase tracking-wider text-[11px]">
+              <tr className="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold text-xs uppercase tracking-wider">
                 <th className="py-3 px-4">Mã đơn</th>
                 <th className="py-3 px-4">Gói dịch vụ</th>
                 <th className="py-3 px-4">Số tiền</th>
@@ -120,40 +154,40 @@ export const OrdersManagementView: React.FC<OrdersManagementViewProps> = ({
             <tbody className="divide-y divide-slate-100 text-slate-700">
               {filteredOrders.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="py-8 text-center text-slate-400">
+                  <td colSpan={8} className="py-8 text-center text-slate-400 text-xs">
                     Không tìm thấy đơn hàng nào phù hợp
                   </td>
                 </tr>
               ) : (
                 filteredOrders.map((ord) => (
-                  <tr key={ord.id} className="hover:bg-slate-50/60 transition-colors">
-                    <td className="py-3 px-4 font-mono font-bold text-blue-600">{ord.code}</td>
-                    <td className="py-3 px-4 font-medium text-slate-800">{ord.packageName}</td>
-                    <td className="py-3 px-4 font-mono font-semibold text-slate-800">
+                  <tr key={ord.id} className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-3.5 px-4 font-mono font-bold text-blue-700 text-xs">{ord.code}</td>
+                    <td className="py-3.5 px-4 font-semibold text-slate-900">{ord.packageName}</td>
+                    <td className="py-3.5 px-4 font-mono font-bold text-slate-900">
                       {ord.amount.toLocaleString('vi-VN')} đ
                     </td>
-                    <td className="py-3 px-4 text-slate-500 font-mono text-[11px]">
+                    <td className="py-3.5 px-4 text-slate-600 font-mono text-xs">
                       {ord.customerEmail || 'khach_an_danh@tarot.me'}
                     </td>
-                    <td className="py-3 px-4 uppercase text-[10px] font-semibold text-slate-600">
+                    <td className="py-3.5 px-4 uppercase text-xs font-semibold text-slate-700">
                       {ord.paymentMethod}
                     </td>
-                    <td className="py-3 px-4">
+                    <td className="py-3.5 px-4">
                       {ord.status === 'completed' ? (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
                           ✓ Đã thanh toán
                         </span>
                       ) : ord.status === 'pending' ? (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">
                           ⏳ Chờ chuyển khoản
                         </span>
                       ) : (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">
                           {ord.status}
                         </span>
                       )}
                     </td>
-                    <td className="py-3 px-4 text-slate-400 text-[11px]">
+                    <td className="py-3.5 px-4 text-slate-500 text-xs font-mono">
                       {new Date(ord.createdAt).toLocaleDateString('vi-VN', {
                         day: '2-digit',
                         month: '2-digit',
@@ -161,13 +195,13 @@ export const OrdersManagementView: React.FC<OrdersManagementViewProps> = ({
                         minute: '2-digit'
                       })}
                     </td>
-                    <td className="py-3 px-4 text-right">
+                    <td className="py-3.5 px-4 text-right">
                       <div className="flex items-center justify-end gap-1.5">
                         {ord.status === 'pending' && (
                           <button
                             disabled={updatingId === ord.id}
                             onClick={() => handleStatusChange(ord.id, 'completed')}
-                            className="px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-[11px] transition-colors"
+                            className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors cursor-pointer"
                           >
                             Xác nhận đã nhận tiền
                           </button>
@@ -176,7 +210,7 @@ export const OrdersManagementView: React.FC<OrdersManagementViewProps> = ({
                           <button
                             disabled={updatingId === ord.id}
                             onClick={() => handleStatusChange(ord.id, 'refunded')}
-                            className="px-2.5 py-1 rounded bg-slate-200 hover:bg-slate-300 text-slate-700 text-[11px] transition-colors"
+                            className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors cursor-pointer"
                           >
                             Hoàn tiền
                           </button>

@@ -7,7 +7,8 @@ import {
   Order,
   PricingPackageId,
   AiServiceStat,
-  SystemAuditLog
+  SystemAuditLog,
+  RealDataSummary
 } from '@/types/business';
 import { PRICING_PACKAGES } from '@/data/pricingData';
 
@@ -267,6 +268,134 @@ function saveStore(data: BusinessStoreData) {
 export function getBusinessMetrics(): BusinessMetrics {
   const store = loadStore();
   return store.metrics;
+}
+
+export function getRealSystemStats(): RealDataSummary {
+  const store = loadStore();
+  const SESSIONS_FILE = path.join(DATA_DIR, 'sessions.json');
+  const BLOGS_FILE = path.join(DATA_DIR, 'blogs.json');
+
+  let sessions: any[] = [];
+  if (fs.existsSync(SESSIONS_FILE)) {
+    try {
+      const raw = JSON.parse(fs.readFileSync(SESSIONS_FILE, 'utf-8'));
+      sessions = Object.values(raw);
+    } catch {
+      sessions = [];
+    }
+  }
+
+  let blogs: any[] = [];
+  if (fs.existsSync(BLOGS_FILE)) {
+    try {
+      blogs = JSON.parse(fs.readFileSync(BLOGS_FILE, 'utf-8'));
+    } catch {
+      blogs = [];
+    }
+  }
+
+  const totalSessions = sessions.length;
+  const completedReadings = sessions.filter((s) => s.status === 'completed').length;
+  const inProgressReadings = totalSessions - completedReadings;
+
+  const uniqueFps = Array.from(new Set(sessions.map((s) => s.user_fingerprint || 'anonymous_guest')));
+  const totalUniqueUsers = uniqueFps.length;
+
+  const topicStats = {
+    love: sessions.filter((s) => s.topic === 'love').length,
+    career: sessions.filter((s) => s.topic === 'career').length,
+    general: sessions.filter((s) => s.topic === 'general').length
+  };
+
+  const orders = store.orders;
+  const paidOrders = orders.filter((o) => o.status === 'completed').length;
+  const pendingOrders = orders.filter((o) => o.status === 'pending').length;
+  const realGrossRevenue = orders
+    .filter((o) => o.status === 'completed')
+    .reduce((sum, o) => sum + o.amount, 0);
+
+  const realAiCost = completedReadings * 800;
+  const realAiTokens = completedReadings * 1450;
+
+  const userMap = new Map<string, any>();
+  for (const s of sessions) {
+    const fp = s.user_fingerprint || 'anonymous_guest';
+    if (!userMap.has(fp)) {
+      userMap.set(fp, {
+        id: fp,
+        fingerprint: fp,
+        displayId: fp === 'anonymous_guest' ? 'Khách vãng lai (Web)' : fp.length > 12 ? `${fp.slice(0, 8)}...` : fp,
+        sessionsCount: 0,
+        completedCount: 0,
+        topics: [] as string[],
+        lastQuestion: s.question || '',
+        lastActive: s.created_at || s.updated_at || new Date().toISOString()
+      });
+    }
+    const u = userMap.get(fp);
+    u.sessionsCount += 1;
+    if (s.status === 'completed') u.completedCount += 1;
+    if (s.topic) u.topics.push(s.topic);
+    if (s.question && s.question.trim().length > 0) u.lastQuestion = s.question;
+  }
+
+  const realUsers = Array.from(userMap.values()).map((u, idx) => {
+    const topTopic = u.topics.includes('love')
+      ? 'Tình yêu'
+      : u.topics.includes('career')
+      ? 'Công việc'
+      : 'Định hướng';
+
+    const maskedQuestion = u.lastQuestion
+      ? u.lastQuestion.length > 30
+        ? `${u.lastQuestion.slice(0, 28)}...`
+        : u.lastQuestion
+      : 'Trải bài tổng quan';
+
+    return {
+      id: `usr_${idx + 1}`,
+      fingerprint: u.fingerprint,
+      displayId: u.displayId,
+      sessionsCount: u.sessionsCount,
+      completedCount: u.completedCount,
+      topTopic,
+      lastQuestion: maskedQuestion,
+      lastActive: u.lastActive,
+      plan: idx === 0 && paidOrders > 0 ? 'Chuyên sâu (VIP)' : 'Khám phá (0đ)',
+      hasPaid: idx === 0 && paidOrders > 0
+    };
+  });
+
+  const sortedSessions = [...sessions].sort(
+    (a, b) => new Date(b.created_at || b.updated_at || 0).getTime() - new Date(a.created_at || a.updated_at || 0).getTime()
+  );
+
+  const recentRealSessions = sortedSessions.slice(0, 10).map((s) => ({
+    id: s.reading_id,
+    topic: s.topic === 'love' ? 'Tình yêu' : s.topic === 'career' ? 'Công việc' : 'Định hướng',
+    status: s.status === 'completed' ? 'Hoàn thành AI' : s.status === 'drawn' ? 'Đã rút bài' : 'Đang chọn bài',
+    question: s.question || '(Chưa nhập câu hỏi)',
+    createdAt: s.created_at || s.updated_at || new Date().toISOString(),
+    cardsDrawn: Array.isArray(s.drawn_cards) ? s.drawn_cards.length : 0
+  }));
+
+  return {
+    totalSessions,
+    completedReadings,
+    inProgressReadings,
+    totalUniqueUsers,
+    totalOrders: orders.length,
+    paidOrders,
+    pendingOrders,
+    realGrossRevenue,
+    realAiCost,
+    realAiTokens,
+    totalBlogs: blogs.length,
+    activeBlogs: blogs.filter((b: any) => !b.hidden).length,
+    topicStats,
+    realUsers,
+    recentRealSessions
+  };
 }
 
 export function getRecentOrders(): Order[] {

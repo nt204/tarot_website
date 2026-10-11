@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { isAdminAuthenticated } from '@/lib/server/adminAuth';
 import {
   getBusinessMetrics,
+  getRealSystemStats,
   getRecentOrders,
   getAiServiceStats,
   getSystemAuditLogs,
@@ -17,6 +18,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const metrics = getBusinessMetrics();
+    const realStats = getRealSystemStats();
     const orders = getRecentOrders();
     const aiStats = getAiServiceStats();
     const auditLogs = getSystemAuditLogs();
@@ -24,6 +26,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       success: true,
       metrics,
+      realStats,
       orders,
       aiStats,
       auditLogs,

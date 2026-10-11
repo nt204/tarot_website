@@ -95,6 +95,28 @@
   },
   "orders": [
     {
+      "id": "ord_1791719927359_b6rv",
+      "code": "TAROT-8579",
+      "packageId": "deep",
+      "packageName": "Chuyên sâu (29.000 đ)",
+      "amount": 29000,
+      "status": "pending",
+      "customerEmail": "khach_an_danh@tarot.me",
+      "paymentMethod": "vietqr",
+      "createdAt": "2026-10-11T11:58:47.360Z"
+    },
+    {
+      "id": "ord_1791719927332_bsb1",
+      "code": "TAROT-6384",
+      "packageId": "deep",
+      "packageName": "Chuyên sâu (29.000 đ)",
+      "amount": 29000,
+      "status": "pending",
+      "customerEmail": "khach_an_danh@tarot.me",
+      "paymentMethod": "vietqr",
+      "createdAt": "2026-10-11T11:58:47.332Z"
+    },
+    {
       "id": "ord_1791719413899_4ze5",
       "code": "TAROT-7769",
       "packageId": "deep",
@@ -180,6 +202,22 @@
     "errorRatePct": 0.4
   },
   "auditLogs": [
+    {
+      "id": "log_1791719927360",
+      "timestamp": "2026-10-11T11:58:47.360Z",
+      "action": "ORDER_CREATED",
+      "module": "Order & Payment",
+      "status": "info",
+      "message": "Đơn mới TAROT-8579 (Chuyên sâu - 29.000 đ) được khởi tạo"
+    },
+    {
+      "id": "log_1791719927332",
+      "timestamp": "2026-10-11T11:58:47.332Z",
+      "action": "ORDER_CREATED",
+      "module": "Order & Payment",
+      "status": "info",
+      "message": "Đơn mới TAROT-6384 (Chuyên sâu - 29.000 đ) được khởi tạo"
+    },
     {
       "id": "log_1791719422975",
       "timestamp": "2026-10-11T11:50:22.975Z",

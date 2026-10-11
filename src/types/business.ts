@@ -105,3 +105,44 @@ export interface SystemAuditLog {
   status: 'info' | 'success' | 'warn';
   message: string;
 }
+
+export interface RealDataSummary {
+  totalSessions: number;
+  completedReadings: number;
+  inProgressReadings: number;
+  totalUniqueUsers: number;
+  totalOrders: number;
+  paidOrders: number;
+  pendingOrders: number;
+  realGrossRevenue: number;
+  realAiCost: number;
+  realAiTokens: number;
+  totalBlogs: number;
+  activeBlogs: number;
+  topicStats: {
+    love: number;
+    career: number;
+    general: number;
+  };
+  realUsers: Array<{
+    id: string;
+    fingerprint: string;
+    displayId: string;
+    sessionsCount: number;
+    completedCount: number;
+    topTopic: string;
+    lastQuestion: string;
+    lastActive: string;
+    plan: string;
+    hasPaid: boolean;
+  }>;
+  recentRealSessions: Array<{
+    id: string;
+    topic: string;
+    status: string;
+    question: string;
+    createdAt: string;
+    cardsDrawn: number;
+  }>;
+}
+

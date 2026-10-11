@@ -293,3 +293,8 @@ export function saveAIResult(reading_id: string, ai_result: AIReadingResult) {
     persistSessions();
   }
 }
+
+export function getAllSessions(): ReadingSession[] {
+  return Object.values(sessionsCache);
+}
+
