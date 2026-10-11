@@ -31,10 +31,21 @@ export default function Home() {
   const questionPromptTimerRef = React.useRef<number | null>(null);
   const questionPromptFadeFrameRef = React.useRef<number | null>(null);
 
+  const handleScrollToTable = () => {
+    stopQuestionPromptAudio();
+    setIsDialogueOpen(false);
+    if (typeof window !== 'undefined') {
+      const el = document.getElementById('tarot-table');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   const handlePaymentSuccess = (order: Order) => {
     setIsDeepUnlocked(true);
     setPaymentToast(`✦ Đã thanh toán thành công gói ${order.packageName}! Bạn đã có quyền trải bài chuyên sâu.`);
-    handleStartReading('general', 'three_cards');
+    handleScrollToTable();
     setTimeout(() => {
       setPaymentToast(null);
     }, 6000);
@@ -124,6 +135,12 @@ export default function Home() {
 
   const handleSelectTopicFromSection = (topic: TopicType, spread: SpreadType = 'three_cards') => {
     handleStartReading(topic, spread);
+    if (typeof window !== 'undefined') {
+      const el = document.getElementById('tarot-table');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -135,14 +152,14 @@ export default function Home() {
 
       {/* 1. Header chuẩn phong cách Trạm Tarot */}
       <Header
-        onScrollToTable={handleStartReading}
+        onScrollToTable={handleScrollToTable}
         onGoHome={handleGoHome}
         onNavigate={handleNavigate}
       />
 
       <main className="flex-1 w-full">
         {/* 2. Hero Section: Tiêu đề TAROTREADER.ME & giữ nguyên quả cầu hoàng đạo xoay */}
-        <HeroSection onStartReading={handleStartReading} />
+        <HeroSection onStartReading={handleScrollToTable} />
 
         {/* 3. Section CÁC CHỦ ĐỀ BÓI BÀI TAROT (4 thẻ tương tác) */}
         <TopicsSection onSelectTopic={handleSelectTopicFromSection} />
@@ -168,11 +185,11 @@ export default function Home() {
         <ArticlesSection />
 
         {/* 7. Section LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ BÓI BÀI TAROT ONLINE TẠI TAROTREADER.ME */}
-        <BenefitsSection onStartReading={handleStartReading} />
+        <BenefitsSection onStartReading={handleScrollToTable} />
 
         {/* 7.5 Bảng giá & Gói dịch vụ Trạm Tarot (Billing / Freemium Model) */}
         <PricingSection
-          onScrollToTable={handleStartReading}
+          onScrollToTable={handleScrollToTable}
           onPaymentSuccess={handlePaymentSuccess}
         />
 
@@ -191,7 +208,7 @@ export default function Home() {
       {/* 9. Footer chuẩn */}
       <FooterSection
         onOpenCatalog={() => setIsCatalogOpen(true)}
-        onScrollToTable={handleStartReading}
+        onScrollToTable={handleScrollToTable}
       />
 
       {/* 10. Bách khoa toàn thư Modal tra cứu 78 lá */}

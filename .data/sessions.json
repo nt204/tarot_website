@@ -93684,5 +93684,695 @@
     ],
     "drawn_cards": [],
     "retry_count": 0
+  },
+  "ab7a2a1d-443f-4256-bb53-d96f6320ff6e": {
+    "reading_id": "ab7a2a1d-443f-4256-bb53-d96f6320ff6e",
+    "created_at": "2026-10-11T12:27:20.714Z",
+    "updated_at": "2026-10-11T12:27:55.180Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "career",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "sự nghiệp sắp tới",
+    "context": "Lời băn khoăn của người xem: sự nghiệp sắp tới",
+    "status": "completed",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_06e53cc0",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_b7c6928b",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_ba89b937",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_e4b1c7b6",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_5c9f8473",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_531a626c",
+        "card_id": 55,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_b89379aa",
+        "card_id": 45,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_02473d3e",
+        "card_id": 42,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_000ba523",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_f3fdc699",
+        "card_id": 33,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_291cb18c",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_6ea8ee6e",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_ab7666fd",
+        "card_id": 64,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_7f921e5d",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_05d7924b",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_2e0e7c54",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_739e265e",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_de45492d",
+        "card_id": 16,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_d6700db6",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_be34f5aa",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_529db066",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_e368e642",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_1f9ad5a3",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_905fd870",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_03d92826",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_68980e93",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_8900454e",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_d09639e3",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_d0a4b321",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_7384d35d",
+        "card_id": 40,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_114b44ac",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_ee5eb91f",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_a5bc56d0",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_3272f0f3",
+        "card_id": 54,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_6f8d728e",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_f55dc6a4",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_7c602a94",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_a1b71bc5",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_0f5acf52",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_b4d192ca",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_d3d66e97",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_fc594ab6",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_034574e8",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_60bccd05",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_57d523ab",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_466a9e03",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_2ba5f7a8",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_699f7e0a",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_14f70e50",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_10b7fc45",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_d89d68f4",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_3b3d6b0d",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_5d746ed7",
+        "card_id": 41,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_0ccdf417",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_1faef92a",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_b3d43e18",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_329714d5",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_ba11190a",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_326b1f6d",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_fc9cdfe1",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_547ae20f",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_65973661",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_cbe07abe",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_0c2f20c3",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_49ad1269",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_883e5ad8",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_943d2be0",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_95685dc0",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_9c498f8f",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_63931f20",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_e82c692a",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_a855a51d",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_d2925f15",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_c4424e4d",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_2d6dd8bd",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_1f565f35",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_d2045c6e",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_fc27536e",
+        "card_id": 3,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [
+      {
+        "card_id": 55,
+        "position_id": "present",
+        "position_name": "Lá 1: Hiện tại",
+        "position_description": "Năng lượng hiện thời, hoàn cảnh thực tế bạn đang đối diện.",
+        "orientation": "upright",
+        "card": {
+          "id": 55,
+          "name": "Six of Swords",
+          "arcana": "minor",
+          "suit": "swords",
+          "number_numerology": 6,
+          "element": "Air",
+          "planet": "Mercury",
+          "zodiac": "Aquarius",
+          "yes_no": "yes",
+          "yes_no_reversed": "no",
+          "keywords_upright": [
+            "transition",
+            "moving on",
+            "calmer waters",
+            "passage",
+            "gradual healing"
+          ],
+          "keywords_reversed": [
+            "resisting transition",
+            "unfinished business",
+            "rough crossing",
+            "returning to trouble",
+            "stuck baggage"
+          ],
+          "meaning_upright": "Transition, moving on, calmer waters, passage, gradual healing.",
+          "meaning_reversed": "Resisting transition, unfinished business, rough crossing, returning to trouble, stuck baggage.",
+          "love": "moving on from conflict, emotional transition, healing together, leaving relationship difficulties behind",
+          "love_reversed": "resisting transition, unfinished business, returning to trouble, stuck",
+          "career": "moving to a better role, gradual career recovery, relocation for work, leaving difficulties behind",
+          "career_reversed": "resisting change, rough transition, unfinished business, stuck baggage",
+          "mood": "Subdued but relieved.",
+          "mood_reversed": "stuck, uneasy, weighed down",
+          "spiritual": "spiritual transition, moving toward clarity, gradual healing, leaving troubled thoughts behind",
+          "spiritual_reversed": "resisting transition, carrying old baggage, returning to trouble, stalled healing",
+          "image": "cards/Swords06.jpg",
+          "name_vi": "Sáu Kiếm",
+          "suit_vi": "Kiếm (Swords)",
+          "keywords_upright_vi": [
+            "chuyển tiếp",
+            "bước tiếp",
+            "vùng nước êm đềm",
+            "hành trình vượt thoát",
+            "chữa lành dần dần"
+          ],
+          "keywords_reversed_vi": [
+            "chống lại sự thay đổi",
+            "việc chưa giải quyết",
+            "hành trình trắc trở",
+            "quay lại rắc rối",
+            "gánh nặng vương vấn"
+          ],
+          "meaning_upright_vi": "Rời bỏ bão giông để hướng về chân trời bình yên hơn. Lá bài biểu thị sự chuyển giao dần dần, dù vẫn mang theo nỗi buồn quá khứ nhưng lòng đã hướng về nơi sóng yên biển lặng.",
+          "meaning_reversed_vi": "Kháng cự lại tiến trình thay đổi tất yếu, bị níu chân bởi những khúc mắc chưa giải quyết; hành trình dịch chuyển gặp nhiều trắc trở và dễ lặp lại sai lầm cũ.",
+          "love_vi": "Cùng nhau vượt qua giai đoạn sóng gió, bỏ lại những tổn thương để hướng tới sự bình yên; hoặc chấp nhận rời đi để tự giải thoát cho trái tim.",
+          "love_reversed_vi": "Không chịu buông bỏ chấp niệm cũ, quay lại mối quan hệ độc hại đã từng gây đau khổ; cảm xúc ứ đọng không thể tiến lên phía trước.",
+          "career_vi": "Chuyển sang công việc mới êm ả hơn, dần phục hồi sau khủng hoảng sự nghiệp; có thể là sự thay đổi vị trí hoặc chuyển chỗ ở vì công việc.",
+          "career_reversed_vi": "Khó khăn trong việc thích nghi với môi trường mới, ôm đồm rắc rối từ chỗ làm cũ; sự nghiệp bấp bênh do chưa giải quyết dứt điểm nợ nần tồn đọng.",
+          "spiritual_vi": "Hành trình thanh lọc tâm thức, dần rời xa những suy nghĩ tiêu cực để đón nhận sự sáng rõ; quá trình hồi phục tinh thần diễn ra từng bước êm ả.",
+          "spiritual_reversed_vi": "Cố chấp mang theo những tổn thương tâm linh cũ; trì trệ trên con đường tiến hóa tinh thần do chưa dám dứt khoát rũ bỏ bóng tối quá khứ."
+        },
+        "resolved_meaning": {
+          "primary_text": "Chuyển sang công việc mới êm ả hơn, dần phục hồi sau khủng hoảng sự nghiệp; có thể là sự thay đổi vị trí hoặc chuyển chỗ ở vì công việc.",
+          "is_vietnamese": true,
+          "keywords": [
+            "chuyển tiếp",
+            "bước tiếp",
+            "vùng nước êm đềm",
+            "hành trình vượt thoát",
+            "chữa lành dần dần"
+          ],
+          "topic": "career",
+          "orientation": "upright",
+          "general_meaning": "Rời bỏ bão giông để hướng về chân trời bình yên hơn. Lá bài biểu thị sự chuyển giao dần dần, dù vẫn mang theo nỗi buồn quá khứ nhưng lòng đã hướng về nơi sóng yên biển lặng."
+        }
+      },
+      {
+        "card_id": 45,
+        "position_id": "obstacle",
+        "position_name": "Lá 2: Trở ngại hoặc điều cần chú ý",
+        "position_description": "Yếu tố cản trở, điểm mù hoặc điều bạn cần lưu tâm cẩn trọng.",
+        "orientation": "upright",
+        "card": {
+          "id": 45,
+          "name": "Ten of Cups",
+          "arcana": "minor",
+          "suit": "cups",
+          "number_numerology": 10,
+          "element": "Water",
+          "planet": "Mars",
+          "zodiac": "Pisces",
+          "yes_no": "yes",
+          "yes_no_reversed": "no",
+          "keywords_upright": [
+            "lasting happiness",
+            "family harmony",
+            "emotional fulfillment",
+            "love realized",
+            "belonging"
+          ],
+          "keywords_reversed": [
+            "family discord",
+            "broken harmony",
+            "unrealistic ideals",
+            "disconnection at home",
+            "strained bonds"
+          ],
+          "meaning_upright": "Lasting happiness, family harmony, emotional fulfillment, love realized, belonging.",
+          "meaning_reversed": "Family discord, broken harmony, unrealistic ideals, disconnection at home, strained bonds.",
+          "love": "lasting happiness, emotional security, harmonious family life, fulfilled partnership",
+          "love_reversed": "family discord, broken harmony, strained bonds, unrealistic ideals",
+          "career": "harmonious workplace, meaningful career, supportive team, long-term professional fulfillment",
+          "career_reversed": "disconnection at work, broken team harmony, misaligned values, strain",
+          "mood": "Loving, fulfilled.",
+          "mood_reversed": "strained, disappointed, disconnected",
+          "spiritual": "spiritual harmony, shared emotional fulfillment, loving community, alignment of heart and home",
+          "spiritual_reversed": "broken harmony, misaligned ideals, disconnection at home, strained belonging",
+          "image": "cards/Cups10.jpg",
+          "name_vi": "Mười Ly",
+          "suit_vi": "Ly (Cups)",
+          "keywords_upright_vi": [
+            "hạnh phúc bền lâu",
+            "gia đạo hòa thuận",
+            "viên mãn cảm xúc",
+            "tình yêu trọn vẹn",
+            "cảm giác thuộc về"
+          ],
+          "keywords_reversed_vi": [
+            "gia đình bất hòa",
+            "rạn nứt êm ấm",
+            "lý tưởng phi thực tế",
+            "xa cách trong gia đình",
+            "mối liên kết căng thẳng"
+          ],
+          "meaning_upright_vi": "Biểu trưng cho hạnh phúc tột cùng, sự hòa hợp tuyệt đối trong gia đình, bình yên trong tâm hồn, tình yêu đơm hoa kết trái và nơi chốn thuộc về bình yên.",
+          "meaning_reversed_vi": "Sự xung đột trong gia đình, rạn nứt các mối liên kết thân thuộc, mải mê theo đuổi bức tranh hạnh phúc ảo tưởng hoặc sự xa cách giữa các thành viên.",
+          "love_vi": "Hạnh phúc viên mãn dài lâu, cảm giác an toàn tuyệt đối bên bạn đời, xây dựng tổ ấm hòa thuận, tình yêu đôi lứa đạt độ chín muồi hoàn hảo.",
+          "love_reversed_vi": "Bất đồng và căng thẳng trong đời sống chung, ảo mộng về một tình yêu không tì vết bị sụp đổ, khoảng cách thế hệ hoặc sự ghẻ lạnh.",
+          "career_vi": "Môi trường công sở đoàn kết như một gia đình, công việc đem lại cảm giác tự hào và ý nghĩa lâu dài, được đồng nghiệp hết lòng hỗ trợ.",
+          "career_reversed_vi": "Xung đột nội bộ nơi công sở, thiếu đi sự gắn kết tập thể, giá trị cá nhân không đồng nhất với văn hóa doanh nghiệp.",
+          "spiritual_vi": "Sự hòa hợp đỉnh cao giữa tâm linh và đời sống, sẻ chia tình yêu thương với cộng đồng, tâm hồn tìm thấy chốn về bình yên và ánh sáng an lành.",
+          "spiritual_reversed_vi": "Cảm giác lạc lõng không thuộc về nơi chốn nào, đức tin bị thử thách bởi những bất hòa bên ngoài, khó tìm thấy sự bình an nội tại."
+        },
+        "resolved_meaning": {
+          "primary_text": "Môi trường công sở đoàn kết như một gia đình, công việc đem lại cảm giác tự hào và ý nghĩa lâu dài, được đồng nghiệp hết lòng hỗ trợ.",
+          "is_vietnamese": true,
+          "keywords": [
+            "hạnh phúc bền lâu",
+            "gia đạo hòa thuận",
+            "viên mãn cảm xúc",
+            "tình yêu trọn vẹn",
+            "cảm giác thuộc về"
+          ],
+          "topic": "career",
+          "orientation": "upright",
+          "general_meaning": "Biểu trưng cho hạnh phúc tột cùng, sự hòa hợp tuyệt đối trong gia đình, bình yên trong tâm hồn, tình yêu đơm hoa kết trái và nơi chốn thuộc về bình yên."
+        }
+      },
+      {
+        "card_id": 63,
+        "position_id": "action",
+        "position_name": "Lá 3: Hướng hành động nên cân nhắc",
+        "position_description": "Lời khuyên hành động và hướng đi nên cân nhắc tiếp theo.",
+        "orientation": "upright",
+        "card": {
+          "id": 63,
+          "name": "King of Swords",
+          "arcana": "minor",
+          "suit": "swords",
+          "number_numerology": 14,
+          "element": "Air",
+          "planet": "Saturn",
+          "zodiac": "Aquarius",
+          "yes_no": "maybe",
+          "yes_no_reversed": "maybe",
+          "keywords_upright": [
+            "intellectual authority",
+            "truth",
+            "impartial judgment",
+            "strategy",
+            "ethical clarity"
+          ],
+          "keywords_reversed": [
+            "abuse of intellect",
+            "cold ruthlessness",
+            "manipulation",
+            "rigid logic",
+            "unjust judgment"
+          ],
+          "meaning_upright": "Intellectual authority, truth, impartial judgment, strategy, ethical clarity.",
+          "meaning_reversed": "Abuse of intellect, cold ruthlessness, manipulation, rigid logic, unjust judgment.",
+          "love": "rational approach to love, serious communication, emotional restraint, fair and thoughtful partnership",
+          "love_reversed": "cold logic, emotional restraint, harsh judgment, manipulation",
+          "career": "strategic leadership, authority through knowledge, ethical decisions, analytical mastery",
+          "career_reversed": "abuse of intellect, cold ruthlessness, rigid logic, unjust decisions",
+          "mood": "Rational, authoritative.",
+          "mood_reversed": "cold, rigid, detached",
+          "spiritual": "higher reasoning, ethical spiritual authority, disciplined thought, commitment to truth",
+          "spiritual_reversed": "rigid logic, misused intellect, cold detachment, judgment without compassion",
+          "image": "cards/Swords14.jpg",
+          "name_vi": "VuaKiếm",
+          "suit_vi": "Kiếm (Swords)",
+          "keywords_upright_vi": [
+            "uy quyền trí tuệ",
+            "chân lý",
+            "phán xét công tâm",
+            "tầm nhìn chiến lược",
+            "minh triết đạo đức"
+          ],
+          "keywords_reversed_vi": [
+            "lạm dụng trí tuệ",
+            "tàn nhẫn lạnh lùng",
+            "thao túng tâm lý",
+            "lý trí cứng nhắc",
+            "phán quyết bất công"
+          ],
+          "meaning_upright_vi": "Quyền uy của trí tuệ tối cao, lòng tôn trọng chân lý, phán xét công minh không thiên vị, tư duy chiến lược và sự rõ ràng về chuẩn mực đạo đức.",
+          "meaning_reversed_vi": "Lạm dụng trí thông minh, thái độ lạnh lùng tàn nhẫn, mưu mô thao túng, lý trí khô khan độc đoán và những phán quyết bất công.",
+          "love_vi": "Tiếp cận tình yêu bằng lý trí chín chắn, giao tiếp nghiêm túc thẳng thắn, kiểm soát cảm xúc tốt, hướng đến mối quan hệ công bằng và thấu hiểu.",
+          "love_reversed_vi": "Khô khan thiếu cảm xúc, kìm nén tình cảm đến mức lãnh đạm, chỉ trích áp đặt bạn đời, dùng lý lẽ để thao túng mối quan hệ.",
+          "career_vi": "Năng lực lãnh đạo chiến lược, uy tín khẳng định qua kiến thức sâu rộng, ra quyết định chuẩn mực có đạo đức, làm chủ tư duy phân tích.",
+          "career_reversed_vi": "Lạm quyền vì tư lợi, đối xử lạnh lùng vô cảm với cấp dưới, tư duy bảo thủ xơ cứng, đưa ra quyết định sai lệch bất công.",
+          "spiritual_vi": "Tư duy bậc cao sáng rõ, thẩm quyền tâm linh có đạo đức, kỷ luật trong suy nghĩ, dấn thân tìm kiếm chân lý tối thượng.",
+          "spiritual_reversed_vi": "Lý trí hóa tâm linh một cách giáo điều, sử dụng tri thức sai mục đích, tách rời cảm xúc, phán xét người khác thiếu lòng trắc ẩn."
+        },
+        "resolved_meaning": {
+          "primary_text": "Năng lực lãnh đạo chiến lược, uy tín khẳng định qua kiến thức sâu rộng, ra quyết định chuẩn mực có đạo đức, làm chủ tư duy phân tích.",
+          "is_vietnamese": true,
+          "keywords": [
+            "uy quyền trí tuệ",
+            "chân lý",
+            "phán xét công tâm",
+            "tầm nhìn chiến lược",
+            "minh triết đạo đức"
+          ],
+          "topic": "career",
+          "orientation": "upright",
+          "general_meaning": "Quyền uy của trí tuệ tối cao, lòng tôn trọng chân lý, phán xét công minh không thiên vị, tư duy chiến lược và sự rõ ràng về chuẩn mực đạo đức."
+        }
+      }
+    ],
+    "retry_count": 0,
+    "ai_result": {
+      "headline": "Giữa sự êm ấm quen thuộc và quyết định lý trí",
+      "summary": "Bạn đang đứng ở giai đoạn chuyển tiếp, vừa bước ra khỏi những xáo trộn để tìm lại sự ổn định trong công việc. Mâu thuẫn lớn nhất lúc này không đến từ bên ngoài, mà nằm ở sự giằng co giữa mong muốn an toàn, hòa hợp về mặt cảm xúc với yêu cầu phải tỉnh táo, dứt khoát để bứt phá. Để tiến xa hơn, bạn cần dùng lý trí sắc bén thay vì chỉ nương theo cảm giác dễ chịu.",
+      "card_readings": [
+        {
+          "card_id": 55,
+          "position_id": "present",
+          "card_name": "Six of Swords",
+          "orientation": "upright",
+          "interpretation": "Lá bài này phản ánh bạn đang trong giai đoạn chuyển dịch hoặc hồi phục sau một chuỗi ngày căng thẳng. Có thể bạn vừa đổi vị trí, đổi dự án hoặc đơn giản là hạ quyết tâm bỏ lại những bất ổn phía sau. Thực tế bạn có thể nhận thấy là nhịp độ công việc đang dần chậm lại, dễ thở hơn. Điều bạn nên cân nhắc lúc này là nhận diện xem mình đang thực sự tiến về phía trước hay chỉ đang tạm thời trốn chạy áp lực cũ."
+        },
+        {
+          "card_id": 45,
+          "position_id": "obstacle",
+          "card_name": "Ten of Cups",
+          "orientation": "upright",
+          "interpretation": "Xuất hiện ở vị trí trở ngại, hình ảnh viên mãn này cảnh báo về cái bẫy của vùng an ủi. Bạn có thể đang quá coi trọng sự hòa thuận, e ngại xung đột hoặc chần chừ rời đi vì nể nang đồng nghiệp. Đôi khi, việc tìm kiếm sự thấu hiểu tuyệt đối ở công sở khiến bạn đánh mất tính cạnh tranh. Hãy tự hỏi liệu bạn có đang thỏa hiệp với mức đãi ngộ hay vị trí chưa tương xứng chỉ vì nơi đó cho bạn cảm giác thân thuộc?"
+        },
+        {
+          "card_id": 63,
+          "position_id": "action",
+          "card_name": "King of Swords",
+          "orientation": "upright",
+          "interpretation": "Lời khuyên dành cho bạn là hãy hành động với sự sắc bén và nguyên tắc rõ ràng của một người lãnh đạo bản thân. Tạm gác cảm xúc sang một bên, hãy nhìn nhận lộ trình sự nghiệp dựa trên năng lực, dữ liệu và giá trị thực tế. Khi cần thương thảo quyền lợi hay định hình bước đi mới, hãy giao tiếp trực diện, gãy gọn và kiên định với tiêu chuẩn của mình. Sự công tâm và lý trí sẽ là vũ khí mạnh nhất của bạn lúc này."
+        }
+      ],
+      "synthesis": "Ba lá bài tạo nên một lộ trình dịch chuyển rõ ràng từ trạng thái xoa dịu sang hành động quyết liệt. Six of Swords cho thấy bạn đã can đảm rời khỏi vùng nước động để tìm kiếm sự bình yên hơn. Tuy nhiên, Ten of Cups ở vị trí điều cần chú ý lại đặt ra một cái bẫy tâm lý: sự gắn bó tình cảm, nỗi sợ mất đi hòa khí hoặc mong muốn một môi trường 'như gia đình' có thể níu chân bạn. Cây cầu nối để bạn thật sự làm chủ tương lai chính là King of Swords—sự tỉnh táo và năng lực ra quyết định độc lập. Bạn không thể vừa muốn bứt phá sự nghiệp, vừa mong làm hài lòng tất cả mọi người.",
+      "actions": [
+        "Viết ra 3 tiêu chuẩn nghề nghiệp cốt lõi (thu nhập, kỹ năng cần học, cơ hội thăng tiến) và đối chiếu xem vị trí hiện tại đáp ứng được bao nhiêu phần trăm.",
+        "Tập từ chối một yêu cầu công việc nằm ngoài trách nhiệm mà trước đây bạn thường nhận chỉ vì nể nang hoặc sợ mất lòng đồng nghiệp."
+      ],
+      "reflection_question": "Bạn đang giữ lại sự gắn bó vì nó thực sự nâng đỡ sự nghiệp của bạn, hay chỉ vì bạn ngại cảm giác phải bắt đầu lại từ đầu?",
+      "limitations": "",
+      "model_used": "gemini-3.7-flash",
+      "generated_at": "2026-10-11T12:27:55.180Z"
+    }
   }
 }

@@ -95,6 +95,39 @@
   },
   "orders": [
     {
+      "id": "ord_1791721495122_43ck",
+      "code": "TAROT-5904",
+      "packageId": "companion",
+      "packageName": "Đồng hành (99.000 đ)",
+      "amount": 99000,
+      "status": "pending",
+      "customerEmail": "khach_an_danh@tarot.me",
+      "paymentMethod": "vietqr",
+      "createdAt": "2026-10-11T12:24:55.122Z"
+    },
+    {
+      "id": "ord_1791721491443_bdh4",
+      "code": "TAROT-7866",
+      "packageId": "deep",
+      "packageName": "Chuyên sâu (29.000 đ)",
+      "amount": 29000,
+      "status": "pending",
+      "customerEmail": "khach_an_danh@tarot.me",
+      "paymentMethod": "vietqr",
+      "createdAt": "2026-10-11T12:24:51.443Z"
+    },
+    {
+      "id": "ord_1791721491434_nhsv",
+      "code": "TAROT-4525",
+      "packageId": "deep",
+      "packageName": "Chuyên sâu (29.000 đ)",
+      "amount": 29000,
+      "status": "pending",
+      "customerEmail": "khach_an_danh@tarot.me",
+      "paymentMethod": "vietqr",
+      "createdAt": "2026-10-11T12:24:51.434Z"
+    },
+    {
       "id": "ord_1791721316686_0s34",
       "code": "TAROT-4961",
       "packageId": "deep",
@@ -214,6 +247,30 @@
     "errorRatePct": 0.4
   },
   "auditLogs": [
+    {
+      "id": "log_1791721495122",
+      "timestamp": "2026-10-11T12:24:55.122Z",
+      "action": "ORDER_CREATED",
+      "module": "Order & Payment",
+      "status": "info",
+      "message": "Đơn mới TAROT-5904 (Đồng hành - 99.000 đ) được khởi tạo"
+    },
+    {
+      "id": "log_1791721491443",
+      "timestamp": "2026-10-11T12:24:51.443Z",
+      "action": "ORDER_CREATED",
+      "module": "Order & Payment",
+      "status": "info",
+      "message": "Đơn mới TAROT-7866 (Chuyên sâu - 29.000 đ) được khởi tạo"
+    },
+    {
+      "id": "log_1791721491434",
+      "timestamp": "2026-10-11T12:24:51.434Z",
+      "action": "ORDER_CREATED",
+      "module": "Order & Payment",
+      "status": "info",
+      "message": "Đơn mới TAROT-4525 (Chuyên sâu - 29.000 đ) được khởi tạo"
+    },
     {
       "id": "log_1791721320263",
       "timestamp": "2026-10-11T12:22:00.263Z",

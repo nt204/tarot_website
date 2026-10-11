@@ -210,6 +210,18 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     }
   }, [resetKey]);
 
+  // Khóa cuộn trang khi hộp thoại tâm sự đang mở để tránh bị đè hoặc cuộn lệch
+  useEffect(() => {
+    if (isDialogueOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isDialogueOpen]);
+
 
 
   // Refs DOM
@@ -1020,7 +1032,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.45, ease: 'easeInOut' }}
-              className="fixed inset-0 z-50 bg-[#080708]/98 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+              className="fixed inset-0 z-[80] bg-[#080708]/98 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
             >
               {/* Vầng hào quang bàn thờ tâm sự thiêng liêng */}
               <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(201,168,92,0.08),rgba(0,0,0,0))] -z-10" />
