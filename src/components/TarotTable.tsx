@@ -13,7 +13,6 @@ import {
 import { Card3D } from '@/components/Card3D';
 import { VipExtendCard } from '@/components/VipExtendCard';
 import { VipReadingResultView } from '@/components/VipReadingResultView';
-import { VipCardPickerModal } from '@/components/VipCardPickerModal';
 
 interface OpaqueSlot {
   slot_id: string;
@@ -113,11 +112,51 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     setIsDeepUnlocked(false);
     setVipExtension(null);
     setIsVipPickerOpen(false);
+    setIsVipPicking(false);
+    setVipSelectedSlotIds([]);
+    setIsVipConnecting(false);
+    if (targetSlotsContainerRef.current) {
+      gsap.set(targetSlotsContainerRef.current, { scale: 1, y: 0, opacity: 1 });
+    }
+    if (fanContainerRef.current) {
+      gsap.set(fanContainerRef.current, { scale: 1, y: 0, opacity: 1 });
+    }
     if (externalOnCloseDialogue) {
       externalOnCloseDialogue();
     } else {
       setInternalIsDialogueOpen(false);
     }
+  };
+
+  const handleStartVipPicking = () => {
+    setIsVipPicking(true);
+    setVipSelectedSlotIds([]);
+    setFlyingSlotIds([]);
+    setIsVipConnecting(false);
+    setIsZoomingIn(false);
+    if (targetSlotsContainerRef.current) {
+      gsap.set(targetSlotsContainerRef.current, { scale: 1, y: 0, opacity: 1 });
+    }
+    if (fanContainerRef.current) {
+      gsap.set(fanContainerRef.current, { scale: 1, y: 0, opacity: 1 });
+    }
+    const titleArea = document.querySelector('#picking-title-area');
+    if (titleArea) {
+      gsap.set(titleArea, { y: 0, opacity: 1 });
+    }
+    setStep('picking');
+    setTimeout(() => {
+      const target = document.getElementById('tarot-table');
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+  };
+
+  const handleCancelVipPicking = () => {
+    setIsVipPicking(false);
+    setVipSelectedSlotIds([]);
+    setFlyingSlotIds([]);
+    setIsVipConnecting(false);
+    setStep('drawn');
   };
 
   const handleResetToHome = () => {
@@ -201,6 +240,9 @@ export const TarotTable: React.FC<TarotTableProps> = ({
   };
   const [vipExtension, setVipExtension] = useState<VipExtensionResult | null>(null);
   const [isVipPickerOpen, setIsVipPickerOpen] = useState<boolean>(false);
+  const [isVipPicking, setIsVipPicking] = useState<boolean>(false);
+  const [vipSelectedSlotIds, setVipSelectedSlotIds] = useState<string[]>([]);
+  const [isVipConnecting, setIsVipConnecting] = useState<boolean>(false);
 
   // Áp dụng chủ đề và kiểu trải của thẻ mà người dùng vừa chọn.
   useEffect(() => {
@@ -294,7 +336,8 @@ export const TarotTable: React.FC<TarotTableProps> = ({
   };
 
   // 19 lá bài trên quạt - vừa vặn hoàn hảo, xòe cánh cung đầy đặn
-  const fanCards = slots.slice(0, 19);
+  const availableVipSlots = slots.filter((s) => !selectedSlotIds.includes(s.slot_id));
+  const fanCards = (isVipPicking ? availableVipSlots : slots).slice(0, 19);
 
   // Hiệu ứng chữ chạy ra từ từ từng ký tự (Typewriter) khi mở hộp thoại tâm sự
   useEffect(() => {
@@ -497,6 +540,10 @@ export const TarotTable: React.FC<TarotTableProps> = ({
       setFanDealt(false);
       isSelectingRef.current = false;
       setIsZoomingIn(false);
+      setIsVipPicking(false);
+      setVipSelectedSlotIds([]);
+      setIsVipConnecting(false);
+      setVipExtension(null);
       setStep('shuffling');
 
       let fingerprint = 'guest_user';
@@ -760,15 +807,17 @@ export const TarotTable: React.FC<TarotTableProps> = ({
 
   // 3. Chọn lá bài: Lá bay từ từ, mượt mà vào ô mục tiêu bằng GPU transform, không giật/nháy hình
   const handleSelectSlot = (slotId: string, cardIndex: number) => {
-    if (isSelectingRef.current || isZoomingIn) return;
-    if (selectedSlotIds.includes(slotId) || flyingSlotIds.includes(slotId)) return;
-    if (selectedSlotIds.length >= requiredCount) return;
+    if (isSelectingRef.current || isZoomingIn || isVipConnecting) return;
+    const currentSelected = isVipPicking ? vipSelectedSlotIds : selectedSlotIds;
+    const currentRequired = isVipPicking ? 2 : requiredCount;
+    if (currentSelected.includes(slotId) || flyingSlotIds.includes(slotId)) return;
+    if (currentSelected.length >= currentRequired) return;
 
     // Ngắt ngay trạng thái hover của các lá bài khác
     setHoveredCardIndex(null);
     playLightCardSound();
 
-    const targetSlotIndex = selectedSlotIds.length;
+    const targetSlotIndex = currentSelected.length;
     const cardEl = fanCardRefs.current[cardIndex];
     const targetEl = slotTargetRefs.current[targetSlotIndex];
 
@@ -857,6 +906,79 @@ export const TarotTable: React.FC<TarotTableProps> = ({
   };
 
   const finishCardSelection = async (slotId: string) => {
+    if (isVipPicking) {
+      const newVipSelected = [...vipSelectedSlotIds, slotId];
+      setVipSelectedSlotIds(newVipSelected);
+      setFlyingSlotIds((prev) => prev.filter((id) => id !== slotId));
+
+      if (newVipSelected.length === 2 && readingId) {
+        try {
+          setIsVipConnecting(true);
+          await new Promise((resolve) => setTimeout(resolve, 200));
+
+          if (fanContainerRef.current) {
+            gsap.to(fanContainerRef.current, {
+              opacity: 0,
+              y: 55,
+              scale: 0.92,
+              duration: 0.65,
+              ease: 'power2.in'
+            });
+          }
+
+          const titleArea = document.querySelector('#picking-title-area');
+          if (titleArea) {
+            gsap.to(titleArea, { opacity: 0, y: -25, duration: 0.5, ease: 'power2.in' });
+          }
+
+          if (targetSlotsContainerRef.current) {
+            gsap.to(targetSlotsContainerRef.current, {
+              scale: 1.5,
+              y: 40,
+              duration: 0.8,
+              ease: 'power2.inOut'
+            });
+          }
+
+          const res = await fetch('/api/reading/extend-vip', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              reading_id: readingId,
+              selected_slot_ids: newVipSelected
+            })
+          });
+
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || 'Trạm tạm thời chưa thể kết nối bài mở rộng lúc này.');
+
+          setDrawnCards((prev) => {
+            const existingIds = new Set(prev.map((c) => c.card_id));
+            const fresh = (data.new_drawn_cards as DrawnCard[]).filter((c) => !existingIds.has(c.card_id));
+            return [...prev, ...fresh];
+          });
+
+          // Giữ 3 lá đầu đã lật, 2 lá mở rộng úp để người dùng bấm lật mở 3D
+          setFlippedCards({ 0: true, 1: true, 2: true, 3: false, 4: false });
+          setRevealedCardIndexes([0, 1, 2]);
+          setVipExtension(data.vip_extension);
+          setIsDeepUnlocked(true);
+          setIsVipConnecting(false);
+          setIsVipPicking(false);
+          setStep('drawn');
+
+          setTimeout(() => {
+            const target = document.getElementById('tarot-table');
+            target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 150);
+        } catch (e: any) {
+          setIsVipConnecting(false);
+          alert(e.message || 'Trạm tạm thời chưa thể kết nối bài mở rộng.');
+        }
+      }
+      return;
+    }
+
     const newSelected = [...selectedSlotIds, slotId];
     setSelectedSlotIds(newSelected);
     setFlyingSlotIds((prev) => prev.filter((id) => id !== slotId));
@@ -1303,36 +1425,49 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
             <div className="w-full flex items-center justify-between pb-0.5 max-w-4xl px-2 z-20">
               <button
                 type="button"
-                onClick={handleResetToHome}
+                onClick={isVipPicking ? handleCancelVipPicking : handleResetToHome}
                 className="inline-flex items-center gap-2 text-xs font-heading text-[#A89882] hover:text-[#C9A85C] border border-[#33281D] hover:border-[#C9A85C]/60 bg-[#120F16]/90 px-3.5 py-1.5 rounded-full transition-colors cursor-pointer shadow-md"
               >
                 <span>←</span>
-                <span>Trở về trang chủ</span>
+                <span>{isVipPicking ? 'Trở lại kết quả 3 lá' : 'Trở về trang chủ'}</span>
               </button>
               <span className="text-[11px] font-mono text-[#7A6A55] tracking-wider uppercase hidden sm:inline">
-                ✦ Trải bài: {topic === 'love' ? 'Tình cảm' : topic === 'career' ? 'Sự nghiệp' : 'Tổng quan'} ({spread === 'three_cards' ? '3 lá' : '1 lá'})
+                {isVipPicking
+                  ? '✦ Mở rộng VIP: 2 lá bổ sung'
+                  : `✦ Trải bài: ${topic === 'love' ? 'Tình cảm' : topic === 'career' ? 'Sự nghiệp' : 'Tổng quan'} (${spread === 'three_cards' ? '3 lá' : '1 lá'})`}
               </span>
             </div>
 
             {/* Tiêu đề sảnh bốc bài */}
             <div id="picking-title-area" className="text-center space-y-1">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-normal text-[#C9A85C] uppercase tracking-[0.05em] leading-tight">
-                Hãy chọn {requiredCount} lá bài bạn cảm thấy thu hút nhất
+                {isVipPicking
+                  ? 'Rút thêm 2 lá bài bổ sung · VIP'
+                  : `Hãy chọn ${requiredCount} lá bài bạn cảm thấy thu hút nhất`}
               </h2>
               <div className="min-h-[20px] flex items-center justify-center">
                 <p className="text-xs sm:text-sm text-[#BDB4A8] font-body transition-opacity duration-500">
-                  Đã chọn: <span className="text-[#C9A85C] font-semibold">{selectedSlotIds.length}</span> / {requiredCount} lá · Bấm vào từng lá bài để rút lên ô
+                  {isVipPicking ? (
+                    <>
+                      Đã chọn: <span className="text-[#C9A85C] font-semibold">{vipSelectedSlotIds.length}</span> / 2 lá · Lắng đọng trực giác và chọn 2 lá để mở rộng góc nhìn
+                    </>
+                  ) : (
+                    <>
+                      Đã chọn: <span className="text-[#C9A85C] font-semibold">{selectedSlotIds.length}</span> / {requiredCount} lá · Bấm vào từng lá bài để rút lên ô
+                    </>
+                  )}
                 </p>
               </div>
             </div>
 
-            {/* ================= 3 Ô MỤC TIÊU (NÉT LIỀN HOÀN TOÀN, VIỀN KÉP ÁNH KIM SANG TRỌNG) ================= */}
+            {/* ================= Ô MỤC TIÊU (NÉT LIỀN HOÀN TOÀN, VIỀN KÉP ÁNH KIM SANG TRỌNG) ================= */}
             <div
               ref={targetSlotsContainerRef}
               className="flex items-center justify-center gap-2 sm:gap-4 md:gap-5 py-0.5 sm:py-1 will-change-transform"
             >
-              {Array.from({ length: requiredCount }).map((_, idx) => {
-                const isPicked = selectedSlotIds.length > idx;
+              {Array.from({ length: isVipPicking ? 2 : requiredCount }).map((_, idx) => {
+                const currentSelected = isVipPicking ? vipSelectedSlotIds : selectedSlotIds;
+                const isPicked = currentSelected.length > idx;
                 return (
                   <div
                     key={idx}
@@ -1347,14 +1482,18 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                         {/* Viền trang trí kép bên trong - hoàn toàn liền nét */}
                         <div className="absolute inset-1.5 sm:inset-2 border border-[#C9A85C]/20 rounded-lg pointer-events-none" />
                         <div className="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full border border-[#7C6339] bg-[#181410] flex items-center justify-center text-[10px] sm:text-xs text-[#C9A85C] font-heading font-medium">
-                          {idx + 1}
+                          {isVipPicking ? (idx === 0 ? 'IV' : 'V') : idx + 1}
                         </div>
                         <span className="text-[9px] sm:text-xs text-[#E0D2C0] font-heading uppercase tracking-wide px-0.5 text-center leading-tight">
-                          {idx === 0 ? 'Hiện tại' : idx === 1 ? 'Cần chú ý' : 'Hành động'}
+                          {isVipPicking
+                            ? (idx === 0 ? 'Điều chưa xem xét' : 'Góc nhìn tiến lên')
+                            : (idx === 0 ? 'Hiện tại' : idx === 1 ? 'Cần chú ý' : 'Hành động')}
                         </span>
                         <div className="w-6 sm:w-8 h-[1px] bg-[#5A4732]" />
                         <span className="text-[8px] sm:text-[9.5px] text-[#8C7A65] font-body">
-                          {idx === 0 ? 'Năng lượng' : idx === 1 ? 'Thử thách' : 'Lời khuyên'}
+                          {isVipPicking
+                            ? (idx === 0 ? 'Yếu tố ẩn giấu' : 'Hướng đi mới')
+                            : (idx === 0 ? 'Năng lượng' : idx === 1 ? 'Thử thách' : 'Lời khuyên')}
                         </span>
                       </div>
                     )}
@@ -1373,27 +1512,43 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
               })}
             </div>
 
+            {/* Trạng thái đang kết nối VIP khi vừa rút đủ 2 lá */}
+            {isVipConnecting && (
+              <div className="flex flex-col items-center justify-center py-2 space-y-2 animate-fade-in">
+                <div className="w-7 h-7 border-2 border-[#C9A85C] border-t-transparent rounded-full animate-spin" />
+                <p className="text-sm text-[#DEC078] font-heading tracking-wide">
+                  Trạm đang kết nối thông điệp 5 lá bài toàn cảnh...
+                </p>
+                <p className="text-xs text-[#8C7A65] font-body">
+                  Lắng đọng năng lượng từ bộ bài để mở rộng góc nhìn cho bạn
+                </p>
+              </div>
+            )}
+
             {/* ================= QUẠT BÀI CĂN GIỮA CHUẨN XÁC, XÒE CÁNH CUNG TUYỆT ĐẸP ================= */}
             <div
-              key={`fan-board-${readingId || 'active'}`}
+              key={`fan-board-${readingId || 'active'}-${isVipPicking ? 'vip' : 'free'}`}
               ref={fanContainerRef}
               className="relative w-full max-w-4xl h-44 sm:h-68 md:h-76 flex items-center justify-center px-1 sm:px-4 overflow-visible mt-0.5 sm:mt-2 will-change-transform"
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 {fanCards.map((slot, index) => {
                   const total = fanCards.length;
-                  const isSelected = selectedSlotIds.includes(slot.slot_id) || flyingSlotIds.includes(slot.slot_id);
-                  // Chỉ cho phép tương tác/hover khi quạt đã chia xong, chưa đủ 3 lá và không có lá nào đang bay
+                  const currentSelected = isVipPicking ? vipSelectedSlotIds : selectedSlotIds;
+                  const currentRequired = isVipPicking ? 2 : requiredCount;
+                  const isSelected = currentSelected.includes(slot.slot_id) || flyingSlotIds.includes(slot.slot_id);
+                  // Chỉ cho phép tương tác/hover khi quạt đã chia xong, chưa đủ số lá và không có lá nào đang bay
                   const isFanInteractive =
                     fanDealt &&
                     !isSelectingRef.current &&
                     !isZoomingIn &&
-                    selectedSlotIds.length < requiredCount;
+                    !isVipConnecting &&
+                    currentSelected.length < currentRequired;
                   const isHovered = isFanInteractive && hoveredCardIndex === index && !isSelected;
                   const maxAngle = isMobile ? 36 : 54;
-                  const stepAngle = maxAngle / (total - 1);
+                  const stepAngle = total > 1 ? maxAngle / (total - 1) : 0;
                   const angle = -maxAngle / 2 + index * stepAngle;
-                  const normalized = (index - (total - 1) / 2) / ((total - 1) / 2);
+                  const normalized = total > 1 ? (index - (total - 1) / 2) / ((total - 1) / 2) : 0;
                   const arcHeight = isMobile ? 10 : 26;
                   const offsetY = Math.pow(normalized, 2) * arcHeight;
                   const spacing = isMobile ? 11 : 28;
@@ -1404,14 +1559,14 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                       key={slot.slot_id}
                       ref={(el) => { fanCardRefs.current[index] = el; }}
                       onClick={() => {
-                        if (isSelectingRef.current || isZoomingIn || isSelected || !fanDealt) return;
-                        if (selectedSlotIds.length >= requiredCount) return;
+                        if (isSelectingRef.current || isZoomingIn || isVipConnecting || isSelected || !fanDealt) return;
+                        if (currentSelected.length >= currentRequired) return;
                         handleSelectSlot(slot.slot_id, index);
                       }}
                       // Sự kiện chuột chỉ kích hoạt một lần khi di chuyển vào lá bài mới, không spam onMouseMove
                       onMouseEnter={() => {
-                        if (isSelectingRef.current || isZoomingIn || isSelected || !fanDealt) return;
-                        if (selectedSlotIds.length >= requiredCount) return;
+                        if (isSelectingRef.current || isZoomingIn || isVipConnecting || isSelected || !fanDealt) return;
+                        if (currentSelected.length >= currentRequired) return;
                         handleCardHover(index);
                       }}
                       onMouseLeave={() => {
@@ -1552,28 +1707,29 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                 transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
                 className="text-center space-y-1 sm:space-y-2 border-b border-[#261E18] pb-4 sm:pb-8"
               >
-                <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#C9A85C] font-heading block">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#C9A85C] font-heading block">
                   Câu hỏi của bạn
                 </span>
-                <h2 className="font-heading text-[16px] sm:text-2xl lg:text-3xl text-[#EEE6D8] font-normal italic leading-snug max-w-2xl mx-auto px-2">
+                <h2 className="font-heading text-xs sm:text-sm lg:text-base text-[#D4C8B8] font-normal italic leading-relaxed max-w-xl mx-auto px-4">
                   &ldquo;{question || 'Thông điệp định hướng cho bạn lúc này'}&rdquo;
                 </h2>
               </motion.div>
 
-              {/* 2. BA LÁ BÀI (TRẢI NGHIỆM LẬT BÀI 3D TO RÕ RÀNG, TIẾP NỐI ZOOM MƯỢT MÀ KHÔNG GIẬT) */}
+              {/* 2. CÁC LÁ BÀI (TRẢI NGHIỆM LẬT BÀI 3D TO RÕ RÀNG, TIẾP NỐI ZOOM MƯỢT MÀ KHÔNG GIẬT) */}
               <motion.div
                 initial={{ opacity: 0.65, scale: 0.91 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className="space-y-6"
               >
+                {/* 3 Lá ban đầu */}
                 <div
                   className={`grid gap-2 sm:gap-8 md:gap-12 justify-center items-start ${spread === 'daily'
                       ? 'grid-cols-1 max-w-sm mx-auto'
                       : 'grid-cols-3 max-w-4xl sm:max-w-5xl mx-auto'
                     }`}
                 >
-                  {drawnCards.map((dc, idx) => (
+                  {drawnCards.slice(0, spread === 'daily' ? 1 : 3).map((dc, idx) => (
                     <div key={dc.card_id} className="flex flex-col items-center w-full">
                       <Card3D
                         cardId={dc.card_id}
@@ -1590,13 +1746,60 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                     </div>
                   ))}
                 </div>
+
+                {/* Hai lá bài bổ sung VIP nếu đã rút */}
+                {drawnCards.length >= 5 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="pt-6 sm:pt-8 border-t border-[#261E18] space-y-4"
+                  >
+                    <div className="text-center space-y-1">
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-[#C9A85C] text-xs">✦</span>
+                        <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#C9A85C] font-heading font-semibold">
+                          Hai lá bài mở rộng · VIP đặc quyền
+                        </span>
+                        <span className="text-[#C9A85C] text-xs">✦</span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-[#A6998A] font-light">
+                        {revealedCardIndexes.length < 5
+                          ? 'Chạm vào từng lá bài bên dưới để tự tay lật mở hai góc nhìn mới'
+                          : 'Hai góc nhìn bổ sung đã được khai mở trọn vẹn'}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3 sm:gap-8 md:gap-12 justify-center items-start max-w-sm sm:max-w-xl mx-auto">
+                      {drawnCards.slice(3, 5).map((dc, i) => {
+                        const idx = i + 3;
+                        return (
+                          <div key={dc.card_id} className="flex flex-col items-center w-full">
+                            <Card3D
+                              cardId={dc.card_id}
+                              imageSrc={dc.card.image}
+                              nameEn={dc.card.name}
+                              backImage={currentBackCard}
+                              orientation={dc.orientation}
+                              positionName={getPositionDisplay(idx)}
+                              isFlipped={Boolean(flippedCards[idx])}
+                              onFlip={() => handleFlipCard(idx)}
+                              priority
+                              className="w-full max-w-[110px] sm:max-w-[280px]"
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
 
               {/* Kiểm tra điều kiện mở đủ các lá bài:
-                  - 3 lá đối với trải 3 lá (hoặc 1 lá đối với trải hàng ngày)
+                  - 3 lá đối với trải 3 lá (hoặc 1 lá đối với trải hàng ngày, 5 lá khi mở rộng VIP)
                   - Lật mở xong rồi lật úp lại vẫn tính là đã mở */}
               {(() => {
-                const targetCardsCount = spread === 'daily' ? 1 : 3;
+                const targetCardsCount = spread === 'daily' ? 1 : (drawnCards.length >= 5 ? 5 : 3);
                 const allCardsRevealed = drawnCards.length > 0 && revealedCardIndexes.length >= Math.min(targetCardsCount, drawnCards.length);
 
                 return (
@@ -1611,12 +1814,14 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                         <p className="text-xs sm:text-sm text-[#C9A85C] font-heading tracking-wider">
                           ✦ {spread === 'daily'
                             ? `Lật mở lá bài để xem lời luận giải chi tiết (${revealedCardIndexes.length}/1 lá)`
-                            : `Lật mở cả 3 lá bài để xem lời luận giải chi tiết (${revealedCardIndexes.length}/3 lá)`} ✦
+                            : drawnCards.length >= 5
+                              ? `Lật mở 2 lá bài bổ sung để đón nhận trọn vẹn thông điệp từ Trạm (${revealedCardIndexes.length}/5 lá)`
+                              : `Lật mở cả 3 lá bài để xem lời luận giải chi tiết (${revealedCardIndexes.length}/3 lá)`} ✦
                         </p>
                       </motion.div>
                     )}
 
-                    {/* Trạng thái đang tải AI khi đã mở đủ bài */}
+                    {/* Trạng thái đang tải luận giải khi đã mở đủ bài */}
                     {allCardsRevealed && readingStatus === 'generating' && (
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -1625,25 +1830,25 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                       >
                         <div className="w-9 h-9 border-2 border-[#C9A85C] border-t-transparent rounded-full animate-spin mx-auto" />
                         <p className="text-base text-[#C9A85C] font-body">
-                          Đang lắng đọng và kết nối ý nghĩa các lá bài với câu hỏi của bạn...
+                          Trạm đang lắng đọng và kết nối ý nghĩa các lá bài với câu hỏi của bạn...
                         </p>
                       </motion.div>
                     )}
 
-                    {/* Lỗi AI khi đã mở đủ bài */}
+                    {/* Lỗi khi đã mở đủ bài */}
                     {allCardsRevealed && readingStatus === 'failed' && (
                       <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="p-5 rounded-xl bg-[#241515] border border-[#5C2323] text-center space-y-2"
                       >
-                        <p className="text-sm text-[#E8A5A5] font-body">{readingError || 'Tạm thời chưa thể tạo bản luận giải.'}</p>
+                        <p className="text-sm text-[#E8A5A5] font-body">{readingError || 'Trạm tạm thời chưa thể kết nối thông điệp lúc này.'}</p>
                         <button
                           type="button"
                           onClick={() => fetchInterpretation(readingId!)}
                           className="px-5 py-2 bg-[#C9A85C] text-[#14100D] font-medium text-xs rounded font-body cursor-pointer"
                         >
-                          Thử lại
+                          Thử kết nối lại
                         </button>
                       </motion.div>
                     )}
@@ -1813,7 +2018,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                             readingId={readingId || undefined}
                             isVipUnlocked={isDeepUnlocked}
                             onVipUnlocked={() => setIsDeepUnlocked(true)}
-                            onStartPickExtraCards={() => setIsVipPickerOpen(true)}
+                            onStartPickExtraCards={handleStartVipPicking}
                           />
                         ) : (
                           <VipReadingResultView
@@ -1869,17 +2074,6 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                 <span>✦</span>
                 <span>Đã sao chép nội dung trải bài để bạn lưu lại!</span>
               </div>
-            )}
-
-            {/* Modal tương tác rút 2 lá mở rộng VIP */}
-            {readingId && (
-              <VipCardPickerModal
-                isOpen={isVipPickerOpen}
-                onClose={() => setIsVipPickerOpen(false)}
-                readingId={readingId}
-                availableSlotIds={slots.map((s) => s.slot_id).filter((id) => !selectedSlotIds.includes(id))}
-                onExtensionSuccess={handleExtensionSuccess}
-              />
             )}
           </div>
         )}

@@ -125,7 +125,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
               </div>
               <h3 className="font-heading text-2xl text-[#C9A85C]">Thanh toán thành công!</h3>
               <p className="text-sm text-[#A6998A] max-w-sm mx-auto">
-                Hệ thống đang mở khóa toàn bộ phân tích chuyên sâu cho phiên trải bài của bạn...
+                Trạm đang mở khóa toàn bộ phân tích chuyên sâu cho phiên trải bài của bạn...
               </p>
             </div>
           ) : (
@@ -226,7 +226,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
                   <div className="text-[11px] text-[#A6998A] flex items-start gap-2 bg-[#1B1621] p-2.5 rounded-lg border border-[#2E2430]">
                     <span className="text-[#C9A85C] mt-0.5">ⓘ</span>
                     <span>
-                      Hệ thống tự động đối soát trong 10-30 giây. Sau khi chuyển khoản, bấm nút bên dưới để mở khóa ngay lập tức.
+                      Trạm tự động đối soát trong 10-30 giây. Sau khi chuyển khoản, bấm nút bên dưới để mở khóa ngay lập tức.
                     </span>
                   </div>
 

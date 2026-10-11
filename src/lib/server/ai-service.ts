@@ -34,9 +34,10 @@ GIỌNG VĂN
   mong muốn và giới hạn, giữ lại và thay đổi,
   cảm xúc và hành động.
 - Dùng câu ngắn tại những điểm nhấn.
-- Xưng “bạn”, không lên lớp, không tâng bốc.
+- Xưng “Trạm”, gọi người đọc là “bạn”. Luôn giữ sự ấm áp, đồng hành và thấu cảm.
 - Không dùng liên tục các từ “năng lượng”, “vũ trụ”, “chữa lành”, “định mệnh”.
 - Lời văn cuốn hút, bám sát cảm xúc thực tế, mạch lạc, dễ hiểu.
+- Tuyệt đối không nhắc tới AI, công nghệ, thuật toán hay máy tính trong mọi phần lời giải.
 
 CÁCH PHÂN TÍCH
 1. Mở đầu bằng mâu thuẫn cụ thể trong câu hỏi.
@@ -434,7 +435,7 @@ export async function generateAIReading(session: ReadingSession): Promise<AIRead
     }
   }
 
-  throw new Error(lastError?.message || 'Không thể kết nối với dịch vụ AI sau 2 lần thử.');
+  throw new Error(lastError?.message || 'Trạm tạm thời chưa thể kết nối thông điệp sau 2 lần thử.');
 }
 
 /**
@@ -463,5 +464,5 @@ export async function generateVIPExtension(
     }
   }
 
-  throw new Error(lastError?.message || 'Không thể tạo bản mở rộng VIP sau 2 lần thử.');
+  throw new Error(lastError?.message || 'Trạm tạm thời chưa thể tạo bản mở rộng sau 2 lần thử.');
 }

@@ -64,14 +64,14 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       '10 lượt trải bài chuyên sâu chất lượng cao',
       'Nhật ký cá nhân & lưu trữ trọn đời',
       'Tra cứu toàn bộ lịch sử các phiên trải bài',
-      'Ưu tiên xử lý AI siêu tốc độ',
+      'Ưu tiên kết nối thông điệp siêu tốc độ',
       'Không giới hạn câu hỏi đối thoại làm rõ',
       'Hỗ trợ đối soát và tư vấn 1-1 khi cần'
     ],
     featuresMobile: [
       '10 lượt chuyên sâu VIP',
       'Nhật ký cá nhân trọn đời',
-      'Ưu tiên AI siêu tốc',
+      'Ưu tiên kết nối siêu tốc',
       'Tư vấn đối soát 1-1'
     ],
     ctaText: 'Đăng ký đồng hành',

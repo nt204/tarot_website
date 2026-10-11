@@ -39,7 +39,7 @@ export const VipReadingResultView: React.FC<VipReadingResultViewProps> = ({
 
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C9A85C]/15 border border-[#C9A85C]/40 text-[#DEC078] text-xs font-mono font-medium self-start sm:self-auto">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>VIP 5 CARDS COMPLETED</span>
+          <span>TRẢI BÀI 5 LÁ TOÀN CẢNH</span>
         </div>
       </div>
 
@@ -166,7 +166,7 @@ export const VipReadingResultView: React.FC<VipReadingResultViewProps> = ({
 
       {/* Footer export */}
       <div className="pt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8C7A65] border-t border-[#261E16] gap-3 relative z-10">
-        <span>Toàn bộ 5 lá bài và phân tích chuyên sâu đã được đồng bộ vào hệ thống.</span>
+        <span>Toàn bộ 5 lá bài và phân tích chuyên sâu đã được Trạm ghi nhớ và lưu giữ cho bạn.</span>
         <button
           onClick={() => window.print()}
           className="px-4 py-2 rounded-lg bg-[#1C1622] hover:bg-[#282030] text-[#DEC078] border border-[#3A2F22] hover:border-[#C9A85C] transition-all cursor-pointer"

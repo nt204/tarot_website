@@ -247,7 +247,7 @@ export const VipCardPickerModal: React.FC<VipCardPickerModalProps> = ({
               {isGenerating ? (
                 <>
                   <span className="w-4 h-4 border-2 border-[#0A080C] border-t-transparent rounded-full animate-spin" />
-                  <span>AI đang kết nối 5 lá bài toàn cảnh...</span>
+                  <span>Trạm đang kết nối thông điệp 5 lá bài toàn cảnh...</span>
                 </>
               ) : selectedSlots.length === 2 ? (
                 <>
