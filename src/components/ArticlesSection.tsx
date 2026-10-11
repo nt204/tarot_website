@@ -141,7 +141,7 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
   }, [isDragging]);
 
   return (
-    <section id="articles" className="scroll-mt-20 py-10 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#070506] border-t border-[#26201A] overflow-hidden">
+    <section id="articles" className="scroll-mt-20 py-10 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#070506] border-t border-[#26201A]">
       <div className="max-w-6xl mx-auto space-y-6 sm:space-y-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -202,16 +202,18 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
             onScroll={checkScroll}
             onMouseDown={handleMouseDown}
             onDragStart={(e) => e.preventDefault()}
-            className={`flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-2 px-[11vw] sm:px-0 scrollbar-none select-none ${
+            className={`flex gap-4 sm:gap-6 overflow-x-auto overflow-y-hidden pb-4 pt-2 px-[11vw] sm:px-0 scrollbar-none select-none ${
               isDragging
                 ? 'cursor-grabbing scroll-auto snap-none'
-                : 'cursor-grab scroll-smooth snap-x snap-mandatory'
+                : 'cursor-grab scroll-smooth snap-x snap-mandatory md:snap-none'
             }`}
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
               WebkitOverflowScrolling: 'touch',
               touchAction: 'pan-x pan-y',
+              overscrollBehaviorY: 'auto',
+              overscrollBehaviorX: 'contain',
             }}
           >
             {visibleArticles.map((art, idx) => (
