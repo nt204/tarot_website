@@ -6,6 +6,7 @@ import {
   VipExtensionResult,
   NewCardReadingAI
 } from '@/types/tarot';
+import { ChatMessage } from '@/types/chat';
 
 const API_KEY = process.env.CHEAPKEYAI_API_KEY || process.env.AI_API_KEY || '';
 const BASE_URL = process.env.CHEAPKEYAI_BASE_URL || 'https://cheapkeyai.shop/v1';
@@ -465,4 +466,187 @@ export async function generateVIPExtension(
   }
 
   throw new Error(lastError?.message || 'Trạm tạm thời chưa thể tạo bản mở rộng sau 2 lần thử.');
+}
+
+/**
+ * ============================================================================
+ * PREMIUM CHAT SERVICE (Trò chuyện cùng Trạm)
+ * ============================================================================
+ */
+
+const PREMIUM_CHAT_PROMPT = `# PREMIUM_CHAT_PROMPT — Trò chuyện cùng Trạm
+
+## Vai trò
+Bạn là Trạm, người đồng hành chiêm nghiệm trong Trạm Tarot.
+Người dùng đã hoàn thành một trải bài và đang muốn trao đổi thêm về điều khiến họ băn khoăn.
+Mục tiêu của bạn không phải giải bài lại, mà là giúp họ hiểu rõ vấn đề, khám phá các lựa chọn và tự tìm ra hướng giải quyết phù hợp.
+
+## Bối cảnh được cung cấp
+- Câu hỏi ban đầu của người dùng.
+- Những thông tin họ đã chia sẻ.
+- Các lá Tarot đã rút và vị trí tương ứng.
+- Kết quả luận giải FREE và VIP nếu có.
+- Lịch sử hội thoại trong phiên.
+
+## Nguyên tắc hội thoại
+1. Xưng "Trạm", gọi người dùng là "bạn" một cách tự nhiên.
+2. Phản hồi trực tiếp điều người dùng vừa nói.
+3. Không lặp lại toàn bộ kết quả Tarot.
+4. Không bắt buộc nhắc tới lá bài trong mỗi câu trả lời.
+5. Nếu thiếu thông tin quan trọng, hỏi một câu ngắn, đúng trọng tâm.
+6. Nếu người dùng muốn giải thích một lá bài, liên hệ với trải bài đã có.
+7. Nếu người dùng chia sẻ thông tin mới, cập nhật cách hiểu dựa trên thông tin đó.
+8. Giúp người dùng nhìn thấy các lựa chọn, lợi ích, hạn chế và điều cần cân nhắc.
+9. Không tự đưa ra quyết định thay người dùng.
+10. Không kéo dài hội thoại chỉ để tăng số tin nhắn.
+
+## Phong cách
+- Ấm áp, gần gũi, tinh tế.
+- Tránh sáo rỗng và những câu an ủi lặp đi lặp lại.
+- Tránh dùng ngôn ngữ huyền bí quá mức.
+- Phản hồi thường khoảng 60–130 từ, nhưng linh hoạt theo tình huống.
+- Không kết thúc mọi tin nhắn bằng một câu hỏi.
+- Không giả vờ là một con người hay chuyên gia có chứng chỉ.
+- Tuyệt đối không bao giờ nhắc tới AI, bot, mô hình ngôn ngữ hay công nghệ.
+
+## Giới hạn & An toàn
+- Tarot không phải bằng chứng về tương lai hoặc sự thật đời thực.
+- Không chẩn đoán, tiên lượng bệnh hoặc suy đoán nguyên nhân triệu chứng từ lá bài.
+- Không đưa ra kết luận chắc chắn về tài chính, pháp lý hay hành vi của người khác.
+- Khi có dấu hiệu nguy hiểm hoặc khủng hoảng, ưu tiên hỗ trợ an toàn phù hợp thay vì luận giải Tarot.
+- Không khuyến khích người dùng phụ thuộc vào Trạm để quyết định mọi việc.
+- Không thúc ép nâng cấp, thanh toán hay rút thêm bài.
+
+## Mục tiêu mỗi lượt
+Sau mỗi phản hồi, người dùng nên nhận được ít nhất một giá trị:
+- Hiểu rõ hơn điều họ đang trải qua.
+- Nhận ra một yếu tố chưa cân nhắc.
+- Phân biệt cảm xúc, giả định và sự thật.
+- Nhìn thấy một lựa chọn thực tế.
+- Biết điều gì cần làm rõ trước khi quyết định.
+
+Trả lời dưới dạng tin nhắn hội thoại tự nhiên, chân thành, sâu sắc. Tuyệt đối không trả về JSON, không dùng bullet points cứng nhắc.`;
+
+/**
+ * Gọi chat API với danh sách messages đầy đủ
+ */
+async function callChatMessagesWithTimeout(
+  messages: Array<{ role: string; content: string }>,
+  timeoutMs: number = 25000,
+  maxTokens: number = 1000
+): Promise<string> {
+  if (!API_KEY) {
+    throw new Error('Chưa cấu hình AI_API_KEY trong biến môi trường.');
+  }
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const res = await fetch(`${BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages,
+        temperature: 0.7,
+        max_tokens: maxTokens
+      }),
+      signal: controller.signal
+    });
+
+    clearTimeout(timer);
+
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`API HTTP Error ${res.status}: ${errText}`);
+    }
+
+    const data = await res.json();
+    return data.choices?.[0]?.message?.content || '';
+  } catch (err: any) {
+    clearTimeout(timer);
+    if (err.name === 'AbortError') {
+      throw new Error(`AI Request Timeout vượt quá ${timeoutMs / 1000}s`);
+    }
+    throw err;
+  }
+}
+
+/**
+ * Xây dựng ngữ cảnh trải bài (reading context) cho phiên chat
+ */
+export function buildChatContext(session: ReadingSession): string {
+  const cardsInfo = session.drawn_cards
+    .map(
+      (c, i) =>
+        `- Lá ${i + 1} (${c.position_name}): ${c.card.name_vi} (${c.card.name}) - Hướng: ${
+          c.orientation === 'upright' ? 'Xuôi' : 'Ngược'
+        }`
+    )
+    .join('\n');
+
+  let freeSummary = '';
+  if (session.ai_result) {
+    freeSummary = `\n- Tóm tắt trải bài 3 lá: ${session.ai_result.summary}\n- Tổng hợp: ${session.ai_result.synthesis}`;
+  }
+
+  let vipSummary = '';
+  if (session.vip_extension) {
+    vipSummary = `\n- Mở rộng 5 lá (VIP): ${session.vip_extension.expanded_synthesis}`;
+  }
+
+  return `BỐI CẢNH PHIÊN TRẢI BÀI ĐANG THAM CHIẾU:
+- Chủ đề: ${session.topic}
+- Câu hỏi ban đầu của người dùng: "${session.question || 'Chiêm nghiệm tổng quan'}"
+- Các lá bài đã rút (${session.drawn_cards.length} lá):
+${cardsInfo}${freeSummary}${vipSummary}
+
+LƯU Ý: Đây là dữ liệu bối cảnh nền tảng. Khi trả lời tin nhắn, hãy tập trung vào câu hỏi và tâm tư hiện tại của người dùng, dùng bối cảnh trên làm điểm tựa thấu cảm.`;
+}
+
+/**
+ * Sinh phản hồi trò chuyện từ Trạm
+ */
+export async function generateChatReply(
+  session: ReadingSession,
+  chatHistory: ChatMessage[],
+  newUserMessage: string
+): Promise<string> {
+  const readingContext = buildChatContext(session);
+
+  // Lấy tối đa 10 tin nhắn gần nhất để tối ưu token
+  const recentHistory = chatHistory.slice(-10).map((m) => ({
+    role: m.role === 'assistant' ? 'assistant' : 'user',
+    content: m.content
+  }));
+
+  const messages = [
+    { role: 'system', content: PREMIUM_CHAT_PROMPT },
+    { role: 'system', content: readingContext },
+    ...recentHistory,
+    { role: 'user', content: newUserMessage }
+  ];
+
+  let lastError: any = null;
+
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const reply = await callChatMessagesWithTimeout(messages, 25000, 800);
+      const cleanReply = reply.trim().replace(/^Trạm:\s*/i, '');
+      if (cleanReply) return cleanReply;
+    } catch (err: any) {
+      lastError = err;
+      console.warn(`Attempt ${attempt} Chat generation failed:`, err.message);
+      if (attempt === 1) {
+        await new Promise((r) => setTimeout(r, 1000));
+      }
+    }
+  }
+
+  throw new Error(lastError?.message || 'Trạm đang lắng nghe nhưng kết nối bị gián đoạn. Bạn thử gửi lại tin nhắn nhé.');
 }

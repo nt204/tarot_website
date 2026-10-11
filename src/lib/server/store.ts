@@ -13,10 +13,12 @@ import {
   AIReadingResult,
   VipExtensionResult
 } from '@/types/tarot';
+import { ChatMessage, ChatSessionData, ChatUsage } from '@/types/chat';
 import { SPREAD_DEFINITIONS, VIP_EXTENSION_POSITIONS, resolveCardMeaning } from '@/lib/resolver';
 
 const DATA_DIR = path.join(process.cwd(), '.data');
 const SESSIONS_FILE = path.join(DATA_DIR, 'sessions.json');
+const CHAT_SESSIONS_FILE = path.join(DATA_DIR, 'chat_sessions.json');
 const DAILY_CACHE_FILE = path.join(DATA_DIR, 'daily_cache.json');
 const CARDS_FILE = path.join(process.cwd(), 'src/data/tarot_cards.json');
 const FALLBACK_CARDS_FILE = path.join(process.cwd(), 'tarot_cards.json');
@@ -29,6 +31,7 @@ if (!fs.existsSync(DATA_DIR)) {
 // In-memory cache + file sync
 let sessionsCache: Record<string, ReadingSession> = {};
 let dailyCache: Record<string, string> = {}; // key: `${userId}_${dateStr}` -> reading_id
+let chatSessionsCache: Record<string, ChatSessionData> = {}; // key: reading_id -> ChatSessionData
 let cardsCache: TarotCard[] | null = null;
 
 // Load persisted sessions
@@ -49,6 +52,15 @@ if (fs.existsSync(DAILY_CACHE_FILE)) {
   }
 }
 
+// Load persisted chat sessions
+if (fs.existsSync(CHAT_SESSIONS_FILE)) {
+  try {
+    chatSessionsCache = JSON.parse(fs.readFileSync(CHAT_SESSIONS_FILE, 'utf-8'));
+  } catch (e) {
+    console.error('Failed to load chat_sessions.json:', e);
+  }
+}
+
 function persistSessions() {
   try {
     fs.writeFileSync(SESSIONS_FILE, JSON.stringify(sessionsCache, null, 2), 'utf-8');
@@ -62,6 +74,14 @@ function persistDaily() {
     fs.writeFileSync(DAILY_CACHE_FILE, JSON.stringify(dailyCache, null, 2), 'utf-8');
   } catch (e) {
     console.error('Failed to persist daily cache:', e);
+  }
+}
+
+function persistChatSessions() {
+  try {
+    fs.writeFileSync(CHAT_SESSIONS_FILE, JSON.stringify(chatSessionsCache, null, 2), 'utf-8');
+  } catch (e) {
+    console.error('Failed to persist chat sessions:', e);
   }
 }
 
@@ -382,5 +402,104 @@ export function saveVIPExtensionResult(reading_id: string, vip_extension: VipExt
     session.updated_at = new Date().toISOString();
     persistSessions();
   }
+}
+
+/**
+ * ============================================================================
+ * PREMIUM CHAT SESSION MANAGEMENT (Trò chuyện cùng Trạm)
+ * ============================================================================
+ */
+
+export function getOrCreateChatSession(
+  readingId: string,
+  topic?: string,
+  question?: string,
+  cardsCount: number = 3
+): ChatSessionData {
+  if (chatSessionsCache[readingId]) {
+    return chatSessionsCache[readingId];
+  }
+
+  // Pre-generate warm initial greeting from Trạm
+  const greetingId = `msg_${crypto.randomUUID().slice(0, 8)}`;
+  const greetingText = `Chào bạn, mình là Trạm. Những lá bài vừa trải đã mở ra bức tranh tổng quan về câu chuyện của bạn. Có góc nhìn hay chi tiết nào khiến bạn băn khoăn nhất lúc này không?`;
+
+  const initialGreeting: ChatMessage = {
+    id: greetingId,
+    role: 'assistant',
+    content: greetingText,
+    created_at: new Date().toISOString()
+  };
+
+  const newSession: ChatSessionData = {
+    id: `chat_${crypto.randomUUID().slice(0, 10)}`,
+    reading_id: readingId,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    messages: [initialGreeting],
+    usage: {
+      messages_used: 0,
+      max_messages: 100,
+      daily_used: 0,
+      daily_max: 20,
+      is_premium_unlocked: true
+    }
+  };
+
+  chatSessionsCache[readingId] = newSession;
+  persistChatSessions();
+
+  return newSession;
+}
+
+export function getChatSession(readingId: string): ChatSessionData | null {
+  return chatSessionsCache[readingId] || null;
+}
+
+export function addChatMessage(
+  readingId: string,
+  role: 'user' | 'assistant' | 'system',
+  content: string
+): ChatMessage | null {
+  let session = chatSessionsCache[readingId];
+  if (!session) {
+    session = getOrCreateChatSession(readingId);
+  }
+
+  const messageId = `msg_${crypto.randomUUID().slice(0, 8)}`;
+  const newMessage: ChatMessage = {
+    id: messageId,
+    role,
+    content: content.trim(),
+    created_at: new Date().toISOString()
+  };
+
+  session.messages.push(newMessage);
+  session.updated_at = new Date().toISOString();
+
+  // If user sent a message, increment counters
+  if (role === 'user') {
+    session.usage.messages_used += 1;
+    session.usage.daily_used += 1;
+  }
+
+  persistChatSessions();
+  return newMessage;
+}
+
+export function getChatUsage(readingId: string): ChatUsage | null {
+  const session = chatSessionsCache[readingId];
+  if (!session) return null;
+  return session.usage;
+}
+
+export function unlockChatPremium(readingId: string): boolean {
+  const session = chatSessionsCache[readingId];
+  if (!session) return false;
+  session.usage.is_premium_unlocked = true;
+  session.usage.max_messages += 100;
+  session.updated_at = new Date().toISOString();
+  persistChatSessions();
+  return true;
 }
 

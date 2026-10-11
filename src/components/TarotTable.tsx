@@ -13,6 +13,7 @@ import {
 import { Card3D } from '@/components/Card3D';
 import { VipExtendCard } from '@/components/VipExtendCard';
 import { VipReadingResultView } from '@/components/VipReadingResultView';
+import { PremiumChatView } from '@/components/PremiumChatView';
 
 interface OpaqueSlot {
   slot_id: string;
@@ -2024,6 +2025,16 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                           <VipReadingResultView
                             vipResult={vipExtension}
                             vipCards={drawnCards.slice(3, 5)}
+                          />
+                        )}
+
+                        {/* 6.6. TRÒ CHUYỆN CÙNG TRẠM (PREMIUM CHAT) */}
+                        {readingId && (
+                          <PremiumChatView
+                            readingId={readingId}
+                            topic={topic}
+                            question={question}
+                            cardCount={drawnCards.length}
                           />
                         )}
 
