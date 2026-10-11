@@ -10,7 +10,7 @@ interface AboutTarotSectionProps {
 
 export const AboutTarotSection: React.FC<AboutTarotSectionProps> = ({ onLearnMore }) => {
   return (
-    <section id="about-tarot" className="scroll-mt-20 py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#09080A] border-t border-[#1F1914] overflow-hidden">
+    <section id="about-tarot" className="scroll-mt-20 py-10 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#09080A] border-t border-[#1F1914] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Cột trái: Ảnh người phụ nữ cầm lá bài che mắt bên bàn nến (Ảnh của người dùng) */}

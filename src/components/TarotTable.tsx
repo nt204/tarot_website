@@ -971,10 +971,13 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
   return (
     <div
       id="tarot-table"
-      className={`relative w-full scroll-mt-20 px-4 sm:px-6 lg:px-8 bg-[#080708] text-[#EEE6D8] overflow-hidden ${step === 'picking'
-          ? 'min-h-[calc(100vh-76px)] flex items-center justify-center py-4 sm:py-6'
-          : 'min-h-[780px] pt-24 sm:pt-28 md:pt-32 pb-24'
-        }`}
+      className={`relative w-full scroll-mt-20 px-4 sm:px-6 lg:px-8 bg-[#080708] text-[#EEE6D8] overflow-hidden ${
+        step === 'picking'
+          ? 'min-h-[calc(100vh-76px)] flex items-center justify-center py-2 sm:py-6'
+          : step === 'config'
+          ? 'pt-8 sm:pt-20 md:pt-28 pb-4 sm:pb-14'
+          : 'min-h-[560px] pt-10 sm:pt-20 pb-12 sm:pb-20'
+      }`}
     >
       <audio ref={shuffleAudioRef} src="/audio/card-shuffle.mp3?v=shuffle-original" preload="auto" />
       <audio ref={pickAudioRef} src="/audio/card-pick.mp3?v=light-card-v6" preload="auto" />
@@ -1155,7 +1158,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full max-w-4xl mx-auto text-center py-8 sm:py-14 space-y-6"
+            className="w-full max-w-4xl mx-auto text-center py-3 sm:py-14 space-y-4 sm:space-y-6"
           >
             <div className="space-y-3">
               <span className="text-xs uppercase tracking-[0.25em] text-[#C9A85C] font-heading block">

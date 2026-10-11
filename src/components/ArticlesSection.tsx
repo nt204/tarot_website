@@ -101,7 +101,7 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
   };
 
   return (
-    <section id="articles" className="scroll-mt-20 py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#070506] border-t border-[#26201A] overflow-hidden">
+    <section id="articles" className="scroll-mt-20 py-10 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#070506] border-t border-[#26201A] overflow-hidden">
       <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10">
         {/* Section Header & Navigation Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
