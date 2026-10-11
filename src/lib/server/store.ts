@@ -420,9 +420,20 @@ export function getOrCreateChatSession(
     return chatSessionsCache[readingId];
   }
 
-  // Pre-generate warm initial greeting from Trạm
+  // Pre-generate warm and deeply personalized greeting from Trạm
   const greetingId = `msg_${crypto.randomUUID().slice(0, 8)}`;
-  const greetingText = `Chào bạn, mình là Trạm. Những lá bài vừa trải đã mở ra bức tranh tổng quan về câu chuyện của bạn. Có góc nhìn hay chi tiết nào khiến bạn băn khoăn nhất lúc này không?`;
+  let greetingText = '';
+
+  if (question && question.trim()) {
+    const qClean = question.trim().replace(/^["']|["']$/g, '');
+    if (cardsCount >= 5) {
+      greetingText = `Chào bạn, mình là Trạm. Trải bài 5 lá vừa qua đã mở rộng thêm những góc nhìn mới xoay quanh băn khoăn: "${qClean}". Trong toàn cảnh bức tranh này, có chi tiết nào khiến bạn trăn trở hay muốn chúng ta cùng đào sâu hơn không?`;
+    } else {
+      greetingText = `Chào bạn, mình là Trạm. Qua những lá bài về câu hỏi "${qClean}", Trạm thấy có những cảm xúc và mâu thuẫn đang cần được nhìn nhận thấu đáo. Lúc này, điều gì trong câu chuyện đang khiến bạn đắn đo nhất?`;
+    }
+  } else {
+    greetingText = `Chào bạn, mình là Trạm. Những lá bài vừa trải đã mở ra bức tranh tổng quan về câu chuyện của bạn. Có góc nhìn hay cảm xúc nào khiến bạn băn khoăn nhất lúc này không?`;
+  }
 
   const initialGreeting: ChatMessage = {
     id: greetingId,

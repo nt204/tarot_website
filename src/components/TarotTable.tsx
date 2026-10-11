@@ -1519,18 +1519,6 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
               })}
             </div>
 
-            {/* Trạng thái đang kết nối VIP khi vừa rút đủ 2 lá */}
-            {isVipConnecting && (
-              <div className="flex flex-col items-center justify-center py-2 space-y-2 animate-fade-in">
-                <div className="w-7 h-7 border-2 border-[#C9A85C] border-t-transparent rounded-full animate-spin" />
-                <p className="text-sm text-[#DEC078] font-heading tracking-wide">
-                  Trạm đang kết nối thông điệp 5 lá bài toàn cảnh...
-                </p>
-                <p className="text-xs text-[#8C7A65] font-body">
-                  Lắng đọng năng lượng từ bộ bài để mở rộng góc nhìn cho bạn
-                </p>
-              </div>
-            )}
 
             {/* ================= QUẠT BÀI CĂN GIỮA CHUẨN XÁC, XÒE CÁNH CUNG TUYỆT ĐẸP ================= */}
             <div
@@ -1890,7 +1878,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
 
                         {/* 4. PHÂN TÍCH TỪNG LÁ - Bố cục tạp chí Tarot huyền bí, tinh tế */}
                         <div className="space-y-4 sm:space-y-7 pt-2 text-left">
-                          {drawnCards.map((dc, idx) => {
+                          {drawnCards.slice(0, spread === 'daily' ? 1 : 3).map((dc, idx) => {
                             const cr = aiResult?.card_readings?.find((r) => r.card_id === dc.card_id);
                             return (
                               <motion.div

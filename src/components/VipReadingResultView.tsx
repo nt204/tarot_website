@@ -75,14 +75,21 @@ export const VipReadingResultView: React.FC<VipReadingResultViewProps> = ({
                     </div>
                   )}
 
-                  <div className="space-y-1 flex-1">
-                    <span className="text-[11px] uppercase tracking-wider text-[#C9A85C] font-heading font-semibold block">
-                      {idx === 0 ? 'Lá thứ 4 · Điều bạn chưa xem xét' : 'Lá thứ 5 · Góc nhìn mới tiến lên'}
+                  <div className="space-y-1.5 flex-1 min-w-0">
+                    <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#C9A85C] font-heading font-semibold block">
+                      {idx === 0
+                        ? 'Lá thứ 4 · Điều bạn chưa xem xét'
+                        : 'Lá thứ 5 · Một góc nhìn khác để tiến về phía trước'}
                     </span>
-                    <h5 className="font-heading text-lg sm:text-xl text-[#EEE6D8]">
+                    <p className="text-[11px] text-[#A6998A] font-light leading-snug">
+                      {idx === 0
+                        ? 'Gợi mở điểm mù hoặc yếu tố ẩn giấu bạn có thể đang vô tình bỏ qua'
+                        : 'Chỉ ra lựa chọn mới và động lực để bạn tự tin giải phóng bế tắc'}
+                    </p>
+                    <h5 className="font-heading text-lg sm:text-xl text-[#EEE6D8] pt-1">
                       {cardObj?.name_vi || reading.card_name}
                     </h5>
-                    <span className="text-xs text-[#8C7A65] block">
+                    <span className="text-xs text-[#8C7A65] block font-mono">
                       {isUp ? 'Chiều xuôi (Upright)' : 'Chiều ngược (Reversed)'}
                     </span>
                   </div>

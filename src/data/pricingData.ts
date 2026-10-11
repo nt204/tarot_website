@@ -26,26 +26,25 @@ export const PRICING_PACKAGES: PricingPackage[] = [
   },
   {
     id: 'deep',
-    name: 'Chuyên sâu',
-    subtitle: 'Mỗi lượt trải bài',
-    tagline: 'Gỡ rối từng nút thắt, phân tích đa chiều bám sát câu chuyện của bạn',
+    name: 'Chuyên sâu (VIP)',
+    subtitle: 'Mở rộng 5 lá',
+    tagline: 'Mở rộng góc nhìn toàn cảnh, giải phóng điểm mù và định hình hành động',
     price: 29000,
     priceUnit: 'lượt',
     badge: 'Được chọn nhiều nhất',
     badgeMobile: 'Nổi bật',
     highlight: true,
     features: [
-      'Tất cả quyền lợi của gói Khám phá',
-      'Phân tích chi tiết theo câu chuyện riêng của bạn',
-      'Luận giải liên kết đa tầng giữa 3 lá bài',
-      'Kế hoạch hành động cụ thể trong thực tế',
-      'Hỏi thêm câu hỏi gợi mở tiếp theo',
-      'Lưu kết quả & xuất bản ghi chiêm nghiệm'
+      'Mở rộng 5 lá bài toàn cảnh (kế thừa 3 lá ban đầu)',
+      'Phân tích Điểm mù & Góc nhìn mới để tiến lên',
+      '3 hành động thực tế tiếp theo tháo gỡ bế tắc',
+      'Hỏi đáp và làm rõ thêm các băn khoăn trong phiên',
+      'Lưu kết quả & xuất bản ghi chiêm nghiệm trọn đời'
     ],
     featuresMobile: [
-      'Tất cả gói Khám phá',
-      'Phân tích câu chuyện riêng',
-      'Kế hoạch hành động',
+      'Mở rộng 5 lá toàn cảnh',
+      'Phân tích điểm mù & góc nhìn mới',
+      '3 hành động thực tế',
       'Lưu kết quả trọn đời'
     ],
     ctaText: 'Mở khóa chuyên sâu',
@@ -53,26 +52,26 @@ export const PRICING_PACKAGES: PricingPackage[] = [
   },
   {
     id: 'companion',
-    name: 'Đồng hành',
-    subtitle: 'Gói thành viên tháng',
-    tagline: 'Lắng nghe nội tâm đều đặn và theo dõi hành trình trưởng thành cá nhân',
+    name: 'Đồng hành (PREMIUM)',
+    subtitle: 'Thành viên tháng',
+    tagline: 'Trò chuyện cùng Trạm theo ngữ cảnh trải bài để tháo gỡ những băn khoăn còn lại',
     price: 99000,
     priceUnit: 'tháng',
     badge: 'Tiết kiệm 65%',
     badgeMobile: '-65%',
     features: [
-      '10 lượt trải bài chuyên sâu chất lượng cao',
-      'Nhật ký cá nhân & lưu trữ trọn đời',
+      '10 lượt trải bài chuyên sâu 5 lá VIP',
+      '100 tin nhắn trò chuyện cùng Trạm / tháng (tối đa 20 tin/ngày)',
+      'Trò chuyện cùng Trạm theo ngữ cảnh trải bài',
+      'Tiếp tục trao đổi để làm rõ những băn khoăn còn lại',
       'Tra cứu toàn bộ lịch sử các phiên trải bài',
-      'Ưu tiên kết nối thông điệp siêu tốc độ',
-      'Không giới hạn câu hỏi đối thoại làm rõ',
-      'Hỗ trợ đối soát và tư vấn 1-1 khi cần'
+      'Ưu tiên kết nối thông điệp siêu tốc độ'
     ],
     featuresMobile: [
-      '10 lượt chuyên sâu VIP',
-      'Nhật ký cá nhân trọn đời',
-      'Ưu tiên kết nối siêu tốc',
-      'Tư vấn đối soát 1-1'
+      '10 lượt trải bài 5 lá VIP',
+      '100 tin nhắn cùng Trạm',
+      'Trò chuyện theo ngữ cảnh trải bài',
+      'Tra cứu lịch sử trọn đời'
     ],
     ctaText: 'Đăng ký đồng hành',
     ctaTextMobile: 'Đăng ký'
