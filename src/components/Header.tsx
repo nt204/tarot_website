@@ -13,8 +13,8 @@ const navigationItems = [
   { href: '#topics', label: 'Chủ đề' },
   { href: '#about-tarot', label: 'Về Tarot' },
   { href: '#tarot-table', label: 'Trải bài' },
-  { href: '#pricing', label: 'Bảng giá' },
   { href: '#articles', label: 'Blogs' },
+  { href: '#pricing', label: 'Billing' },
   { href: '#faq', label: 'FAQ' },
 ];
 

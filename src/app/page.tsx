@@ -150,14 +150,14 @@ export default function Home() {
           onGoHome={handleGoHome}
         />
 
-        {/* 5.5 Bảng giá & Gói dịch vụ Trạm Tarot (Freemium Model) */}
-        <PricingSection onScrollToTable={handleStartReading} />
-
         {/* 6. Section HÀNH TRÌNH CÁC LÁ BÀI (Bài viết tiêu biểu & kiến thức Tarot) */}
         <ArticlesSection />
 
         {/* 7. Section LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ BÓI BÀI TAROT ONLINE TẠI TAROTREADER.ME */}
         <BenefitsSection onStartReading={handleStartReading} />
+
+        {/* 7.5 Bảng giá & Gói dịch vụ Trạm Tarot (Billing / Freemium Model) */}
+        <PricingSection onScrollToTable={handleStartReading} />
 
         {/* 8. Section CÂU HỎI THƯỜNG GẶP (Accordion) */}
         <FAQSection />
