@@ -20,7 +20,7 @@ export default function AdminBlogsPage() {
   // Auth state
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [adminUser, setAdminUser] = useState<string | null>(null);
-  const [loginUsername, setLoginUsername] = useState('ndtri2004');
+  const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [loginError, setLoginError] = useState<string | null>(null);
   const [loginLoading, setLoginLoading] = useState(false);
@@ -142,6 +142,7 @@ export default function AdminBlogsPage() {
     }
     setIsAuthenticated(false);
     setAdminUser(null);
+    setLoginUsername('');
     setLoginPassword('');
     showToast('Đã đăng xuất.');
   };
