@@ -43,8 +43,8 @@ export const Card3D: React.FC<Card3DProps> = ({
     >
       {/* Position Tag Header if provided - Be Vietnam Pro, no uppercase */}
       {positionName && (
-        <div className="text-center mb-2.5">
-          <span className="text-[13px] font-normal text-[#C9A85C] bg-[#161419] px-3 py-1 rounded border border-[#7C6339]/50 shadow-sm inline-block">
+        <div className="text-center mb-1.5 sm:mb-2.5 w-full">
+          <span className="text-[10px] sm:text-[13px] font-normal text-[#C9A85C] bg-[#161419] px-1.5 sm:px-3 py-0.5 sm:py-1 rounded border border-[#7C6339]/50 shadow-sm inline-block truncate max-w-full">
             {positionName}
           </span>
         </div>
@@ -62,7 +62,7 @@ export const Card3D: React.FC<Card3DProps> = ({
             src={backImage || '/cards/back_card/back_1.png'}
             alt="Mặt sau bài Tarot"
             fill
-            sizes="(max-width: 768px) 224px, 280px"
+            sizes="(max-width: 640px) 115px, (max-width: 768px) 224px, 280px"
             className="object-cover"
             priority={priority}
           />
@@ -76,7 +76,7 @@ export const Card3D: React.FC<Card3DProps> = ({
               src={frontImage}
               alt={nameVi || 'Lá bài Tarot'}
               fill
-              sizes="(max-width: 768px) 224px, 280px"
+              sizes="(max-width: 640px) 115px, (max-width: 768px) 224px, 280px"
               className="object-contain"
               priority={priority}
             />
@@ -84,7 +84,7 @@ export const Card3D: React.FC<Card3DProps> = ({
 
           {/* Orientation Badge Overlay - Only show if reversed, per user request */}
           {isReversed && (
-            <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-[#080708]/85 backdrop-blur-sm border border-[#C9A85C]/50 rounded text-[11px] font-normal text-[#EEE6D8] shadow-md whitespace-nowrap">
+            <div className="absolute bottom-1 sm:bottom-2.5 left-1/2 -translate-x-1/2 px-1.5 sm:px-2.5 py-0.5 bg-[#080708]/85 backdrop-blur-sm border border-[#C9A85C]/50 rounded text-[9px] sm:text-[11px] font-normal text-[#EEE6D8] shadow-md whitespace-nowrap">
               ↺ Ngược
             </div>
           )}
@@ -95,8 +95,8 @@ export const Card3D: React.FC<Card3DProps> = ({
 
       {/* Card Name footer - Only English name */}
       {isFlipped && (nameEn || nameVi) && (
-        <div className="mt-3 text-center">
-          <p className="font-heading card-name text-[18px] font-normal text-[#EEE6D8] uppercase tracking-[0.06em] leading-normal">
+        <div className="mt-1.5 sm:mt-3 text-center w-full">
+          <p className="font-heading card-name text-[11px] sm:text-[18px] font-normal text-[#EEE6D8] uppercase tracking-wide sm:tracking-[0.06em] leading-tight sm:leading-normal truncate">
             {nameEn || nameVi}
           </p>
         </div>

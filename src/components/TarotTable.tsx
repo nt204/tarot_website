@@ -1507,9 +1507,9 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                 className="space-y-6"
               >
                 <div
-                  className={`grid gap-8 sm:gap-10 md:gap-12 justify-center items-start ${spread === 'daily'
+                  className={`grid gap-2 sm:gap-8 md:gap-12 justify-center items-start ${spread === 'daily'
                       ? 'grid-cols-1 max-w-sm mx-auto'
-                      : 'grid-cols-1 sm:grid-cols-3 max-w-4xl sm:max-w-5xl mx-auto'
+                      : 'grid-cols-3 max-w-4xl sm:max-w-5xl mx-auto'
                     }`}
                 >
                   {drawnCards.map((dc, idx) => (
@@ -1524,7 +1524,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                         isFlipped={Boolean(flippedCards[idx])}
                         onFlip={() => handleFlipCard(idx)}
                         priority
-                        className="w-full max-w-[260px] sm:max-w-[280px]"
+                        className="w-full max-w-[110px] sm:max-w-[280px]"
                       />
                     </div>
                   ))}
@@ -1614,8 +1614,8 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                           )}
                         </motion.div>
 
-                        {/* 4. PHÂN TÍCH TỪNG LÁ - Animation staggered theo từng lá */}
-                        <div className="space-y-8 pt-2 text-left">
+                        {/* 4. PHÂN TÍCH TỪNG LÁ - Bố cục tạp chí Tarot huyền bí, tinh tế */}
+                        <div className="space-y-4 sm:space-y-7 pt-2 text-left">
                           {drawnCards.map((dc, idx) => {
                             const cr = aiResult?.card_readings?.find((r) => r.card_id === dc.card_id);
                             return (
@@ -1625,25 +1625,46 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: '-40px' }}
                                 transition={{ duration: 0.65, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                                className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-[#120F16]/60 border border-[#2B231B] hover:border-[#C9A85C]/50 transition-all duration-300"
+                                className="p-4 sm:p-6 rounded-2xl bg-[#120F16]/80 border border-[#2B231B] hover:border-[#C9A85C]/50 transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.5)] space-y-3 sm:space-y-4"
                               >
-                                {/* Ảnh thumbnail lá bài bên trái */}
-                                <div className="w-24 sm:w-28 shrink-0 aspect-[2/3] relative rounded-lg overflow-hidden border border-[#52412E] shadow-md bg-[#0C0B0E]">
-                                  <img
-                                    src={dc.card.image}
-                                    alt={dc.card.name}
-                                    className={`w-full h-full object-cover ${dc.orientation === 'reversed' ? 'rotate-180' : ''}`}
-                                  />
+                                {/* Header hàng trên: Ảnh thumbnail bên cạnh Tên & Vị trí bài */}
+                                <div className="flex items-center gap-3 sm:gap-5">
+                                  {/* Ảnh thumbnail lá bài */}
+                                  <div className="w-[60px] sm:w-[84px] shrink-0 aspect-[2/3] relative rounded-xl overflow-hidden border border-[#7C6339]/70 shadow-md bg-[#0C0B0E]">
+                                    <img
+                                      src={dc.card.image}
+                                      alt={dc.card.name}
+                                      className={`w-full h-full object-cover ${dc.orientation === 'reversed' ? 'rotate-180' : ''}`}
+                                    />
+                                    {dc.orientation === 'reversed' && (
+                                      <div className="absolute inset-x-0 bottom-0 py-0.5 bg-black/85 text-[9px] text-[#EEE6D8] text-center font-mono">
+                                        ↺ Ngược
+                                      </div>
+                                    )}
+                                  </div>
+
+                                  {/* Tiêu đề & Vị trí lá bài */}
+                                  <div className="space-y-1 flex-1 min-w-0">
+                                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1B1622] border border-[#7C6339]/50 text-[10px] sm:text-xs font-heading text-[#C9A85C] uppercase tracking-wider">
+                                      <span>✦ {getPositionDisplay(idx)}</span>
+                                    </div>
+
+                                    <h4 className="font-heading text-lg sm:text-2xl text-[#EEE6D8] font-normal leading-snug truncate">
+                                      {dc.card.name}
+                                    </h4>
+
+                                    <p className="text-xs sm:text-sm text-[#A89882] italic font-body">
+                                      {dc.card.name_vi} · {dc.orientation === 'reversed' ? 'Chiều ngược' : 'Chiều xuôi'}
+                                    </p>
+                                  </div>
                                 </div>
 
-                                {/* Vị trí · Tên lá + Đoạn văn phân tích bên phải */}
-                                <div className="space-y-2 flex-1">
-                                  <h4 className="font-heading text-2xl sm:text-[26px] text-[#EEE6D8] font-normal leading-snug">
-                                    <span className="text-[#CA9D75]">{getPositionDisplay(idx)}</span>
-                                    {' · '}
-                                    <span>{dc.card.name}</span>
-                                  </h4>
-                                  <p className="text-[18px] text-[#BDB4A8] font-body leading-[1.75]">
+                                {/* Đường line phân cách ánh kim */}
+                                <div className="w-full h-[1px] bg-gradient-to-r from-[#3E3022] via-[#7C6339]/30 to-transparent" />
+
+                                {/* Lời luận giải chi tiết dạng trích đoạn chiêm nghiệm */}
+                                <div className="pl-3 sm:pl-4 border-l-2 border-[#C9A85C]/50 py-0.5">
+                                  <p className="text-[14px] sm:text-[17px] text-[#D8CDC0] font-body leading-[1.7] sm:leading-[1.8] text-justify sm:text-left">
                                     {cr?.interpretation || dc.resolved_meaning.primary_text}
                                   </p>
                                 </div>
