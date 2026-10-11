@@ -1489,12 +1489,12 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                 initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
-                className="text-center space-y-2 border-b border-[#261E18] pb-8"
+                className="text-center space-y-1 sm:space-y-2 border-b border-[#261E18] pb-4 sm:pb-8"
               >
-                <span className="text-xs uppercase tracking-[0.25em] text-[#C9A85C] font-heading block">
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#C9A85C] font-heading block">
                   Câu hỏi của bạn
                 </span>
-                <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl text-[#EEE6D8] font-normal italic leading-snug">
+                <h2 className="font-heading text-[16px] sm:text-2xl lg:text-3xl text-[#EEE6D8] font-normal italic leading-snug max-w-2xl mx-auto px-2">
                   &ldquo;{question || 'Thông điệp định hướng cho bạn lúc này'}&rdquo;
                 </h2>
               </motion.div>
