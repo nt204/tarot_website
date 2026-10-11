@@ -209,11 +209,17 @@ export const TarotTable: React.FC<TarotTableProps> = ({
   const [fanDealt, setFanDealt] = useState<boolean>(false);
   const isSelectingRef = useRef<boolean>(false);
   const [isZoomingIn, setIsZoomingIn] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 640;
+    }
+    return false;
+  });
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(typeof window !== 'undefined' && window.innerWidth < 640);
+      const mobile = window.innerWidth < 640;
+      setIsMobile((prev) => (prev !== mobile ? mobile : prev));
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -457,6 +463,7 @@ export const TarotTable: React.FC<TarotTableProps> = ({
       setAiResult(null);
       setReadingStatus('idle');
       setReadingError(null);
+      setFanDealt(false);
       isSelectingRef.current = false;
       setIsZoomingIn(false);
       setStep('shuffling');
@@ -522,13 +529,11 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     await handleStartSession(trimmed, 'Lời băn khoăn của người xem: ' + trimmed, detectedTopic);
   };
 
-  // Giữ bàn trải bài ở giữa màn hình khi xào và khi chọn lá.
+  // Giữ bàn trải bài ở giữa màn hình khi xào bài
   useEffect(() => {
-    if (step === 'shuffling' || step === 'picking') {
+    if (step === 'shuffling') {
       const scrollTimer = setTimeout(() => {
-        const target = step === 'picking'
-          ? document.getElementById('tarot-picking-board')
-          : document.getElementById('tarot-table');
+        const target = document.getElementById('tarot-table');
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         target?.scrollIntoView({
@@ -537,9 +542,7 @@ export const TarotTable: React.FC<TarotTableProps> = ({
         });
       }, 50);
 
-      if (step !== 'picking') {
-        return () => clearTimeout(scrollTimer);
-      }
+      return () => clearTimeout(scrollTimer);
     }
 
     if (step === 'picking') {
@@ -623,7 +626,10 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     if (step === 'shuffling') {
       const proxies = cardProxyRefs.current.filter(Boolean) as HTMLElement[];
       if (proxies.length === 0) {
-        const timer = setTimeout(() => setStep('picking'), 2500);
+        const timer = setTimeout(() => {
+          setFanDealt(false);
+          setStep('picking');
+        }, 2500);
         return () => clearTimeout(timer);
       }
 
@@ -638,6 +644,7 @@ export const TarotTable: React.FC<TarotTableProps> = ({
       const tl = gsap.timeline({
         delay: 0.5, // Dừng nửa giây để người xem thấy các lá bài đang nằm rối sẵn trên mặt bàn
         onComplete: () => {
+          setFanDealt(false);
           setStep('picking');
         }
       });
@@ -1304,6 +1311,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
 
             {/* ================= QUẠT BÀI CĂN GIỮA CHUẨN XÁC, XÒE CÁNH CUNG TUYỆT ĐẸP ================= */}
             <div
+              key={`fan-board-${readingId || 'active'}`}
               ref={fanContainerRef}
               className="relative w-full max-w-4xl h-56 sm:h-80 md:h-92 flex items-center justify-center px-2 sm:px-4 overflow-visible mt-2 sm:mt-6 will-change-transform"
             >
@@ -1345,7 +1353,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                       onMouseLeave={() => {
                         setHoveredCardIndex((prev) => (prev === index ? null : prev));
                       }}
-                      initial={{ x: 0, y: 50, rotate: 0, opacity: 0 }}
+                      initial={{ x: 0, y: isMobile ? 35 : 50, rotate: 0, opacity: 0 }}
                       animate={{
                         x: offsetX,
                         y: offsetY, // Khung neo giữ nguyên tọa độ, chống tuyệt đối việc tụt chuột khỏi mép dưới
@@ -1362,9 +1370,9 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                             delay: 0
                           }
                           : {
-                            duration: 1.1,
+                            duration: isMobile ? 0.9 : 1.1,
                             ease: [0.22, 1, 0.36, 1],
-                            delay: index * 0.065
+                            delay: index * (isMobile ? 0.05 : 0.065)
                           }
                       }
                       className={`absolute will-change-transform cursor-pointer select-none ${
