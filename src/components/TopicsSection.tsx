@@ -16,7 +16,7 @@ export const TopicsSection: React.FC<TopicsSectionProps> = ({ onSelectTopic }) =
       spread: 'three_cards' as const,
       title: 'Bói Tarot Tình Yêu',
       description: 'Lắng nghe cảm xúc thật và gỡ bỏ khúc mắc trong mối quan hệ.',
-      image: '/cards/06_Lovers.jpg'
+      image: '/cards/Cups02.jpg'
     },
     {
       id: 'career' as TopicType,
