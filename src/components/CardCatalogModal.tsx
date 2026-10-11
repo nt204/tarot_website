@@ -61,94 +61,102 @@ export const CardCatalogModal: React.FC<CardCatalogModalProps> = ({
         const nextCard = currentIndex < cards.length - 1 ? cards[currentIndex + 1] : cards[0];
 
         return (
-          <div className="relative w-full max-w-4xl max-h-[84vh] md:h-[620px] my-auto bg-[#0E0D11] border border-[#3A3226] rounded-2xl shadow-2xl flex flex-col md:flex-row gap-5 md:gap-6 p-4 sm:p-6 z-20 animate-fade-in text-left text-[#EEE6D8] overflow-hidden">
+          <div className="relative w-full max-w-4xl max-h-[88vh] md:h-[620px] my-auto bg-[#0E0D11] border border-[#3A3226] rounded-2xl shadow-2xl flex flex-col md:flex-row gap-3.5 md:gap-6 p-3.5 sm:p-6 z-20 animate-fade-in text-left text-[#EEE6D8] overflow-hidden">
             {/* Nút đóng */}
             <button
               onClick={() => setSelectedCard(null)}
               aria-label="Đóng chi tiết lá bài"
-              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#18141D] border border-[#3A2E20] text-[#BDB4A8] hover:text-[#EEE6D8] hover:border-[#C9A85C] flex items-center justify-center cursor-pointer transition-colors z-30"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#18141D] border border-[#3A2E20] text-[#BDB4A8] hover:text-[#EEE6D8] hover:border-[#C9A85C] flex items-center justify-center cursor-pointer transition-colors z-30 text-xs sm:text-base"
             >
               ✕
             </button>
 
-            {/* Cột trái: Hình ảnh lá bài & Chú thích thông số gọn gàng bên dưới */}
-            <div className="shrink-0 flex flex-col items-center gap-2.5 mx-auto md:mx-0 w-full max-w-[220px] sm:max-w-[240px] overflow-y-auto pr-0.5">
-              <div className="w-36 sm:w-44 aspect-[3/5] relative rounded-xl overflow-hidden border border-[#5A462E] shadow-2xl bg-[#080709] shrink-0">
+            {/* Khối hình ảnh lá bài & thông số: Trên mobile xếp cạnh nhau (flex-row), trên desktop xếp dọc (md:flex-col) */}
+            <div className="shrink-0 flex flex-row md:flex-col items-center gap-3 md:gap-2.5 w-full md:max-w-[220px] pb-3 md:pb-0 border-b md:border-b-0 border-[#251D15]">
+              {/* Hình ảnh lá bài */}
+              <div className="w-[100px] sm:w-28 md:w-44 aspect-[3/5] relative rounded-xl overflow-hidden border border-[#5A462E] shadow-xl bg-[#080709] shrink-0">
                 <Image
                   src={selectedCard.image.startsWith('/') ? selectedCard.image : `/${selectedCard.image}`}
                   alt={selectedCard.name}
                   fill
-                  sizes="(max-width: 640px) 144px, 176px"
+                  sizes="(max-width: 640px) 110px, 176px"
                   className="object-contain"
                   priority
                 />
               </div>
 
-              {/* Điều hướng lá bài */}
-              <div className="flex items-center justify-between w-full text-xs font-heading text-[#8C7A65] shrink-0">
-                <button
-                  type="button"
-                  onClick={() => prevCard && setSelectedCard(prevCard)}
-                  className="px-2 py-0.5 rounded border border-[#33281D] hover:border-[#C9A85C] hover:text-[#C9A85C] transition-colors cursor-pointer text-[11px]"
-                >
-                  ← Lá trước
-                </button>
-                <span className="font-mono text-[11px] text-[#A89882]">
-                  #{selectedCard.id} / {cards.length}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => nextCard && setSelectedCard(nextCard)}
-                  className="px-2 py-0.5 rounded border border-[#33281D] hover:border-[#C9A85C] hover:text-[#C9A85C] transition-colors cursor-pointer text-[11px]"
-                >
-                  Lá tiếp →
-                </button>
-              </div>
+              {/* Cột thông số & điều hướng nằm bên cạnh ảnh trên mobile */}
+              <div className="flex-1 md:w-full flex flex-col gap-1.5 justify-center min-w-0">
+                {/* Điều hướng lá bài */}
+                <div className="flex items-center justify-between w-full text-xs font-heading text-[#8C7A65] shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => prevCard && setSelectedCard(prevCard)}
+                    className="px-2 py-0.5 rounded border border-[#33281D] hover:border-[#C9A85C] hover:text-[#C9A85C] transition-colors cursor-pointer text-[10px] sm:text-[11px]"
+                  >
+                    ← Lá trước
+                  </button>
+                  <span className="font-mono text-[10px] sm:text-[11px] text-[#A89882]">
+                    #{selectedCard.id} / {cards.length}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => nextCard && setSelectedCard(nextCard)}
+                    className="px-2 py-0.5 rounded border border-[#33281D] hover:border-[#C9A85C] hover:text-[#C9A85C] transition-colors cursor-pointer text-[10px] sm:text-[11px]"
+                  >
+                    Lá tiếp →
+                  </button>
+                </div>
 
-              <div className="text-[11px] font-mono text-[#8C7A65] text-center bg-[#141018]/80 px-2 py-0.5 rounded border border-[#2E2419] w-full shrink-0">
-                {selectedCard.arcana === 'major' ? 'Bộ Ẩn Chính (Major Arcana)' : 'Bộ Ẩn Phụ (Minor Arcana)'}
-              </div>
+                <div className="text-[10px] sm:text-[11px] font-mono text-[#8C7A65] text-center bg-[#141018]/80 px-2 py-0.5 rounded border border-[#2E2419] w-full shrink-0 truncate">
+                  {selectedCard.arcana === 'major' ? 'Bộ Ẩn Chính (Major Arcana)' : 'Bộ Ẩn Phụ (Minor Arcana)'}
+                </div>
 
-              {/* Khối chú thích các thông số nằm ngay bên dưới lá bài cho gọn */}
-              <div className="w-full p-2.5 rounded-xl bg-[#130F17]/90 border border-[#2A2118] text-[11px] text-[#A89882] space-y-1.5 font-body shrink-0">
-                <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                  {selectedCard.element && (
-                    <div>
-                      <span className="text-[#C9A85C] font-medium">Nguyên tố:</span> <span className="text-[#EEE6D8] font-medium">{selectedCard.element}</span>
+                {/* Khối chú thích các thông số rộng rãi, thoáng chữ */}
+                <div className="w-full p-2 sm:p-2.5 rounded-xl bg-[#130F17]/90 border border-[#2A2118] text-[10.5px] sm:text-[11px] text-[#A89882] space-y-1 font-body shrink-0">
+                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                    {selectedCard.element && (
+                      <div className="truncate">
+                        <span className="text-[#C9A85C] font-medium mr-1">Nguyên tố:</span>
+                        <span className="text-[#EEE6D8] font-medium">{selectedCard.element}</span>
+                      </div>
+                    )}
+                    {selectedCard.zodiac && (
+                      <div className="truncate">
+                        <span className="text-[#C9A85C] font-medium mr-1">Cung:</span>
+                        <span className="text-[#EEE6D8] font-medium">{selectedCard.zodiac}</span>
+                      </div>
+                    )}
+                    {selectedCard.planet && (
+                      <div className="truncate">
+                        <span className="text-[#C9A85C] font-medium mr-1">Hành tinh:</span>
+                        <span className="text-[#EEE6D8] font-medium">{selectedCard.planet}</span>
+                      </div>
+                    )}
+                    {selectedCard.number_numerology !== undefined && (
+                      <div className="truncate">
+                        <span className="text-[#C9A85C] font-medium mr-1">Thần số:</span>
+                        <span className="text-[#EEE6D8] font-medium">Số {selectedCard.number_numerology}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {selectedCard.yes_no && (
+                    <div className="border-t border-[#221B14] pt-1 leading-snug">
+                      <span className="text-[#C9A85C] font-medium mr-1">Câu trả lời:</span>
+                      <span className="text-[#E0D2C0]">
+                        {selectedCard.yes_no === 'yes' ? 'Có (Thuận lợi)' : selectedCard.yes_no === 'no' ? 'Chưa phù hợp' : 'Cởi mở / Tùy duyên'}
+                      </span>
                     </div>
                   )}
-                  {selectedCard.zodiac && (
-                    <div>
-                      <span className="text-[#C9A85C] font-medium">Cung:</span> <span className="text-[#EEE6D8] font-medium">{selectedCard.zodiac}</span>
-                    </div>
-                  )}
-                  {selectedCard.planet && (
-                    <div>
-                      <span className="text-[#C9A85C] font-medium">Hành tinh:</span> <span className="text-[#EEE6D8] font-medium">{selectedCard.planet}</span>
-                    </div>
-                  )}
-                  {selectedCard.number_numerology !== undefined && (
-                    <div>
-                      <span className="text-[#C9A85C] font-medium">Thần số:</span> <span className="text-[#EEE6D8] font-medium">Số {selectedCard.number_numerology}</span>
+
+                  {(selectedCard.mood_vi || selectedCard.mood) && (
+                    <div className="border-t border-[#221B14] pt-1 leading-snug truncate">
+                      <span className="text-[#C9A85C] font-medium mr-1">Tần số cảm xúc:</span>
+                      <span className="text-[#D4C8B8]">{selectedCard.mood_vi || selectedCard.mood}</span>
                     </div>
                   )}
                 </div>
-
-                {selectedCard.yes_no && (
-                  <div className="border-t border-[#221B14] pt-1">
-                    <span className="text-[#C9A85C] font-medium">Câu trả lời:</span>{' '}
-                    <span className="text-[#E0D2C0]">
-                      {selectedCard.yes_no === 'yes' ? 'Có (Thuận lợi)' : selectedCard.yes_no === 'no' ? 'Chưa phù hợp' : 'Cởi mở / Tùy duyên'}
-                    </span>
-                  </div>
-                )}
-
-                {(selectedCard.mood_vi || selectedCard.mood) && (
-                  <div className="border-t border-[#221B14] pt-1">
-                    <span className="text-[#C9A85C] font-medium">Tần số cảm xúc:</span>{' '}
-                    <span className="text-[#D4C8B8]">{selectedCard.mood_vi || selectedCard.mood}</span>
-                  </div>
-                )}
               </div>
             </div>
 
