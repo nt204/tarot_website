@@ -10,7 +10,7 @@ import { ChatMessage } from '@/types/chat';
 
 const API_KEY = process.env.CHEAPKEYAI_API_KEY || process.env.AI_API_KEY || '';
 const BASE_URL = process.env.CHEAPKEYAI_BASE_URL || 'https://cheapkeyai.shop/v1';
-const MODEL = process.env.AI_MODEL || 'gemini-3.7-flash';
+const MODEL = process.env.AI_MODEL || 'gemini-2.5-flash';
 
 /**
  * 1. BASE SYSTEM PROMPT

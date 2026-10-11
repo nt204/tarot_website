@@ -953,9 +953,11 @@ export const TarotTable: React.FC<TarotTableProps> = ({
           const data = await res.json();
           if (!res.ok) throw new Error(data.error || 'Trạm tạm thời chưa thể kết nối bài mở rộng lúc này.');
 
+          const incomingNewCards = (data.new_cards || data.new_drawn_cards || []) as DrawnCard[];
+
           setDrawnCards((prev) => {
             const existingIds = new Set(prev.map((c) => c.card_id));
-            const fresh = (data.new_drawn_cards as DrawnCard[]).filter((c) => !existingIds.has(c.card_id));
+            const fresh = incomingNewCards.filter((c) => !existingIds.has(c.card_id));
             return [...prev, ...fresh];
           });
 
@@ -969,11 +971,15 @@ export const TarotTable: React.FC<TarotTableProps> = ({
           setStep('drawn');
 
           setTimeout(() => {
-            const target = document.getElementById('tarot-table');
-            target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 150);
+            const vipSection = document.getElementById('vip-extra-cards-section');
+            if (vipSection) {
+              vipSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }, 250);
         } catch (e: any) {
           setIsVipConnecting(false);
+          setIsVipPicking(false);
+          setStep('drawn');
           alert(e.message || 'Trạm tạm thời chưa thể kết nối bài mở rộng.');
         }
       }
@@ -1751,6 +1757,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                 {/* Hai lá bài bổ sung VIP nếu đã rút */}
                 {drawnCards.length >= 5 && (
                   <motion.div
+                    id="vip-extra-cards-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}

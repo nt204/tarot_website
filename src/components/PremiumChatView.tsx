@@ -42,13 +42,18 @@ export const PremiumChatView: React.FC<PremiumChatViewProps> = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatScrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const topicName = TOPIC_LABELS[topic] || 'Tổng quan đời sống';
 
   const scrollToBottom = (behavior: ScrollBehavior = 'smooth') => {
-    messagesEndRef.current?.scrollIntoView({ behavior });
+    if (chatScrollRef.current) {
+      chatScrollRef.current.scrollTo({
+        top: chatScrollRef.current.scrollHeight,
+        behavior
+      });
+    }
   };
 
   // 1. Tải lịch sử chat và hạn mức ban đầu
@@ -76,7 +81,7 @@ export const PremiumChatView: React.FC<PremiumChatViewProps> = ({
       .finally(() => {
         if (isMounted) {
           setIsInitialLoading(false);
-          setTimeout(() => scrollToBottom('auto'), 150);
+          setTimeout(() => scrollToBottom('auto'), 100);
         }
       });
 
@@ -205,7 +210,7 @@ export const PremiumChatView: React.FC<PremiumChatViewProps> = ({
 
       {/* Chat Messages Box */}
       <div className="mt-6 flex flex-col h-[380px] sm:h-[440px] rounded-2xl bg-[#09080C]/90 border border-[#261E16] overflow-hidden relative">
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth">
+        <div ref={chatScrollRef} className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth">
           {isInitialLoading ? (
             <div className="h-full flex flex-col items-center justify-center space-y-3 text-[#A6998A]">
               <div className="w-6 h-6 border-2 border-[#C9A85C] border-t-transparent rounded-full animate-spin" />
@@ -280,8 +285,6 @@ export const PremiumChatView: React.FC<PremiumChatViewProps> = ({
                   </div>
                 </motion.div>
               )}
-
-              <div ref={messagesEndRef} />
             </>
           )}
         </div>
