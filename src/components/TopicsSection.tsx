@@ -42,36 +42,36 @@ export const TopicsSection: React.FC<TopicsSectionProps> = ({ onSelectTopic }) =
   ];
 
   return (
-    <section id="topics" className="scroll-mt-20 py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#080708] border-t border-[#1F1914] overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <section id="topics" className="scroll-mt-20 py-12 sm:py-20 lg:py-28 px-3 sm:px-6 lg:px-8 bg-[#080708] border-t border-[#1F1914] overflow-hidden">
+      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center space-y-3 max-w-3xl mx-auto"
+          className="text-center space-y-2 sm:space-y-3 max-w-3xl mx-auto"
         >
-          <span className="text-xs uppercase tracking-[0.2em] text-[#C9A85C] font-heading block">
+          <span className="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-[#C9A85C] font-heading block">
             Các góc nhìn chuyên sâu
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-normal text-[#C9A85C] leading-snug">
+          <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-normal text-[#C9A85C] leading-snug">
             CÁC CHỦ ĐỀ BÓI BÀI TAROT
           </h2>
-          <p className="text-[16px] leading-[1.75] text-[#BDB4A8] font-body">
+          <p className="text-xs sm:text-[16px] leading-relaxed sm:leading-[1.75] text-[#BDB4A8] font-body max-w-xl mx-auto">
             Mỗi trải bài mở ra một lăng kính rõ nét cho từng khía cạnh bạn đang quan tâm.
           </p>
         </motion.div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Cards Grid - 2 cột nhỏ gọn trên mobile, 4 cột trên desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {topics.map((t, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.65, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => onSelectTopic(t.id, t.spread)}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
@@ -82,32 +82,32 @@ export const TopicsSection: React.FC<TopicsSectionProps> = ({ onSelectTopic }) =
               role="button"
               tabIndex={0}
               aria-label={`Bắt đầu ${t.title}`}
-              className="p-5 rounded-2xl bg-[#110F15] border border-[#2B231C] hover:border-[#C9A85C] transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_35px_rgba(201,168,92,0.15)]"
+              className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#110F15] border border-[#2B231C] hover:border-[#C9A85C] transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between cursor-pointer shadow-[0_6px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_35px_rgba(201,168,92,0.15)]"
             >
-              <div className="space-y-4">
+              <div className="space-y-2.5 sm:space-y-4">
                 {/* Ảnh lá bài đại diện */}
-                <div className="w-full aspect-[2/3] relative rounded-xl overflow-hidden border border-[#3A3022] group-hover:border-[#C9A85C] transition-colors bg-[#080708]">
+                <div className="w-full h-32 sm:h-auto sm:aspect-[2/3] relative rounded-lg sm:rounded-xl overflow-hidden border border-[#3A3022] group-hover:border-[#C9A85C] transition-colors bg-[#080708]">
                   <Image
                     src={t.image}
                     alt={t.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#080708]/80 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                <div className="space-y-1.5">
-                  <h3 className="font-heading text-xl font-medium text-[#EEE6D8] group-hover:text-[#C9A85C] transition-colors leading-snug">
+                <div className="space-y-1 sm:space-y-1.5">
+                  <h3 className="font-heading text-sm sm:text-xl font-medium text-[#EEE6D8] group-hover:text-[#C9A85C] transition-colors leading-snug line-clamp-1 sm:line-clamp-none">
                     {t.title}
                   </h3>
-                  <p className="text-sm text-[#BDB4A8] leading-relaxed font-body">
+                  <p className="text-[11px] sm:text-sm text-[#BDB4A8] leading-normal sm:leading-relaxed font-body line-clamp-2 sm:line-clamp-none">
                     {t.description}
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#231C16] flex items-center justify-between text-xs text-[#C9A85C] font-medium font-body group-hover:translate-x-0.5 transition-transform">
+              <div className="pt-2.5 sm:pt-4 mt-2 sm:mt-0 border-t border-[#231C16] flex items-center justify-between text-[11px] sm:text-xs text-[#C9A85C] font-medium font-body group-hover:translate-x-0.5 transition-transform">
                 <span>Trải bài ngay</span>
                 <span>→</span>
               </div>
