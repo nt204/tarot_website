@@ -1,7 +1,7 @@
 export type ArcanaType = 'major' | 'minor';
 export type SuitType = 'wands' | 'cups' | 'swords' | 'pentacles' | null;
 export type TopicType = 'general' | 'love' | 'career';
-export type SpreadType = 'daily' | 'three_cards';
+export type SpreadType = 'daily' | 'three_cards' | 'five_card_extension';
 export type OrientationType = 'upright' | 'reversed';
 export type ToneType = 'gentle' | 'direct';
 
@@ -101,6 +101,26 @@ export interface AIReadingResult {
   generated_at: string;
 }
 
+export interface NewCardReadingAI {
+  card_id: number;
+  position_id: string; // 'unseen' | 'perspective'
+  card_name: string;
+  orientation: string;
+  interpretation: string;
+}
+
+export interface VipExtensionResult {
+  extension_headline: string;
+  new_card_readings: NewCardReadingAI[];
+  expanded_synthesis: string;
+  new_insights: string[];
+  actions: string[];
+  reflection_question: string;
+  limitations?: string;
+  model_used: string;
+  generated_at: string;
+}
+
 export type ReadingStatus = 'selecting' | 'drawn' | 'queued' | 'generating' | 'completed' | 'failed' | 'retry_wait';
 
 export interface ReadingSession {
@@ -128,6 +148,8 @@ export interface ReadingSession {
   
   // AI result
   ai_result?: AIReadingResult;
+  vip_extension?: VipExtensionResult;
+  is_vip_extended?: boolean;
   error_message?: string;
   retry_count: number;
   idempotency_key?: string;

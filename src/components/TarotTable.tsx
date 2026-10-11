@@ -7,10 +7,13 @@ import {
   TopicType,
   SpreadType,
   DrawnCard,
-  AIReadingResult
+  AIReadingResult,
+  VipExtensionResult
 } from '@/types/tarot';
 import { Card3D } from '@/components/Card3D';
-import { DeepReadingPaywallCard } from '@/components/DeepReadingPaywallCard';
+import { VipExtendCard } from '@/components/VipExtendCard';
+import { VipReadingResultView } from '@/components/VipReadingResultView';
+import { VipCardPickerModal } from '@/components/VipCardPickerModal';
 
 interface OpaqueSlot {
   slot_id: string;
@@ -108,6 +111,8 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     setUserConcern('');
     setSavedToast(false);
     setIsDeepUnlocked(false);
+    setVipExtension(null);
+    setIsVipPickerOpen(false);
     if (externalOnCloseDialogue) {
       externalOnCloseDialogue();
     } else {
@@ -194,6 +199,8 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     setInternalIsDeepUnlocked(val);
     if (onDeepUnlockedChange) onDeepUnlockedChange(val);
   };
+  const [vipExtension, setVipExtension] = useState<VipExtensionResult | null>(null);
+  const [isVipPickerOpen, setIsVipPickerOpen] = useState<boolean>(false);
 
   // Áp dụng chủ đề và kiểu trải của thẻ mà người dùng vừa chọn.
   useEffect(() => {
@@ -970,14 +977,24 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     }
   };
 
-  // 6. Lưu kết quả trải bài (Sao chép toàn bộ văn bản và lưu vào localStorage)
+  const handleExtensionSuccess = (newCards: DrawnCard[], extensionResult: VipExtensionResult) => {
+    setDrawnCards((prev) => {
+      const existingIds = new Set(prev.map((c) => c.card_id));
+      const freshNewCards = newCards.filter((c) => !existingIds.has(c.card_id));
+      return [...prev, ...freshNewCards];
+    });
+    setVipExtension(extensionResult);
+    setIsDeepUnlocked(true);
+  };
+
+  // 6. Lưu kết quả trải bài (Sao chép toàn bộ văn bản và lưu vào clipboard)
   const handleSaveReading = () => {
     if (!drawnCards.length) return;
     const cardsText = drawnCards
       .map((c, i) => `${getPositionDisplay(i)} · ${c.card.name}`)
       .join('\n');
 
-    const content = `✦ TRẠM TAROT · KẾT QUẢ TRẢI BÀI ✦
+    let content = `✦ TRẠM TAROT · KẾT QUẢ TRẢI BÀI ✦
 
 CÂU HỎI:
 "${question || 'Thông điệp định hướng cho bạn'}"
@@ -997,9 +1014,13 @@ ${aiResult?.synthesis || ''}
 
 HAI ĐIỀU BẠN CÓ THỂ THỬ:
 1. ${aiResult?.actions?.[0] || ''}
-2. ${aiResult?.actions?.[1] || ''}
+2. ${aiResult?.actions?.[1] || ''}`;
 
-© 2026 Trạm Tarot (tramtarot.vn)`;
+    if (vipExtension) {
+      content += `\n\n✦ PHẦN MỞ RỘNG VIP (5 LÁ TOÀN CẢNH) ✦\n${vipExtension.extension_headline}\n\nKHI CẢ NĂM LÁ CÙNG LÊN TIẾNG:\n${vipExtension.expanded_synthesis}\n\nBA ĐIỀU BẠN CÓ THỂ THỬ TIẾP THEO:\n1. ${vipExtension.actions?.[0] || ''}\n2. ${vipExtension.actions?.[1] || ''}\n3. ${vipExtension.actions?.[2] || ''}`;
+    }
+
+    content += `\n\n© 2026 Trạm Tarot (tramtarot.vn)`;
 
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
       navigator.clipboard.writeText(content);
@@ -1786,13 +1807,20 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                           </motion.div>
                         )}
 
-                        {/* 6.5. MỞ KHÓA BẢN PHÂN TÍCH CHUYÊN SÂU (FREEMIUM UPGRADE) */}
-                        <DeepReadingPaywallCard
-                          readingId={readingId || undefined}
-                          isUnlocked={isDeepUnlocked}
-                          onUnlocked={() => setIsDeepUnlocked(true)}
-                          question={userConcern || selectedTopic}
-                        />
+                        {/* 6.5. TIẾP NỐI TỰ NHIÊN: MỞ RỘNG TRẢI BÀI 3 LÊN 5 LÁ (VIP EXTENSION) */}
+                        {!vipExtension ? (
+                          <VipExtendCard
+                            readingId={readingId || undefined}
+                            isVipUnlocked={isDeepUnlocked}
+                            onVipUnlocked={() => setIsDeepUnlocked(true)}
+                            onStartPickExtraCards={() => setIsVipPickerOpen(true)}
+                          />
+                        ) : (
+                          <VipReadingResultView
+                            vipResult={vipExtension}
+                            vipCards={drawnCards.slice(3, 5)}
+                          />
+                        )}
 
                         {/* 7. LƯU TRẢI BÀI & TRẢI BÀI MỚI */}
                         <motion.div
@@ -1841,6 +1869,17 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                 <span>✦</span>
                 <span>Đã sao chép nội dung trải bài để bạn lưu lại!</span>
               </div>
+            )}
+
+            {/* Modal tương tác rút 2 lá mở rộng VIP */}
+            {readingId && (
+              <VipCardPickerModal
+                isOpen={isVipPickerOpen}
+                onClose={() => setIsVipPickerOpen(false)}
+                readingId={readingId}
+                availableSlotIds={slots.map((s) => s.slot_id).filter((id) => !selectedSlotIds.includes(id))}
+                onExtensionSuccess={handleExtensionSuccess}
+              />
             )}
           </div>
         )}

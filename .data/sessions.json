@@ -94374,5 +94374,695 @@
       "model_used": "gemini-3.7-flash",
       "generated_at": "2026-10-11T12:27:55.180Z"
     }
+  },
+  "c1c1f90d-18fd-4c0c-aa66-20ca96abb9d0": {
+    "reading_id": "c1c1f90d-18fd-4c0c-aa66-20ca96abb9d0",
+    "created_at": "2026-10-11T13:01:40.706Z",
+    "updated_at": "2026-10-11T13:02:17.701Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "general",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "bao giờ tôi mới hết đầy bụng ?",
+    "context": "Lời băn khoăn của người xem: bao giờ tôi mới hết đầy bụng ?",
+    "status": "completed",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_dffb73f0",
+        "card_id": 45,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_d3b260f1",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_bdbcbdba",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_125e1ebc",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_11e11fc5",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_70efe609",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_7dec44d1",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_abf3162a",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_5b3f1cf9",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_76e7bd82",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_5d8fcbc3",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_17800e10",
+        "card_id": 3,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_5cbf4ae4",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_96147d0c",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_1dec5947",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_5ef6ad69",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_2b9425c6",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_504b31f4",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_922a7f79",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_52172aea",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_00c44f9d",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_11f0b02f",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_1894b935",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_47745535",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_c754effa",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_f32eb14d",
+        "card_id": 41,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_b0941f35",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_cf106794",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_b5511cd8",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_d38df3c7",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_96c4a326",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_f9d95efa",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_3aafaeec",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_e8bee894",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_f00a4dc9",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_8778b69e",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_72e21820",
+        "card_id": 16,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_9f3200ec",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_3891b7c0",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_2d897135",
+        "card_id": 42,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_f0123ff4",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_18e929f5",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_70b4c865",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_670b97c0",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_2ba3ac96",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_e0eb67fb",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_c2e00bc0",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_3d830378",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_431c008c",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_e3555893",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_aaef3564",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_26a367a0",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_d2d7b1bc",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_572c9647",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_78f8522d",
+        "card_id": 64,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_a67cfb3c",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_7d8d9824",
+        "card_id": 33,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_5944fdca",
+        "card_id": 54,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_25c37fa6",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_06311b3d",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_8438a320",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_b72aafab",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_e5f13596",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_6ff1326a",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_2629c815",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_b1c36a46",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_256658d1",
+        "card_id": 40,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_dd882a02",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_e424d14d",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_7f4a212a",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_a4cb8d45",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_34ab4122",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_260b8a39",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_d6404dcc",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_49010a0f",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_1ae752dc",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_ddadc644",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_f6eb8b18",
+        "card_id": 55,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [
+      {
+        "card_id": 73,
+        "position_id": "present",
+        "position_name": "Lá 1: Hiện tại",
+        "position_description": "Năng lượng hiện thời, hoàn cảnh thực tế bạn đang đối diện.",
+        "orientation": "upright",
+        "card": {
+          "id": 73,
+          "name": "Ten of Pentacles",
+          "arcana": "minor",
+          "suit": "pentacles",
+          "number_numerology": 10,
+          "element": "Earth",
+          "planet": "Mercury",
+          "zodiac": "Virgo",
+          "yes_no": "yes",
+          "yes_no_reversed": "no",
+          "keywords_upright": [
+            "legacy",
+            "lasting wealth",
+            "family security",
+            "inheritance",
+            "long-term foundations"
+          ],
+          "keywords_reversed": [
+            "family disputes over resources",
+            "unstable foundations",
+            "short-term thinking",
+            "lost inheritance",
+            "wealth without belonging"
+          ],
+          "meaning_upright": "Legacy, lasting wealth, family security, inheritance, long-term foundations.",
+          "meaning_reversed": "Family disputes over resources, unstable foundations, short-term thinking, lost inheritance, wealth without belonging.",
+          "love": "long-term commitment, family stability, shared financial security, building a lasting legacy together",
+          "love_reversed": "family disputes, unstable foundation, short-term thinking, strained legacy",
+          "career": "lasting career stability, family business, wealth building, established professional legacy",
+          "career_reversed": "unstable foundations, disputes over resources, short-term thinking, lost security",
+          "mood": "Secure, proud.",
+          "mood_reversed": "strained, insecure, tense",
+          "spiritual": "ancestral wisdom, lasting spiritual foundations, shared traditions, legacy and belonging",
+          "spiritual_reversed": "unstable foundations, disputes over legacy, wealth without belonging, lost roots",
+          "image": "cards/Pents10.jpg",
+          "name_vi": "Mười Tiền",
+          "suit_vi": "Tiền (Pentacles)",
+          "keywords_upright_vi": [
+            "di sản",
+            "thịnh vượng dài lâu",
+            "gia đình vững chắc",
+            "thừa kế",
+            "nền móng bền vững"
+          ],
+          "keywords_reversed_vi": [
+            "tranh chấp gia sản",
+            "nền tảng lung lay",
+            "tầm nhìn ngắn hạn",
+            "mất quyền thừa kế",
+            "giàu sang thiếu gắn kết"
+          ],
+          "meaning_upright_vi": "Di sản truyền đời, sự thịnh vượng bền vững, an toàn gia đạo, sự kế thừa và nền tảng tài chính cùng truyền thống vững chắc qua nhiều thế hệ.",
+          "meaning_reversed_vi": "Bất hòa trong gia đình vì tiền tài, nền móng lung lay, suy tính thiển cận, thất thoát tài sản hoặc cảm giác lạc lõng giữa nhung lụa.",
+          "love_vi": "Cam kết gắn bó trọn đời, hôn nhân êm ấm, nền tảng gia đình vững vàng và cùng nhau xây dựng tổ ấm thịnh vượng dài lâu.",
+          "love_reversed_vi": "Mâu thuẫn gia đình chi phối tình cảm, thiếu nền tảng gắn kết dài lâu, suy nghĩ nông cạn hoặc rạn nứt vì gánh nặng vật chất.",
+          "career_vi": "Sự nghiệp ổn định tột bậc, doanh nghiệp gia đình hưng thịnh, tích lũy tài sản vững chãi và gây dựng di sản nghề nghiệp vẻ vang.",
+          "career_reversed_vi": "Nền tảng công việc bất ổn, tranh chấp quyền lợi nội bộ, kinh doanh chắp vá ngắn hạn hoặc nguy cơ đánh mất cơ nghiệp.",
+          "spiritual_vi": "Trí tuệ tổ tiên soi rọi, nền tảng tâm linh vững chắc lưu truyền qua nhiều thế hệ, sự hòa hợp cội nguồn và cảm giác thuộc về một tổng thể thiêng liêng.",
+          "spiritual_reversed_vi": "Mất kết nối với cội nguồn, mâu thuẫn về giá trị truyền thống, tâm hồn trơ trọi giữa vật chất hoặc nền tảng tâm linh lung lay."
+        },
+        "resolved_meaning": {
+          "primary_text": "Di sản truyền đời, sự thịnh vượng bền vững, an toàn gia đạo, sự kế thừa và nền tảng tài chính cùng truyền thống vững chắc qua nhiều thế hệ.",
+          "is_vietnamese": true,
+          "keywords": [
+            "di sản",
+            "thịnh vượng dài lâu",
+            "gia đình vững chắc",
+            "thừa kế",
+            "nền móng bền vững"
+          ],
+          "topic": "general",
+          "orientation": "upright",
+          "general_meaning": "Di sản truyền đời, sự thịnh vượng bền vững, an toàn gia đạo, sự kế thừa và nền tảng tài chính cùng truyền thống vững chắc qua nhiều thế hệ."
+        }
+      },
+      {
+        "card_id": 24,
+        "position_id": "obstacle",
+        "position_name": "Lá 2: Trở ngại hoặc điều cần chú ý",
+        "position_description": "Yếu tố cản trở, điểm mù hoặc điều bạn cần lưu tâm cẩn trọng.",
+        "orientation": "upright",
+        "card": {
+          "id": 24,
+          "name": "Three of Wands",
+          "arcana": "minor",
+          "suit": "wands",
+          "number_numerology": 3,
+          "element": "Fire",
+          "planet": "Sun",
+          "zodiac": "Aries",
+          "yes_no": "yes",
+          "yes_no_reversed": "no",
+          "keywords_upright": [
+            "progress",
+            "expansion",
+            "foresight",
+            "ships coming in",
+            "momentum"
+          ],
+          "keywords_reversed": [
+            "delays",
+            "obstacles to plans",
+            "limited vision",
+            "setbacks",
+            "impatience"
+          ],
+          "meaning_upright": "Progress, expansion, foresight, ships coming in, momentum.",
+          "meaning_reversed": "Delays, obstacles to plans, limited vision, setbacks, impatience.",
+          "love": "relationship expansion, waiting for love to develop, long-distance connection, looking toward the future together",
+          "love_reversed": "delays, limited vision, romantic setbacks, impatience",
+          "career": "business expansion, international work, long-term growth, waiting for results",
+          "career_reversed": "obstacles to plans, delays, limited vision, setbacks",
+          "mood": "Optimistic, forward-looking.",
+          "mood_reversed": "impatient, frustrated, restless",
+          "spiritual": "faith in unfolding progress, broadening awareness, spiritual expansion, trusting long-term growth",
+          "spiritual_reversed": "delayed growth, limited vision, obstacles to progress, impatience",
+          "image": "cards/Wands03.jpg",
+          "name_vi": "Ba Gậy",
+          "suit_vi": "Gậy (Wands)",
+          "keywords_upright_vi": [
+            "tiến triển",
+            "khai mở",
+            "viễn kiến",
+            "thuyền về bến",
+            "đà vươn lên"
+          ],
+          "keywords_reversed_vi": [
+            "chậm trễ",
+            "trở ngại kế hoạch",
+            "tầm nhìn hạn hẹp",
+            "bước lùi",
+            "nóng vội thiếu kiên nhẫn"
+          ],
+          "meaning_upright_vi": "Sự tiến bộ vững chắc, mở rộng biên giới cơ hội, tầm nhìn xa trông rộng, kiên nhẫn chờ đón thành quả và đà tăng trưởng đang trên đà thuận lợi.",
+          "meaning_reversed_vi": "Tiến độ bị đình trệ, kế hoạch gặp phải rào cản bất ngờ, tầm nhìn bị bó hẹp, những bước lùi đáng tiếc do sự nôn nóng và thiếu chuẩn bị.",
+          "love_vi": "Tình yêu bước sang giai đoạn phát triển mới, kiên nhẫn nuôi dưỡng mối quan hệ, kết nối bền chặt dù có khoảng cách địa lý, cùng nhau hướng về tương lai.",
+          "love_reversed_vi": "Trở ngại làm chậm nhịp gắn kết lứa đôi, thiếu định hướng tương lai chung, thất vọng vì tình cảm dậm chân tại chỗ, nóng vội gây rạn nứt.",
+          "career_vi": "Mở rộng quy mô kinh doanh vượt bậc, cơ hội hợp tác quốc tế hoặc đi xa, tăng trưởng bền vững dài hạn, bắt đầu thu hoạch những kết quả xứng đáng.",
+          "career_reversed_vi": "Kế hoạch kinh doanh vấp phải trở ngại, tiến độ công việc chậm trễ, chiến lược thiển cận thiếu chiều sâu, đối mặt với sự trì trệ ngoài ý muốn.",
+          "spiritual_vi": "Kiên định niềm tin vào tiến trình thức tỉnh, mở rộng tầng nhận thức, tâm thức vươn xa đón nhận những chân trời tri thức mới.",
+          "spiritual_reversed_vi": "Hành trình phát triển tâm linh bị chững lại, tầm nhìn bị mây mù che khuất, mất kiên nhẫn với chính mình, gặp trắc trở trên con đường tu tập."
+        },
+        "resolved_meaning": {
+          "primary_text": "Sự tiến bộ vững chắc, mở rộng biên giới cơ hội, tầm nhìn xa trông rộng, kiên nhẫn chờ đón thành quả và đà tăng trưởng đang trên đà thuận lợi.",
+          "is_vietnamese": true,
+          "keywords": [
+            "tiến triển",
+            "khai mở",
+            "viễn kiến",
+            "thuyền về bến",
+            "đà vươn lên"
+          ],
+          "topic": "general",
+          "orientation": "upright",
+          "general_meaning": "Sự tiến bộ vững chắc, mở rộng biên giới cơ hội, tầm nhìn xa trông rộng, kiên nhẫn chờ đón thành quả và đà tăng trưởng đang trên đà thuận lợi."
+        }
+      },
+      {
+        "card_id": 9,
+        "position_id": "action",
+        "position_name": "Lá 3: Hướng hành động nên cân nhắc",
+        "position_description": "Lời khuyên hành động và hướng đi nên cân nhắc tiếp theo.",
+        "orientation": "upright",
+        "card": {
+          "id": 9,
+          "name": "The Hermit",
+          "arcana": "major",
+          "suit": null,
+          "number_numerology": 9,
+          "element": "Earth",
+          "planet": "Mercury",
+          "zodiac": "Virgo",
+          "yes_no": "maybe",
+          "yes_no_reversed": "no",
+          "keywords_upright": [
+            "introspection",
+            "solitude",
+            "inner guidance",
+            "wisdom",
+            "searching"
+          ],
+          "keywords_reversed": [
+            "isolation",
+            "loneliness",
+            "withdrawal",
+            "lost direction",
+            "avoidance"
+          ],
+          "meaning_upright": "Introspection, solitude, inner guidance, wisdom, searching.",
+          "meaning_reversed": "Isolation, loneliness, withdrawal, lost direction, avoidance.",
+          "love": "time alone, romantic introspection, emotional distance, understanding personal needs",
+          "love_reversed": "isolation, emotional withdrawal, loneliness, avoiding connection",
+          "career": "independent work, career reflection, specialist expertise, seeking meaningful direction",
+          "career_reversed": "isolation at work, lost direction, avoidance, excessive solitude",
+          "mood": "Solitary, contemplative.",
+          "mood_reversed": "lonely, withdrawn, lost",
+          "spiritual": "solitude and reflection, inner searching, spiritual guidance, discovering personal truth",
+          "spiritual_reversed": "isolation, avoidance of inner work, lost direction, disconnection from guidance",
+          "image": "cards/09_Hermit.jpg",
+          "name_vi": "Ẩn Sĩ",
+          "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
+          "keywords_upright_vi": [
+            "tự soi rọi",
+            "sự tĩnh lặng cô độc",
+            "chỉ dẫn nội tâm",
+            "sự thông tuệ",
+            "hành trình tìm kiếm"
+          ],
+          "keywords_reversed_vi": [
+            "sự cô lập",
+            "nỗi cô đơn",
+            "thu mình thu hẹp",
+            "mất phương hướng",
+            "sự trốn tránh"
+          ],
+          "meaning_upright_vi": "Khoảng lặng tự chiêm nghiệm, sự tĩnh lặng một mình quý giá, ánh sáng chỉ đường từ nội tâm, trí tuệ uyên thâm và hành trình tìm kiếm chân lý.",
+          "meaning_reversed_vi": "Tự cô lập tách biệt cực đoan, chìm trong nỗi cô đơn lạnh lẽo, khép kín rút lui khỏi thế giới, lạc lối không lối thoát và trốn tránh thực tại.",
+          "love_vi": "Khoảng lặng cần thiết để nhìn nhận lại, suy ngẫm thấu đáo về chuyện tình cảm, tạo khoảng cách để thấu hiểu nhu cầu đích thực của trái tim.",
+          "love_reversed_vi": "Cô lập trong chính mối quan hệ, đóng chặt cửa lòng rút lui, nỗi cô đơn bủa vây, né tránh chia sẻ và kết nối với đối phương.",
+          "career_vi": "Làm việc độc lập đạt hiệu quả cao, thời điểm chiêm nghiệm lộ trình sự nghiệp, nâng cao chuyên môn sâu, kiếm tìm hướng đi mang lại ý nghĩa thực sự.",
+          "career_reversed_vi": "Bị cô lập lạc lõng chốn công sở, mất định hướng nghề nghiệp, trốn tránh trách nhiệm và hợp tác, tự giam mình trong vỏ ốc.",
+          "spiritual_vi": "Tĩnh lặng để soi thấu bản tâm, dấn thân tìm kiếm ánh sáng chân lý, đón nhận sự dẫn dắt của bậc đạo sư bên trong, khai mở sự thật cốt tủy.",
+          "spiritual_reversed_vi": "Sự cô độc độc hại, trốn tránh đối diện với bóng tối bên trong, đánh mất ngọn đèn dẫn lối, cắt đứt kết nối với điểm tựa tâm linh."
+        },
+        "resolved_meaning": {
+          "primary_text": "Khoảng lặng tự chiêm nghiệm, sự tĩnh lặng một mình quý giá, ánh sáng chỉ đường từ nội tâm, trí tuệ uyên thâm và hành trình tìm kiếm chân lý.",
+          "is_vietnamese": true,
+          "keywords": [
+            "tự soi rọi",
+            "sự tĩnh lặng cô độc",
+            "chỉ dẫn nội tâm",
+            "sự thông tuệ",
+            "hành trình tìm kiếm"
+          ],
+          "topic": "general",
+          "orientation": "upright",
+          "general_meaning": "Khoảng lặng tự chiêm nghiệm, sự tĩnh lặng một mình quý giá, ánh sáng chỉ đường từ nội tâm, trí tuệ uyên thâm và hành trình tìm kiếm chân lý."
+        }
+      }
+    ],
+    "retry_count": 0,
+    "ai_result": {
+      "headline": "Khi cơ thể cần khoảng lặng để tiêu hóa",
+      "summary": "Cảm giác đầy bụng tưởng chừng chỉ là sự bất tiện nhất thời, nhưng thực chất đang phản ánh trạng thái cơ thể bị quá tải. Thay vì loay hoay tìm một mốc thời gian cụ thể để hết khó chịu, trải bài cho thấy sự dư thừa tích tụ đang đòi hỏi bạn phải chậm lại. Cơ thể không thể nhẹ nhõm nếu bạn tiếp tục thúc ép nó mà không thay đổi thói quen dung nạp.",
+      "card_readings": [
+        {
+          "card_id": 73,
+          "position_id": "present",
+          "card_name": "Ten of Pentacles",
+          "orientation": "upright",
+          "interpretation": "Ở vị trí hiện tại, lá bài phản ánh sự dung nạp quá mức hoặc các bữa ăn thịnh soạn, nhiều chất béo và gia vị diễn ra liên tục. Cơ thể bạn đang đối diện với sự quá tải cơ học đơn thuần: có quá nhiều thứ được nạp vào cùng lúc khiến hệ tiêu hóa đình trệ. Hãy nhận diện xem bạn có đang ăn theo thói quen tụ họp, ăn cố vì tiếc đồ ăn, hay ăn quá no vượt mức cần thiết hay không."
+        },
+        {
+          "card_id": 24,
+          "position_id": "obstacle",
+          "card_name": "Three of Wands",
+          "orientation": "upright",
+          "interpretation": "Lá bài tại vị trí trở ngại chỉ ra sự nôn nóng và hướng mắt ra ngoài. Bạn đứng đợi sự khó chịu tan biến như chờ một con thuyền cập bến, nhưng lại quên rằng quá trình tiêu hóa cần thời gian sinh học thực tế để xử lý. Việc liên tục bồn chồn tự hỏi 'khi nào mới khỏi' chỉ làm tăng thêm căng thẳng thần kinh—yếu tố trực tiếp khiến dạ dày co bóp kém hiệu quả hơn."
+        },
+        {
+          "card_id": 9,
+          "position_id": "action",
+          "card_name": "The Hermit",
+          "orientation": "upright",
+          "interpretation": "Lời khuyên hành động là sự tiết chế và thu hẹp. Đã đến lúc đưa đường ruột vào trạng thái nghỉ ngơi: giảm khẩu phần, ưu tiên thức ăn ấm, thanh đạm và tránh các món khó tiêu. Giống như người ẩn sĩ tự soi đèn, bạn cần chú tâm quan sát phản ứng của cơ thể với từng loại thực phẩm nạp vào, đồng thời dành cho bản thân không gian yên tĩnh để thả lỏng cơ bụng."
+        }
+      ],
+      "synthesis": "Ba lá bài tạo nên một dòng chảy chuyển dịch rất rõ ràng từ sự dư thừa sang nhu cầu tinh giản. Ten of Pentacles phản ánh tình trạng dồn ứ vật chất hoặc thói quen ăn uống thịnh soạn kéo dài. Three of Wands đặt ra trở ngại về sự sốt ruột—tâm lý ngóng đợi cơ thể tự bình phục trong khi vẫn duy trì nhịp sinh hoạt cũ. Điểm tháo gỡ nằm ở The Hermit: cảm giác nhẹ nhõm sẽ không tự đến nếu bạn không chủ động tạo khoảng nghỉ cho hệ tiêu hóa, rút bớt những thứ nặng nề và lắng nghe tín hiệu thực tế từ bên trong.",
+      "actions": [
+        "Chuyển bữa ăn tiếp theo sang các món lỏng, ấm và dễ tiêu như cháo loãng hoặc súp thanh, tránh nạp thêm dầu mỡ và đồ uống có gas.",
+        "Dành 15 phút đi bộ chậm rãi sau bữa ăn thay vì ngồi lì một chỗ hoặc nằm ngay, giúp hỗ trợ nhu động ruột tự nhiên."
+      ],
+      "reflection_question": "Bữa ăn gần nhất của bạn xuất phát từ cơn đói thực sự của dạ dày, hay chỉ là phản xạ ăn theo giờ và sự nuông chiều khẩu vị?",
+      "limitations": "Trải bài chỉ phản ánh góc nhìn về thói quen sinh hoạt và nhịp điệu cơ thể. Tarot không thể đưa ra chẩn đoán hay mốc thời gian khỏi bệnh thay cho y khoa; nếu triệu chứng chướng bụng đi kèm đau quặn hoặc kéo dài nhiều ngày, bạn cần thăm khám bác sĩ.",
+      "model_used": "gemini-3.7-flash",
+      "generated_at": "2026-10-11T13:02:17.701Z"
+    }
   }
 }

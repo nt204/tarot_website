@@ -134,5 +134,52 @@ export const SPREAD_DEFINITIONS = {
       name_en: 'Recommended Action',
       description_vi: 'Lời khuyên hành động và hướng đi nên cân nhắc tiếp theo.'
     }
+  ],
+  five_card_extension: [
+    {
+      id: 'present',
+      name_vi: 'Lá 1: Hiện tại',
+      name_en: 'Present',
+      description_vi: 'Năng lượng hiện thời, hoàn cảnh thực tế bạn đang đối diện.'
+    },
+    {
+      id: 'obstacle',
+      name_vi: 'Lá 2: Trở ngại hoặc điều cần chú ý',
+      name_en: 'Obstacle or Caution',
+      description_vi: 'Yếu tố cản trở, điểm mù hoặc điều bạn cần lưu tâm cẩn trọng.'
+    },
+    {
+      id: 'action',
+      name_vi: 'Lá 3: Hướng hành động nên cân nhắc',
+      name_en: 'Recommended Action',
+      description_vi: 'Lời khuyên hành động và hướng đi nên cân nhắc tiếp theo.'
+    },
+    {
+      id: 'unseen',
+      name_vi: 'Lá 4: Điều bạn chưa xem xét',
+      name_en: 'Hidden Aspect',
+      description_vi: 'Yếu tố ẩn dưới bề mặt hoặc điều bạn chưa từng xem xét tới.'
+    },
+    {
+      id: 'perspective',
+      name_vi: 'Lá 5: Một góc nhìn khác để tiến về phía trước',
+      name_en: 'Alternative Path',
+      description_vi: 'Góc nhìn mới mẻ và động lực để bạn tự tin bước tiếp.'
+    }
   ]
 };
+
+export const VIP_EXTENSION_POSITIONS = [
+  {
+    id: 'unseen',
+    name_vi: 'Lá thứ 4 · Điều bạn chưa xem xét',
+    name_en: 'Hidden Aspect',
+    description_vi: 'Yếu tố ẩn dưới bề mặt hoặc điều bạn chưa từng xem xét tới.'
+  },
+  {
+    id: 'perspective',
+    name_vi: 'Lá thứ 5 · Một góc nhìn khác để tiến về phía trước',
+    name_en: 'Alternative Path',
+    description_vi: 'Góc nhìn mới mẻ và động lực để bạn tự tin bước tiếp.'
+  }
+];

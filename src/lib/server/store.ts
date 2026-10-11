@@ -10,9 +10,10 @@ import {
   TarotCard,
   DrawnCard,
   ReadingStatus,
-  AIReadingResult
+  AIReadingResult,
+  VipExtensionResult
 } from '@/types/tarot';
-import { SPREAD_DEFINITIONS, resolveCardMeaning } from '@/lib/resolver';
+import { SPREAD_DEFINITIONS, VIP_EXTENSION_POSITIONS, resolveCardMeaning } from '@/lib/resolver';
 
 const DATA_DIR = path.join(process.cwd(), '.data');
 const SESSIONS_FILE = path.join(DATA_DIR, 'sessions.json');
@@ -296,5 +297,90 @@ export function saveAIResult(reading_id: string, ai_result: AIReadingResult) {
 
 export function getAllSessions(): ReadingSession[] {
   return Object.values(sessionsCache);
+}
+
+/**
+ * Mở rộng phiên trải bài 3 lá lên 5 lá với VIP:
+ * Giữ nguyên 3 lá ban đầu, rút thêm đúng 2 lá mới (Lá 4 & Lá 5)
+ */
+export function extendSessionWithVipCards(
+  reading_id: string,
+  selected_slot_ids: string[]
+): { success: boolean; session?: ReadingSession; newCards?: DrawnCard[]; error?: string } {
+  const session = sessionsCache[reading_id];
+  if (!session) {
+    return { success: false, error: 'Phiên trải bài không tồn tại.' };
+  }
+
+  if (session.drawn_cards.length < 3) {
+    return { success: false, error: 'Phiên trải bài cần hoàn tất 3 lá ban đầu trước khi mở rộng.' };
+  }
+
+  // Nếu đã mở rộng trước đó, trả về danh sách 2 lá mở rộng
+  if (session.is_vip_extended && session.drawn_cards.length >= 5) {
+    const existingNewCards = session.drawn_cards.slice(3, 5);
+    return { success: true, session, newCards: existingNewCards };
+  }
+
+  if (!Array.isArray(selected_slot_ids) || selected_slot_ids.length !== 2) {
+    return { success: false, error: 'Vui lòng chọn đúng 2 lá bài mới để mở rộng trải bài.' };
+  }
+
+  // Danh sách ID các lá đã được rút ở 3 lá đầu
+  const existingCardIds = new Set(session.drawn_cards.map((dc) => dc.card_id));
+  const newCards: DrawnCard[] = [];
+
+  for (let i = 0; i < 2; i++) {
+    const slotId = selected_slot_ids[i];
+    const slot = session.shuffled_slots.find((s) => s.slot_id === slotId);
+
+    if (!slot) {
+      return { success: false, error: `Lá bài chọn (${slotId}) không hợp lệ.` };
+    }
+
+    if (existingCardIds.has(slot.card_id)) {
+      return { success: false, error: 'Lá bài này đã được rút trước đó.' };
+    }
+
+    const card = getCardById(slot.card_id);
+    if (!card) {
+      return { success: false, error: `Không tìm thấy lá bài ID ${slot.card_id}.` };
+    }
+
+    const pos = VIP_EXTENSION_POSITIONS[i];
+    const resolvedMeaning = resolveCardMeaning(card, session.topic, slot.orientation);
+
+    existingCardIds.add(slot.card_id);
+
+    newCards.push({
+      card_id: slot.card_id,
+      position_id: pos.id,
+      position_name: pos.name_vi,
+      position_description: pos.description_vi,
+      orientation: slot.orientation,
+      card,
+      resolved_meaning: resolvedMeaning
+    });
+  }
+
+  // Thêm 2 lá mới vào mảng 3 lá ban đầu
+  session.drawn_cards = [...session.drawn_cards, ...newCards];
+  session.spread = 'five_card_extension';
+  session.is_vip_extended = true;
+  session.updated_at = new Date().toISOString();
+
+  persistSessions();
+
+  return { success: true, session, newCards };
+}
+
+export function saveVIPExtensionResult(reading_id: string, vip_extension: VipExtensionResult) {
+  const session = sessionsCache[reading_id];
+  if (session) {
+    session.vip_extension = vip_extension;
+    session.is_vip_extended = true;
+    session.updated_at = new Date().toISOString();
+    persistSessions();
+  }
 }
 
