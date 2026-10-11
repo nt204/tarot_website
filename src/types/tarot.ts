@@ -90,6 +90,7 @@ export interface CardReadingAI {
 }
 
 export interface AIReadingResult {
+  headline?: string;
   summary: string;
   card_readings: CardReadingAI[];
   synthesis: string;

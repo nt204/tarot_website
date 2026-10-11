@@ -35,7 +35,7 @@
     "spiritual": "spiritual beginning, trust in the journey, openness to the unknown, following inner guidance",
     "spiritual_reversed": "aimless wandering, ignoring inner guidance, fear of the unknown, avoiding the path",
     "image": "cards/00_Fool.jpg",
-    "name_vi": "Chàng Khờ (The Fool)",
+    "name_vi": "Chàng Khờ",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "khởi đầu mới",
@@ -96,7 +96,7 @@
     "spiritual": "focused intention, conscious manifestation, aligning will and action, recognizing personal power",
     "spiritual_reversed": "misused power, spiritual illusion, disconnection from intention, self-deception",
     "image": "cards/01_Magician.jpg",
-    "name_vi": "Pháp Sư (The Magician)",
+    "name_vi": "Pháp Sư",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "hiện thực hóa",
@@ -157,7 +157,7 @@
     "spiritual": "inner wisdom, sacred mystery, intuitive awareness, listening to the subconscious",
     "spiritual_reversed": "silenced intuition, blocked inner voice, secrets kept from the self, lost inner wisdom",
     "image": "cards/02_High_Priestess.jpg",
-    "name_vi": "Nữ Tư Tế (The High Priestess)",
+    "name_vi": "Nữ Tư Tế",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "trực giác",
@@ -218,7 +218,7 @@
     "spiritual": "connection with nature, creative life force, receptive abundance, nurturing spiritual growth",
     "spiritual_reversed": "creative stagnation, self-neglect, disconnection from nature, blocked nurturing energy",
     "image": "cards/03_Empress.jpg",
-    "name_vi": "Hoàng Hậu (The Empress)",
+    "name_vi": "Hoàng Hậu",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "sự trù phú",
@@ -279,7 +279,7 @@
     "spiritual": "spiritual discipline, inner authority, grounded leadership, creating stable foundations",
     "spiritual_reversed": "rigid beliefs, misused authority, loss of self-discipline, unstable foundations",
     "image": "cards/04_Emperor.jpg",
-    "name_vi": "Hoàng Đế (The Emperor)",
+    "name_vi": "Hoàng Đế",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "cấu trúc",
@@ -340,7 +340,7 @@
     "spiritual": "spiritual tradition, sacred teachings, mentorship, shared beliefs and ritual",
     "spiritual_reversed": "questioning tradition, rejecting dogma, seeking a personal path, spiritual nonconformity",
     "image": "cards/05_Hierophant.jpg",
-    "name_vi": "Giáo Hoàng (The Hierophant)",
+    "name_vi": "Giáo Hoàng",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "truyền thống",
@@ -401,7 +401,7 @@
     "spiritual": "alignment with core values, sacred union, conscious choice, integrating inner opposites",
     "spiritual_reversed": "inner conflict, misaligned values, avoided choices, disharmony within",
     "image": "cards/06_Lovers.jpg",
-    "name_vi": "Người Yêu (The Lovers)",
+    "name_vi": "Người Yêu",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "tình yêu",
@@ -462,7 +462,7 @@
     "spiritual": "spiritual determination, directing inner forces, disciplined progress, mastery through focus",
     "spiritual_reversed": "loss of direction, undisciplined will, scattered energy, inner conflict",
     "image": "cards/07_Chariot.jpg",
-    "name_vi": "Cỗ Xe Chiến Thắng (The Chariot)",
+    "name_vi": "Cỗ Xe Chiến Thắng",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "quyết tâm",
@@ -523,7 +523,7 @@
     "spiritual": "inner courage, compassionate self-mastery, gentle resilience, transforming instinct with awareness",
     "spiritual_reversed": "self-doubt, inner turmoil, forcing instead of allowing, wavering courage",
     "image": "cards/08_Strength.jpg",
-    "name_vi": "Sức Mạnh (Strength)",
+    "name_vi": "Sức Mạnh",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "lòng dũng cảm",
@@ -584,7 +584,7 @@
     "spiritual": "solitude and reflection, inner searching, spiritual guidance, discovering personal truth",
     "spiritual_reversed": "isolation, avoidance of inner work, lost direction, disconnection from guidance",
     "image": "cards/09_Hermit.jpg",
-    "name_vi": "Ẩn Sĩ (The Hermit)",
+    "name_vi": "Ẩn Sĩ",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "tự soi rọi",
@@ -645,7 +645,7 @@
     "spiritual": "cycles of growth, accepting change, karmic patterns, trusting life’s movement",
     "spiritual_reversed": "resisting change, repeating karmic cycles, fighting the flow, feeling stuck",
     "image": "cards/10_Wheel_of_Fortune.jpg",
-    "name_vi": "Bánh Xe Số Phận (Wheel of Fortune)",
+    "name_vi": "Bánh Xe Số Phận",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "sự thay đổi",
@@ -706,7 +706,7 @@
     "spiritual": "spiritual accountability, cause and effect, ethical alignment, balancing actions and consequences",
     "spiritual_reversed": "avoided accountability, imbalance, dishonesty with the self, unresolved consequences",
     "image": "cards/11_Justice.jpg",
-    "name_vi": "Công Lý (Justice)",
+    "name_vi": "Công Lý",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "công bằng",
@@ -767,7 +767,7 @@
     "spiritual": "surrender, altered perspective, spiritual pause, releasing attachment to control",
     "spiritual_reversed": "resisting surrender, stalled growth, martyrdom, clinging to control",
     "image": "cards/12_Hanged_Man.jpg",
-    "name_vi": "Kẻ Treo Ngược (The Hanged Man)",
+    "name_vi": "Kẻ Treo Ngược",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "buông bỏ",
@@ -828,7 +828,7 @@
     "spiritual": "spiritual transformation, release and renewal, ending an old identity, embracing necessary change",
     "spiritual_reversed": "resistance to transformation, fear of endings, holding on, stalled renewal",
     "image": "cards/13_Death.jpg",
-    "name_vi": "Cái Chết / Chuyển Hóa (Death)",
+    "name_vi": "Cái Chết / Chuyển Hóa",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "kết thúc",
@@ -889,7 +889,7 @@
     "spiritual": "inner harmony, spiritual integration, healing through balance, patient transformation",
     "spiritual_reversed": "imbalance, impatience, excess, disrupted inner harmony",
     "image": "cards/14_Temperance.jpg",
-    "name_vi": "Tiết Chế (Temperance)",
+    "name_vi": "Tiết Chế",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "cân bằng",
@@ -950,7 +950,7 @@
     "spiritual": "recognizing attachment, confronting the shadow, reclaiming personal freedom, breaking limiting patterns",
     "spiritual_reversed": "breaking free, confronting the shadow, reclaiming power, release from attachment",
     "image": "cards/15_Devil.jpg",
-    "name_vi": "Ác Quỷ (The Devil)",
+    "name_vi": "Ác Quỷ",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "ràng buộc",
@@ -1011,7 +1011,7 @@
     "spiritual": "spiritual awakening through disruption, collapse of false beliefs, sudden revelation, rebuilding on truth",
     "spiritual_reversed": "delayed awakening, resisting necessary collapse, clinging to false beliefs, internal upheaval",
     "image": "cards/16_Tower.jpg",
-    "name_vi": "Tòa Tháp Đổ (The Tower)",
+    "name_vi": "Tòa Tháp Đổ",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "biến động bất ngờ",
@@ -1072,7 +1072,7 @@
     "spiritual": "renewed faith, spiritual healing, authentic purpose, guidance and inspiration",
     "spiritual_reversed": "lost faith, disconnection from purpose, dimmed hope, spiritual discouragement",
     "image": "cards/17_Star.jpg",
-    "name_vi": "Ngôi Sao Hy Vọng (The Star)",
+    "name_vi": "Ngôi Sao Hy Vọng",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "hy vọng",
@@ -1133,7 +1133,7 @@
     "spiritual": "subconscious exploration, intuitive sensitivity, spiritual uncertainty, moving through illusion",
     "spiritual_reversed": "confusion lifting, truth surfacing, released illusion, returning clarity",
     "image": "cards/18_Moon.jpg",
-    "name_vi": "Mặt Trăng (The Moon)",
+    "name_vi": "Mặt Trăng",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "ảo ảnh",
@@ -1194,7 +1194,7 @@
     "spiritual": "spiritual clarity, joyful awareness, vitality and truth, connection with the authentic self",
     "spiritual_reversed": "dimmed clarity, blocked vitality, temporary disconnection, delayed joy",
     "image": "cards/19_Sun.jpg",
-    "name_vi": "Mặt Trời (The Sun)",
+    "name_vi": "Mặt Trời",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "niềm vui",
@@ -1255,7 +1255,7 @@
     "spiritual": "spiritual awakening, answering an inner calling, self-evaluation, release from the past",
     "spiritual_reversed": "ignoring the inner call, harsh self-judgment, stuck in the past, avoided awakening",
     "image": "cards/20_Judgement.jpg",
-    "name_vi": "Phán Xét / Thức Tỉnh (Judgement)",
+    "name_vi": "Phán Xét / Thức Tỉnh",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "thức tỉnh",
@@ -1316,7 +1316,7 @@
     "spiritual": "spiritual completion, wholeness, integration of lessons, connection with the greater whole",
     "spiritual_reversed": "incompletion, unfinished lessons, delayed closure, seeking the missing piece",
     "image": "cards/21_World.jpg",
-    "name_vi": "Thế Giới / Viên Mãn (The World)",
+    "name_vi": "Thế Giới / Viên Mãn",
     "suit_vi": "Bộ Ẩn Chính (Major Arcana)",
     "keywords_upright_vi": [
       "viên mãn",
@@ -1377,7 +1377,7 @@
     "spiritual": "spiritual inspiration, awakening life force, creative purpose, acting on inner fire",
     "spiritual_reversed": "blocked inspiration, lost spark, hesitation, stalled creative fire",
     "image": "cards/Wands01.jpg",
-    "name_vi": "Ách (1) Gậy (Wands)",
+    "name_vi": "Ách Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "nguồn cảm hứng",
@@ -1438,7 +1438,7 @@
     "spiritual": "expanding spiritual vision, choosing a path, planning purposeful growth, looking beyond familiar limits",
     "spiritual_reversed": "fear of the unknown, staying in the familiar, indecision, narrow vision",
     "image": "cards/Wands02.jpg",
-    "name_vi": "Hai (2) Gậy (Wands)",
+    "name_vi": "Hai Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "hoạch định",
@@ -1499,7 +1499,7 @@
     "spiritual": "faith in unfolding progress, broadening awareness, spiritual expansion, trusting long-term growth",
     "spiritual_reversed": "delayed growth, limited vision, obstacles to progress, impatience",
     "image": "cards/Wands03.jpg",
-    "name_vi": "Ba (3) Gậy (Wands)",
+    "name_vi": "Ba Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "tiến triển",
@@ -1560,7 +1560,7 @@
     "spiritual": "sacred community, gratitude and celebration, spiritual stability, honoring a meaningful milestone",
     "spiritual_reversed": "unstable foundation, disrupted community, postponed harmony, seeking belonging",
     "image": "cards/Wands04.jpg",
-    "name_vi": "Bốn (4) Gậy (Wands)",
+    "name_vi": "Bốn Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "hân hoan ăn mừng",
@@ -1621,7 +1621,7 @@
     "spiritual": "growth through challenge, testing beliefs, conflicting energies, learning through spiritual friction",
     "spiritual_reversed": "inner conflict, avoiding challenge, unresolved friction, seeking resolution",
     "image": "cards/Wands05.jpg",
-    "name_vi": "Năm (5) Gậy (Wands)",
+    "name_vi": "Năm Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "xung đột",
@@ -1682,7 +1682,7 @@
     "spiritual": "confidence in your path, recognition of growth, inspired leadership, sharing spiritual progress",
     "spiritual_reversed": "wounded pride, lack of recognition, self-doubt, ego overtaking growth",
     "image": "cards/Wands06.jpg",
-    "name_vi": "Sáu (6) Gậy (Wands)",
+    "name_vi": "Sáu Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "chiến thắng",
@@ -1743,7 +1743,7 @@
     "spiritual": "defending personal beliefs, spiritual conviction, energetic boundaries, remaining true to your path",
     "spiritual_reversed": "giving up ground, defensive exhaustion, wavering conviction, overwhelm",
     "image": "cards/Wands07.jpg",
-    "name_vi": "Bảy (7) Gậy (Wands)",
+    "name_vi": "Bảy Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "phòng thủ",
@@ -1804,7 +1804,7 @@
     "spiritual": "rapid spiritual movement, synchronicity, energetic alignment, receiving clear signs",
     "spiritual_reversed": "stalled momentum, missed signs, scattered energy, delayed alignment",
     "image": "cards/Wands08.jpg",
-    "name_vi": "Tám (8) Gậy (Wands)",
+    "name_vi": "Tám Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "chuyển động thần tốc",
@@ -1865,7 +1865,7 @@
     "spiritual": "spiritual resilience, protecting your energy, perseverance after trials, wisdom gained through experience",
     "spiritual_reversed": "battle fatigue, rigid defenses, giving up near the goal, depleted resilience",
     "image": "cards/Wands09.jpg",
-    "name_vi": "Chín (9) Gậy (Wands)",
+    "name_vi": "Chín Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "kiên cường",
@@ -1926,7 +1926,7 @@
     "spiritual": "spiritual burden, carrying inherited beliefs, need for release, simplifying your path",
     "spiritual_reversed": "releasing inherited burdens, letting go, simplifying the path, collapse before relief",
     "image": "cards/Wands10.jpg",
-    "name_vi": "Mười (10) Gậy (Wands)",
+    "name_vi": "Mười Gậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "gánh nặng",
@@ -1987,7 +1987,7 @@
     "spiritual": "spiritual curiosity, exploring new practices, enthusiastic discovery, a message of inspiration",
     "spiritual_reversed": "scattered enthusiasm, hasty exploration, boredom, unreliable inspiration",
     "image": "cards/Wands11.jpg",
-    "name_vi": "Tiểu Đồng (Page) Gậy (Wands)",
+    "name_vi": "Tiểu ĐồngGậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "nhiệt huyết",
@@ -2048,7 +2048,7 @@
     "spiritual": "passionate spiritual pursuit, adventurous exploration, acting on inspiration, restless searching",
     "spiritual_reversed": "scattered passion, reckless pursuit, impatience, restless searching",
     "image": "cards/Wands12.jpg",
-    "name_vi": "Hiệp Sĩ (Knight) Gậy (Wands)",
+    "name_vi": "Hiệp SĩGậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "hành động",
@@ -2109,7 +2109,7 @@
     "spiritual": "radiant spiritual confidence, intuitive creativity, embodied passion, inspiring others",
     "spiritual_reversed": "dimmed confidence, insecurity, comparison, blocked self-expression",
     "image": "cards/Wands13.jpg",
-    "name_vi": "Hoàng Hậu (Queen) Gậy (Wands)",
+    "name_vi": "Hoàng HậuGậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "tự tin",
@@ -2170,7 +2170,7 @@
     "spiritual": "spiritual leadership, purposeful vision, directing creative energy, courageous guidance",
     "spiritual_reversed": "misused vision, arrogance, impulsive leadership, ego over purpose",
     "image": "cards/Wands14.jpg",
-    "name_vi": "Vua (King) Gậy (Wands)",
+    "name_vi": "VuaGậy",
     "suit_vi": "Gậy (Wands)",
     "keywords_upright_vi": [
       "lãnh đạo có tầm nhìn",
@@ -2231,7 +2231,7 @@
     "spiritual": "spiritual opening, divine love, emotional renewal, deepening compassion",
     "spiritual_reversed": "blocked emotions, closed heart, needing self-love, spiritual emptiness",
     "image": "cards/Cups01.jpg",
-    "name_vi": "Ách (1) Ly (Cups)",
+    "name_vi": "Ách Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "tình yêu mới",
@@ -2292,7 +2292,7 @@
     "spiritual": "soulful connection, spiritual partnership, energetic harmony, meeting through shared values",
     "spiritual_reversed": "broken connection, imbalance, needing self-partnership, disharmony",
     "image": "cards/Cups02.jpg",
-    "name_vi": "Hai (2) Ly (Cups)",
+    "name_vi": "Hai Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "sự hòa hợp",
@@ -2353,7 +2353,7 @@
     "spiritual": "spiritual fellowship, shared joy, supportive community, gratitude expressed together",
     "spiritual_reversed": "isolation from community, excess, shallow connection, lost fellowship",
     "image": "cards/Cups03.jpg",
-    "name_vi": "Ba (3) Ly (Cups)",
+    "name_vi": "Ba Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "ăn mừng",
@@ -2414,7 +2414,7 @@
     "spiritual": "spiritual apathy, inward withdrawal, overlooked guidance, renewing emotional receptivity",
     "spiritual_reversed": "renewed openness, accepting guidance, emerging from apathy, fresh receptivity",
     "image": "cards/Cups04.jpg",
-    "name_vi": "Bốn (4) Ly (Cups)",
+    "name_vi": "Bốn Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "thờ ơ",
@@ -2475,7 +2475,7 @@
     "spiritual": "spiritual lessons through grief, acceptance of loss, emotional release, noticing what remains",
     "spiritual_reversed": "acceptance, forgiveness, seeing what remains, emotional healing",
     "image": "cards/Cups05.jpg",
-    "name_vi": "Năm (5) Ly (Cups)",
+    "name_vi": "Năm Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "mất mát",
@@ -2536,7 +2536,7 @@
     "spiritual": "healing the inner child, ancestral memories, spiritual innocence, reconnecting with simple joy",
     "spiritual_reversed": "releasing the past, outgrowing old comforts, healing memory, moving forward",
     "image": "cards/Cups06.jpg",
-    "name_vi": "Sáu (6) Ly (Cups)",
+    "name_vi": "Sáu Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "hoài niệm",
@@ -2597,7 +2597,7 @@
     "spiritual": "spiritual discernment, separating intuition from fantasy, many possible paths, grounding imagination",
     "spiritual_reversed": "clarity returning, illusions fading, grounded discernment, decision made",
     "image": "cards/Cups07.jpg",
-    "name_vi": "Bảy (7) Ly (Cups)",
+    "name_vi": "Bảy Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "nhiều lựa chọn",
@@ -2658,7 +2658,7 @@
     "spiritual": "leaving an empty path, seeking deeper meaning, spiritual pilgrimage, releasing emotional attachment",
     "spiritual_reversed": "fear of moving on, avoidance, staying in an empty path, unfinished search",
     "image": "cards/Cups08.jpg",
-    "name_vi": "Tám (8) Ly (Cups)",
+    "name_vi": "Tám Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "dứt áo ra đi",
@@ -2719,7 +2719,7 @@
     "spiritual": "spiritual contentment, gratitude, emotional fulfillment, appreciating present blessings",
     "spiritual_reversed": "superficial contentment, unmet longing, inner lack, misplaced desire",
     "image": "cards/Cups09.jpg",
-    "name_vi": "Chín (9) Ly (Cups)",
+    "name_vi": "Chín Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "ước nguyện thành hiện thực",
@@ -2780,7 +2780,7 @@
     "spiritual": "spiritual harmony, shared emotional fulfillment, loving community, alignment of heart and home",
     "spiritual_reversed": "broken harmony, misaligned ideals, disconnection at home, strained belonging",
     "image": "cards/Cups10.jpg",
-    "name_vi": "Mười (10) Ly (Cups)",
+    "name_vi": "Mười Ly",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "hạnh phúc bền lâu",
@@ -2841,7 +2841,7 @@
     "spiritual": "intuitive message, gentle spiritual awakening, emotional openness, creative sensitivity",
     "spiritual_reversed": "blocked intuition, emotional immaturity, escapism, oversensitivity",
     "image": "cards/Cups11.jpg",
-    "name_vi": "Tiểu Đồng (Page) Ly (Cups)",
+    "name_vi": "Tiểu ĐồngLy",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "mở lòng đón nhận cảm xúc",
@@ -2902,7 +2902,7 @@
     "spiritual": "following the heart’s calling, devotional journey, spiritual idealism, offering compassion",
     "spiritual_reversed": "disillusionment, unrealistic idealism, wavering devotion, heart over head gone wrong",
     "image": "cards/Cups12.jpg",
-    "name_vi": "Hiệp Sĩ (Knight) Ly (Cups)",
+    "name_vi": "Hiệp SĩLy",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "lãng mạn",
@@ -2963,7 +2963,7 @@
     "spiritual": "deep intuition, compassionate presence, emotional wisdom, receptive spiritual awareness",
     "spiritual_reversed": "dissolved boundaries, emotional overwhelm, codependency, martyrdom",
     "image": "cards/Cups13.jpg",
-    "name_vi": "Hoàng Hậu (Queen) Ly (Cups)",
+    "name_vi": "Hoàng HậuLy",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "lòng trắc ẩn",
@@ -3024,7 +3024,7 @@
     "spiritual": "emotional mastery, compassionate leadership, balanced spirituality, calm inner authority",
     "spiritual_reversed": "repressed emotion, imbalance, volatility beneath calm, disconnection from feeling",
     "image": "cards/Cups14.jpg",
-    "name_vi": "Vua (King) Ly (Cups)",
+    "name_vi": "VuaLy",
     "suit_vi": "Ly (Cups)",
     "keywords_upright_vi": [
       "làm chủ cảm xúc",
@@ -3085,7 +3085,7 @@
     "spiritual": "spiritual breakthrough, clarity of truth, awakened perception, cutting through illusion",
     "spiritual_reversed": "clouded truth, confusion, false clarity, misused insight",
     "image": "cards/Swords01.jpg",
-    "name_vi": "Ách (1) Kiếm (Swords)",
+    "name_vi": "Ách Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "sự sáng tỏ",
@@ -3146,7 +3146,7 @@
     "spiritual": "blocked intuition, spiritual indecision, inner conflict, finding stillness before choosing",
     "spiritual_reversed": "ending denial, forced choice, released avoidance, anxious clarity",
     "image": "cards/Swords02.jpg",
-    "name_vi": "Hai (2) Kiếm (Swords)",
+    "name_vi": "Hai Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "thế bế tắc",
@@ -3207,7 +3207,7 @@
     "spiritual": "truth revealed through pain, healing spiritual wounds, releasing sorrow, growth through acceptance",
     "spiritual_reversed": "healing old wounds, forgiveness, releasing sorrow, recovery through acceptance",
     "image": "cards/Swords03.jpg",
-    "name_vi": "Ba (3) Kiếm (Swords)",
+    "name_vi": "Ba Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "tan vỡ",
@@ -3268,7 +3268,7 @@
     "spiritual": "meditation and retreat, spiritual rest, mental renewal, quiet integration",
     "spiritual_reversed": "restlessness, resisting rest, burnout, needing genuine renewal",
     "image": "cards/Swords04.jpg",
-    "name_vi": "Bốn (4) Kiếm (Swords)",
+    "name_vi": "Bốn Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "nghỉ ngơi",
@@ -3329,7 +3329,7 @@
     "spiritual": "examining ego conflict, consequences of harmful choices, spiritual humility, choosing peace over victory",
     "spiritual_reversed": "releasing resentment, making amends, humility, choosing peace",
     "image": "cards/Swords05.jpg",
-    "name_vi": "Năm (5) Kiếm (Swords)",
+    "name_vi": "Năm Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "chiến thắng vô nghĩa",
@@ -3390,7 +3390,7 @@
     "spiritual": "spiritual transition, moving toward clarity, gradual healing, leaving troubled thoughts behind",
     "spiritual_reversed": "resisting transition, carrying old baggage, returning to trouble, stalled healing",
     "image": "cards/Swords06.jpg",
-    "name_vi": "Sáu (6) Kiếm (Swords)",
+    "name_vi": "Sáu Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "chuyển tiếp",
@@ -3451,7 +3451,7 @@
     "spiritual": "self-deception, hidden motives, spiritual avoidance, need for honesty and integrity",
     "spiritual_reversed": "confession, self-deception revealed, conscience, coming clean",
     "image": "cards/Swords07.jpg",
-    "name_vi": "Bảy (7) Kiếm (Swords)",
+    "name_vi": "Bảy Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "lừa dối",
@@ -3512,7 +3512,7 @@
     "spiritual": "self-imposed spiritual limits, restrictive beliefs, fear-based thinking, recognizing inner freedom",
     "spiritual_reversed": "liberation, removing the blindfold, self-empowerment, releasing fear-based beliefs",
     "image": "cards/Swords08.jpg",
-    "name_vi": "Tám (8) Kiếm (Swords)",
+    "name_vi": "Tám Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "cảm giác mắc kẹt",
@@ -3573,7 +3573,7 @@
     "spiritual": "spiritual anxiety, confronting fear, shadow thoughts, seeking peace through awareness",
     "spiritual_reversed": "easing anxiety, facing shadow thoughts, seeking help, returning peace",
     "image": "cards/Swords09.jpg",
-    "name_vi": "Chín (9) Kiếm (Swords)",
+    "name_vi": "Chín Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "lo âu",
@@ -3634,7 +3634,7 @@
     "spiritual": "ending a painful cycle, surrender after crisis, spiritual closure, beginning again after collapse",
     "spiritual_reversed": "recovery, rising after collapse, surviving the ending, closing old wounds",
     "image": "cards/Swords10.jpg",
-    "name_vi": "Mười (10) Kiếm (Swords)",
+    "name_vi": "Mười Kiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "kết thúc đau đớn",
@@ -3695,7 +3695,7 @@
     "spiritual": "questioning beliefs, spiritual study, alert observation, seeking truth with curiosity",
     "spiritual_reversed": "scattered thinking, hasty conclusions, gossip, seeking without depth",
     "image": "cards/Swords11.jpg",
-    "name_vi": "Tiểu Đồng (Page) Kiếm (Swords)",
+    "name_vi": "Tiểu ĐồngKiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "sự tò mò",
@@ -3756,7 +3756,7 @@
     "spiritual": "intense pursuit of truth, forceful conviction, mental urgency, balancing action with reflection",
     "spiritual_reversed": "reckless pursuit, forceful conviction, rushing past reflection, mental urgency",
     "image": "cards/Swords12.jpg",
-    "name_vi": "Hiệp Sĩ (Knight) Kiếm (Swords)",
+    "name_vi": "Hiệp SĩKiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "hành động quyết đoán",
@@ -3817,7 +3817,7 @@
     "spiritual": "spiritual discernment, honest self-reflection, clear energetic boundaries, wisdom through experience",
     "spiritual_reversed": "bitterness, harsh self-judgment, isolation, cynicism blocking wisdom",
     "image": "cards/Swords13.jpg",
-    "name_vi": "Hoàng Hậu (Queen) Kiếm (Swords)",
+    "name_vi": "Hoàng HậuKiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "phán đoán sáng suốt",
@@ -3878,7 +3878,7 @@
     "spiritual": "higher reasoning, ethical spiritual authority, disciplined thought, commitment to truth",
     "spiritual_reversed": "rigid logic, misused intellect, cold detachment, judgment without compassion",
     "image": "cards/Swords14.jpg",
-    "name_vi": "Vua (King) Kiếm (Swords)",
+    "name_vi": "VuaKiếm",
     "suit_vi": "Kiếm (Swords)",
     "keywords_upright_vi": [
       "uy quyền trí tuệ",
@@ -3939,7 +3939,7 @@
     "spiritual": "grounded spiritual beginning, sacred opportunity, bringing insight into practice, connection with the physical world",
     "spiritual_reversed": "missed opportunity, scarcity thinking, shaky grounding, disconnection from the practical",
     "image": "cards/Pents01.jpg",
-    "name_vi": "Ách (1) Tiền (Pentacles)",
+    "name_vi": "Ách Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "cơ hội mới",
@@ -4000,7 +4000,7 @@
     "spiritual": "balancing spiritual and practical life, adapting to change, energetic rhythm, staying centered amid movement",
     "spiritual_reversed": "imbalance, overcommitment, losing center amid demands, disorganized energy",
     "image": "cards/Pents02.jpg",
-    "name_vi": "Hai (2) Tiền (Pentacles)",
+    "name_vi": "Hai Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "xoay xở các ưu tiên",
@@ -4061,7 +4061,7 @@
     "spiritual": "spiritual learning through collaboration, shared practice, building something meaningful, honoring diverse gifts",
     "spiritual_reversed": "poor collaboration, misaligned effort, working in isolation, unrecognized growth",
     "image": "cards/Pents03.jpg",
-    "name_vi": "Ba (3) Tiền (Pentacles)",
+    "name_vi": "Ba Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "làm việc nhóm",
@@ -4122,7 +4122,7 @@
     "spiritual": "attachment to security, blocked energy, fear of letting go, learning spiritual generosity",
     "spiritual_reversed": "loosening attachment, learning generosity, releasing control, fear of letting go easing",
     "image": "cards/Pents04.jpg",
-    "name_vi": "Bốn (4) Tiền (Pentacles)",
+    "name_vi": "Bốn Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "sự an toàn",
@@ -4183,7 +4183,7 @@
     "spiritual": "spiritual isolation, crisis of faith, seeking support, finding meaning during hardship",
     "spiritual_reversed": "recovery, help accepted, finding shelter, renewed faith after hardship",
     "image": "cards/Pents05.jpg",
-    "name_vi": "Năm (5) Tiền (Pentacles)",
+    "name_vi": "Năm Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "gian nan thử thách",
@@ -4244,7 +4244,7 @@
     "spiritual": "spiritual generosity, balanced giving and receiving, compassionate service, responsible use of resources",
     "spiritual_reversed": "imbalanced giving, strings attached, self-neglect in giving, unequal exchange",
     "image": "cards/Pents06.jpg",
-    "name_vi": "Sáu (6) Tiền (Pentacles)",
+    "name_vi": "Sáu Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "sự hào phóng",
@@ -4305,7 +4305,7 @@
     "spiritual": "patient spiritual growth, reflecting on progress, trusting gradual development, tending long-term intentions",
     "spiritual_reversed": "impatience, misdirected effort, giving up too soon, poor returns on growth",
     "image": "cards/Pents07.jpg",
-    "name_vi": "Bảy (7) Tiền (Pentacles)",
+    "name_vi": "Bảy Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "kiên nhẫn",
@@ -4366,7 +4366,7 @@
     "spiritual": "dedicated spiritual practice, learning through repetition, disciplined growth, refining your craft",
     "spiritual_reversed": "misplaced effort, perfectionism, empty repetition, burnout from the grind",
     "image": "cards/Pents08.jpg",
-    "name_vi": "Tám (8) Tiền (Pentacles)",
+    "name_vi": "Tám Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "sự cần mẫn",
@@ -4427,7 +4427,7 @@
     "spiritual": "spiritual self-reliance, gratitude for abundance, embodied confidence, enjoying the fruits of growth",
     "spiritual_reversed": "self-worth tied to wealth, hollow success, overdependence, disconnection from real abundance",
     "image": "cards/Pents09.jpg",
-    "name_vi": "Chín (9) Tiền (Pentacles)",
+    "name_vi": "Chín Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "tự chủ tài chính",
@@ -4488,7 +4488,7 @@
     "spiritual": "ancestral wisdom, lasting spiritual foundations, shared traditions, legacy and belonging",
     "spiritual_reversed": "unstable foundations, disputes over legacy, wealth without belonging, lost roots",
     "image": "cards/Pents10.jpg",
-    "name_vi": "Mười (10) Tiền (Pentacles)",
+    "name_vi": "Mười Tiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "di sản",
@@ -4549,7 +4549,7 @@
     "spiritual": "beginner’s spiritual study, practical learning, grounding a new intention, steady curiosity",
     "spiritual_reversed": "procrastination, unrealized intention, daydreaming without practice, short-lived focus",
     "image": "cards/Pents11.jpg",
-    "name_vi": "Tiểu Đồng (Page) Tiền (Pentacles)",
+    "name_vi": "Tiểu ĐồngTiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "tinh thần hiếu học",
@@ -4610,7 +4610,7 @@
     "spiritual": "consistent spiritual practice, devotion through routine, patient progress, grounded commitment",
     "spiritual_reversed": "stagnation, rigid routine, boredom, stubborn resistance to change",
     "image": "cards/Pents12.jpg",
-    "name_vi": "Hiệp Sĩ (Knight) Tiền (Pentacles)",
+    "name_vi": "Hiệp SĩTiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "đáng tin cậy",
@@ -4671,7 +4671,7 @@
     "spiritual": "earth-centered spirituality, nurturing presence, practical wisdom, creating sacred comfort",
     "spiritual_reversed": "self-neglect, imbalance, over-giving, depleted nurturing energy",
     "image": "cards/Pents13.jpg",
-    "name_vi": "Hoàng Hậu (Queen) Tiền (Pentacles)",
+    "name_vi": "Hoàng HậuTiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "nuôi dưỡng thực tế",
@@ -4732,7 +4732,7 @@
     "spiritual": "spiritual stewardship, grounded mastery, wise use of abundance, stable and generous leadership",
     "spiritual_reversed": "materialism, status obsession, rigid control, corrupted sense of security",
     "image": "cards/Pents14.jpg",
-    "name_vi": "Vua (King) Tiền (Pentacles)",
+    "name_vi": "VuaTiền",
     "suit_vi": "Tiền (Pentacles)",
     "keywords_upright_vi": [
       "làm chủ vật chất",

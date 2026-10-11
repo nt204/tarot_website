@@ -1,32 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #080708;
-  --foreground: #F3E7D3;
+  --foreground: #EEE6D8;
+  --text-primary: #EEE6D8;
+  --text-secondary: #BDB4A8;
+  --accent-gold: #C9A85C;
+  --accent-gold-title: #CA9D75;
+}
+
+
+/* Liên kết điều hướng xuất hiện tuần tự và có gạch chân chuyển động khi tương tác. */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  animation: nav-link-enter 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: color 180ms ease, transform 180ms ease, text-shadow 180ms ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  background: var(--accent-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  transform: translateY(-2px);
+  text-shadow: 0 0 14px rgba(201, 168, 92, 0.45);
+}
+
+.nav-link:nth-child(2) { animation-delay: 55ms; }
+.nav-link:nth-child(3) { animation-delay: 110ms; }
+.nav-link:nth-child(4) { animation-delay: 165ms; }
+.nav-link:nth-child(5) { animation-delay: 220ms; }
+
+@keyframes nav-link-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .nav-link,
+  .nav-link::after {
+    animation: none;
+    transition: none;
+  }
 }
 
 body {
   background: #080708;
-  color: #F3E7D3;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #EEE6D8;
+  font-family: var(--font-mulish, 'Mulish', sans-serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
   overflow-x: hidden;
 }
 
-/* Typography tokens */
-.font-serif {
-  font-family: 'Cinzel', serif;
+/* Tiêu đề: Cormorant Garamond — thanh mảnh, cổ điển */
+h1, h2, h3 {
+  font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
 }
 
-.font-garamond {
-  font-family: 'Cormorant Garamond', serif;
+h4, h5, h6 {
+  font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
 }
 
-.font-sans {
-  font-family: 'Be Vietnam Pro', sans-serif;
+.font-heading, .card-name {
+  font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
+  font-weight: 400;
+  line-height: 1.2;
 }
 
-/* CSS 3D Transforms for Tarot Card Flipping (Section 3.4 tarot-animation-engine) */
+/* Tiêu đề bài viết phong cách cổ điển */
+.tarot-blog-title {
+  font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ca9d75;
+  letter-spacing: 0.05em;
+  line-height: 1.25;
+}
+
+body, p, span, button, input, textarea, nav, label, .font-body {
+  font-family: var(--font-mulish, 'Mulish', sans-serif);
+  font-weight: 400;
+}
+
+/* Phần luận giải 18px, căn trái, tối đa 680px */
+.reading-text {
+  font-size: 18px;
+  line-height: 1.75;
+  max-width: 680px;
+  text-align: left;
+}
+
+/* Đảm bảo dấu tiếng Việt không bị cắt xén ở tiêu đề và nút */
+h1, h2, h3, button, .card-name {
+  overflow: visible;
+  line-height: 1.25;
+}
+
+[class*="line-clamp-"] {
+  overflow: hidden !important;
+}
+
+/* CSS 3D Transforms for Tarot Card Flipping */
 .card-scene {
   perspective: 1200px;
 }
@@ -42,6 +151,17 @@ body {
 
 .rotate-y-180 {
   transform: rotateY(180deg);
+}
+
+/* Siêu mượt cho trải quạt Tarot: Zero-lag GPU compositing */
+.fan-card-container {
+  transform-origin: bottom center;
+}
+
+.fan-card-inner {
+  transform-origin: bottom center;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms ease, border-color 180ms ease;
+  will-change: transform, box-shadow;
 }
 
 /* Custom scrollbars */
@@ -60,5 +180,46 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #C9A85C;
+}
+
+/* Animations cho hệ thống chòm sao và vì sao nền - Tối ưu 100% GPU Composite, Zero-lag */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes pulseLine {
+  0%, 100% {
+    stroke-opacity: 0.25;
+  }
+  50% {
+    stroke-opacity: 0.85;
+  }
+}
+
+/* Hiệu ứng ngôi sao 4 cánh chớp nháy lấp lánh (Sparkle & Twinkle) - Không dùng drop-shadow filter để tránh nghẽn GPU */
+@keyframes starSparkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* Ẩn hoàn toàn Next.js dev indicators */
+nextjs-portal,
+[data-nextjs-dev-tools-button],
+[data-nextjs-toast] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }

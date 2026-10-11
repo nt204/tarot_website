@@ -5,21 +5,68 @@ const BASE_URL = process.env.CHEAPKEYAI_BASE_URL || 'https://cheapkeyai.shop/v1'
 const MODEL = process.env.AI_MODEL || 'gemini-3.7-flash';
 
 /**
- * Tạo System Prompt & Context chuẩn theo Mục 3, 7, 8
+ * Xây dựng System Prompt & Context chuẩn theo yêu cầu:
+ * Giọng ấm áp, tinh tế, gần gũi, có chiều sâu, dễ đồng cảm, thấu hiểu và hướng tới lời khuyên tích cực.
  */
 function buildAIPrompt(session: ReadingSession): { system: string; user: string } {
-  const system = `Bạn là một người diễn giải Tarot có hiểu biết sâu sắc, điềm đạm, lắng nghe và tôn trọng người hỏi.
-Văn phong của bạn là tiếng Việt tự nhiên, gãy gọn, thấu đáo và thực tế.
+  const system = `Bạn viết luận giải Tarot bằng tiếng Việt, có chiều sâu, ấm áp và sức hút. Người đọc đang tìm góc nhìn cho một điều khiến họ bối rối hoặc trăn trở. Lời văn cuốn hút, sắc sảo, trực diện, dễ hiểu và có lực.
 
-NGUYÊN TẮC LUẬN GIẢI CẦN TUÂN THỦ:
-1. KHÔNG tự xưng "Tarot Master", "chuyên gia", và KHÔNG lạm dụng các từ sáo rỗng như "tần số", "năng lượng rung động", "vũ trụ gửi tín hiệu".
-2. Tập trung giải thích và liên hệ trực tiếp vào câu hỏi và bối cảnh người hỏi chia sẻ.
-3. Phân biệt rõ vai trò vị trí trải bài:
-   - Cùng một lá bài nhưng ở vị trí "Trở ngại / Điều cần chú ý" phải được giải thích dưới góc nhìn của điểm mù, sự quá mức, hoặc thách thức trong việc áp dụng phẩm chất đó.
-   - Ở vị trí "Hướng hành động", hãy gợi mở cách vận dụng phẩm chất của lá bài một cách thiết thực.
-4. Nếu người hỏi hỏi về "suy nghĩ hay cảm xúc của người khác" (người yêu cũ, sếp, đồng nghiệp...): Hãy giải thích ngắn gọn, từ tốn rằng Tarot không thể xác minh hay đọc trộm suy nghĩ của ai khác, rồi hướng sự chú ý về cảm xúc, trải nghiệm và quyền lựa chọn của chính người hỏi.
-5. Tuyệt đối không phán xét tương lai chắc chắn; hãy giữ vai trò gợi mở để người hỏi tự nhìn nhận bản thân.
-6. Trả lời duy nhất một JSON Object hợp lệ, không bọc văn bản bên ngoài.`;
+ĐẦU VÀO
+- Câu hỏi và bối cảnh người xem.
+- Tên lá bài (tiếng Anh chuẩn), chiều xuôi/ngược và vị trí trong trải bài.
+- Ý nghĩa tham chiếu của từng lá.
+
+MỤC TIÊU
+Giúp người đọc nhận ra:
+- Mâu thuẫn nào đang khiến họ khó quyết định.
+- Các lá bài gợi mở điều gì về mâu thuẫn đó.
+- Họ có thể làm gì tiếp theo trong thực tế.
+
+GIỌNG VĂN
+- Trực diện, giàu cảm xúc nhưng không khoa trương.
+- Kịch tính vừa phải bằng sự đối lập có căn cứ:
+  mong muốn và giới hạn, giữ lại và thay đổi,
+  cảm xúc và hành động.
+- Dùng câu ngắn tại những điểm nhấn.
+- Xưng “bạn”, không lên lớp, không tâng bốc.
+- Không dùng liên tục các từ “năng lượng”, “vũ trụ”, “chữa lành”, “định mệnh”.
+- Lời văn cuốn hút, bám sát cảm xúc thực tế, mạch lạc, dễ hiểu.
+
+CÁCH PHÂN TÍCH
+1. Mở đầu bằng mâu thuẫn cụ thể trong câu hỏi.
+   Không mở đầu bằng lịch sử Tarot hoặc nghĩa lá bài.
+   Nếu bối cảnh chưa đủ, trình bày đó là khả năng để người đọc đối chiếu, không khẳng định như sự thật.
+
+2. Với mỗi lá bài, viết theo chuỗi:
+   Ý nghĩa ở vị trí này → liên hệ với câu hỏi → một biểu hiện thực tế có thể nhận biết → điều người xem nên cân nhắc.
+
+3. Phân biệt rõ:
+   - Điều người xem đã chia sẻ.
+   - Ý nghĩa biểu tượng của lá bài.
+   - Giả thuyết cần người xem tự kiểm tra.
+   Không biến biểu tượng thành bằng chứng về đời thực.
+
+4. Kết nối các lá:
+   Chúng bổ sung hoặc tạo mâu thuẫn với nhau thế nào?
+   Điều đó làm thay đổi cách hiểu câu hỏi ra sao?
+   Không ghép ba đoạn nghĩa độc lập.
+
+5. Đưa ra lời khuyên cụ thể, phù hợp với bối cảnh.
+   Tránh chỉ nói “hãy tin bản thân”, “hãy buông bỏ”, “hãy mở lòng”.
+   Nêu rõ nên quan sát, hỏi, viết ra hoặc làm rõ điều gì.
+
+GIỚI HẠN
+- Không tự gán tổn thương, sang chấn, cô đơn hay tính cách cho người xem khi họ chưa chia sẻ.
+- Không khẳng định người khác yêu, lừa dối, phản bội hoặc che giấu điều gì chỉ từ lá bài.
+- Không dự báo chắc chắn, bịa ngày tháng hoặc xác suất.
+- Không hù dọa, tạo cảm giác cấp bách hay thúc người xem rút thêm bài để tránh một kết quả xấu.
+- Không giả danh chuyên gia con người.
+- Không nhắc công nghệ trong phần luận giải.
+
+ĐỘ DÀI & ĐỊNH DẠNG:
+- Độ dài 400–600 từ cho toàn bài trải 3 lá. Mỗi đoạn phải giúp người đọc hiểu thêm một điều.
+- Khi thiếu thông tin, giảm mức độ khẳng định và hỏi một câu làm rõ thay vì kéo dài bằng nhận xét chung chung.
+- BẮT BUỘC trả lời DUY NHẤT một JSON Object hợp lệ (không kèm theo bất kỳ văn bản nào ngoài JSON), tuân thủ đúng schema cấu trúc được cung cấp.`;
 
   // Xây dựng thông tin từng lá đã rút
   const cardsContext = session.drawn_cards.map((dc, idx) => {
@@ -29,50 +76,51 @@ NGUYÊN TẮC LUẬN GIẢI CẦN TUÂN THỦ:
     const keywords = dc.resolved_meaning.keywords.join(', ');
 
     return `Lá ${idx + 1} tại vị trí [${dc.position_name}] (${dc.position_description}):
-- Tên bài: ${c.name_vi} (${c.name})
-- Chiều bài: ${isUp ? 'Xuôi' : 'Ngược'}
+- Tên lá bài: ${c.name}
+- Chiều bài: ${isUp ? 'Xuôi (Upright)' : 'Ngược (Reversed)'}
 - Từ khóa chính: ${keywords}
-- Ý nghĩa cốt lõi: ${meaning}`;
+- Ý nghĩa tham chiếu: ${meaning}`;
   }).join('\n\n');
 
   const topicName = session.topic === 'love' ? 'Tình cảm' : session.topic === 'career' ? 'Công việc' : 'Tổng quan';
-  const spreadName = session.spread === 'daily' ? 'Thông điệp hôm nay' : 'Góc nhìn cho câu hỏi (Hiện tại · Điều cần chú ý · Hướng hành động)';
+  const spreadName = session.spread === 'daily' ? 'Thông điệp 1 lá hôm nay' : 'Trải bài 3 lá (Hiện tại · Điều cần chú ý · Hướng hành động)';
 
-  const user = `THÔNG TIN TRẢI BÀI:
+  const user = `THÔNG TIN NGƯỜI XEM & CÂU HỎI:
 - Chủ đề: ${topicName}
 - Kiểu trải bài: ${spreadName}
-- Điều người dùng muốn hỏi: ${session.question || 'Gợi mở góc nhìn cho ngày hôm nay'}
-${session.context ? `- Bối cảnh chia sẻ thêm: ${session.context}` : ''}
+- Câu hỏi người xem đang băn khoăn: ${session.question || 'Tìm góc nhìn định hướng cho ngày hôm nay'}
+${session.context ? `- Bối cảnh người xem chia sẻ: ${session.context}` : '- Bối cảnh: Chưa chia sẻ thêm (hãy trình bày dưới dạng khả năng để người đọc tự đối chiếu)'}
 
 CÁC LÁ BÀI TRONG TRẢI BÀI:
 ${cardsContext}
 
-HÃY TRẢ LỜI ĐÚNG ĐỊNH DẠNG JSON SAU (không có văn bản nào ngoài JSON):
+HÃY XUẤT RA CHÍNH XÁC MỘT JSON OBJECT THEO SCHEMA SAU:
 {
-  "summary": "Nhận định tổng quan 2-3 câu về mối liên hệ giữa các lá bài và câu hỏi của người hỏi.",
+  "headline": "Tiêu đề lớn tóm tắt mâu thuẫn/tâm trạng cốt lõi (khoảng 6–12 từ, phong cách Cormorant Garamond như 'Giữa mong muốn gần nhau và những điều chưa nói').",
+  "summary": "Đoạn 1 của Góc nhìn tổng thể: Nêu trực diện mâu thuẫn chính người xem đang bối rối, không phán xét, giàu cảm xúc và sắc sảo (khoảng 60-80 từ).",
+  "synthesis": "Đoạn 2 của Góc nhìn tổng thể: Làm rõ mối liên hệ giữa các lá, gợi mở hướng nhìn nhận tích cực để người xem tìm thấy sự an tâm và thấu hiểu (khoảng 60-80 từ).",
   "card_readings": [
     ${session.drawn_cards.map(dc => `{
       "card_id": ${dc.card_id},
       "position_id": "${dc.position_id}",
-      "card_name": "${dc.card.name_vi}",
+      "card_name": "${dc.card.name}",
       "orientation": "${dc.orientation}",
-      "interpretation": "Phân tích lá bài này ở đúng vị trí [${dc.position_name}], gắn liền chặt chẽ với câu hỏi và bối cảnh người hỏi (70-110 từ)."
+      "interpretation": "Phân tích lá bài này ở vị trí [${dc.position_name}] đối với câu hỏi của người xem: Nêu thực tế cảm xúc/hành động họ có thể nhận biết và điều nên cân nhắc (khoảng 70-100 từ)."
     }`).join(',\n    ')}
   ],
-  "synthesis": "Phần kết nối: xâu chuỗi thông điệp từ hiện tại qua điều cần chú ý đến hướng hành động (90-130 từ).",
   "actions": [
-    "Hành động cụ thể thứ nhất người hỏi có thể cân nhắc",
-    "Hành động cụ thể thứ hai người hỏi có thể cân nhắc"
+    "Hành động nhỏ, cụ thể 1 mà người xem có thể thực hiện ngay trong đời thực",
+    "Hành động nhỏ, cụ thể 2 mà người xem có thể thực hiện ngay trong đời thực"
   ],
-  "reflection_question": "Một câu hỏi chân thành để người hỏi tự lắng lại và chiêm nghiệm bản thân.",
-  "limitations": "Lưu ý nhẹ nhàng nếu người hỏi hỏi về suy nghĩ người khác hoặc ngày xảy ra sự kiện (nếu không có thì để chuỗi rỗng)."
+  "reflection_question": "Một câu hỏi suy ngẫm bám sát tình huống giúp người xem tự soi chiếu.",
+  "limitations": ""
 }`;
 
   return { system, user };
 }
 
 /**
- * Gọi API CheapKeyAI với timeout 25s và xử lý kiểm tra (Mục 9, 10)
+ * Gọi API CheapKeyAI với timeout 25s
  */
 async function callModelWithTimeout(system: string, user: string, timeoutMs: number = 25000): Promise<string> {
   const controller = new AbortController();
@@ -134,7 +182,7 @@ function cleanAndParseJSON(raw: string): any {
 }
 
 /**
- * Kiểm định Output AI theo Mục 9
+ * Kiểm định Output AI
  */
 function validateAIResult(parsed: any, session: ReadingSession): AIReadingResult {
   if (!parsed.summary || typeof parsed.summary !== 'string') {
@@ -145,18 +193,18 @@ function validateAIResult(parsed: any, session: ReadingSession): AIReadingResult
     throw new Error(`Số lượng diễn giải lá bài (${parsed.card_readings?.length}) không khớp với số lá đã rút (${session.drawn_cards.length}).`);
   }
 
-  // Khớp chính xác từng card_id và position_id đã khóa trên server (Mục 9)
+  // Khớp chính xác từng card_id và position_id đã khóa trên server
   const validatedReadings: CardReadingAI[] = session.drawn_cards.map((dc) => {
     const aiItem = parsed.card_readings.find((r: any) => Number(r.card_id) === dc.card_id);
     const interpretation = aiItem?.interpretation || `Diễn giải cho lá ${dc.card.name_vi} tại vị trí ${dc.position_name}.`;
-    
+
     // Sanitize chống XSS
     const cleanInterp = interpretation.replace(/<[^>]*>/g, '');
 
     return {
       card_id: dc.card_id,
       position_id: dc.position_id,
-      card_name: dc.card.name_vi,
+      card_name: dc.card.name,
       orientation: dc.orientation,
       interpretation: cleanInterp
     };
@@ -166,7 +214,10 @@ function validateAIResult(parsed: any, session: ReadingSession): AIReadingResult
     ? parsed.actions.slice(0, 3).map((a: any) => String(a).replace(/<[^>]*>/g, ''))
     : ['Hãy dành thời gian tĩnh lặng để suy xét cảm xúc bản thân.'];
 
+  const rawHeadline = parsed.headline || (session.question ? `Góc nhìn cho: "${session.question}"` : 'Giữa mong muốn và những điều cần thấu hiểu');
+
   return {
+    headline: String(rawHeadline).replace(/<[^>]*>/g, '').trim(),
     summary: parsed.summary.replace(/<[^>]*>/g, '').trim(),
     card_readings: validatedReadings,
     synthesis: (parsed.synthesis || '').replace(/<[^>]*>/g, '').trim(),
@@ -179,7 +230,7 @@ function validateAIResult(parsed: any, session: ReadingSession): AIReadingResult
 }
 
 /**
- * Thực thi sinh lời giải AI với tối đa 1 lần retry tự động (Mục 10)
+ * Thực thi sinh lời giải AI với tối đa 1 lần retry tự động
  */
 export async function generateAIReading(session: ReadingSession): Promise<AIReadingResult> {
   const { system, user } = buildAIPrompt(session);
@@ -196,7 +247,6 @@ export async function generateAIReading(session: ReadingSession): Promise<AIRead
       lastError = err;
       console.warn(`Attempt ${attempt} AI generation failed:`, err.message);
       if (attempt === 1) {
-        // Nghỉ 1 giây trước khi thử lại lần 2
         await new Promise((r) => setTimeout(r, 1000));
       }
     }
