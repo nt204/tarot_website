@@ -30,6 +30,14 @@ export async function POST(req: Request) {
       );
     }
 
+    // Giới hạn dung lượng tối đa 5MB
+    if (file.size > 5 * 1024 * 1024) {
+      return NextResponse.json(
+        { success: false, error: 'Dung lượng ảnh không được vượt quá 5MB.' },
+        { status: 400 }
+      );
+    }
+
     const uploadsDir = path.join(process.cwd(), 'public/uploads');
     if (!fs.existsSync(uploadsDir)) {
       fs.mkdirSync(uploadsDir, { recursive: true });

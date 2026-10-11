@@ -61,6 +61,8 @@ interface TarotTableProps {
   selectedSpread?: SpreadType;
   resetKey?: number;
   onGoHome?: () => void;
+  isDeepUnlocked?: boolean;
+  onDeepUnlockedChange?: (unlocked: boolean) => void;
 }
 
 export const TarotTable: React.FC<TarotTableProps> = ({
@@ -71,7 +73,9 @@ export const TarotTable: React.FC<TarotTableProps> = ({
   selectedTopic = 'general',
   selectedSpread = 'three_cards',
   resetKey,
-  onGoHome
+  onGoHome,
+  isDeepUnlocked: externalIsDeepUnlocked,
+  onDeepUnlockedChange
 }) => {
   const [internalIsDialogueOpen, setInternalIsDialogueOpen] = useState(false);
   const isDialogueOpen = externalIsDialogueOpen !== undefined ? externalIsDialogueOpen : internalIsDialogueOpen;
@@ -184,7 +188,12 @@ export const TarotTable: React.FC<TarotTableProps> = ({
   const [readingStatus, setReadingStatus] = useState<'idle' | 'generating' | 'completed' | 'failed'>('idle');
   const [aiResult, setAiResult] = useState<AIReadingResult | null>(null);
   const [readingError, setReadingError] = useState<string | null>(null);
-  const [isDeepUnlocked, setIsDeepUnlocked] = useState<boolean>(false);
+  const [internalIsDeepUnlocked, setInternalIsDeepUnlocked] = useState<boolean>(false);
+  const isDeepUnlocked = externalIsDeepUnlocked !== undefined ? externalIsDeepUnlocked : internalIsDeepUnlocked;
+  const setIsDeepUnlocked = (val: boolean) => {
+    setInternalIsDeepUnlocked(val);
+    if (onDeepUnlockedChange) onDeepUnlockedChange(val);
+  };
 
   // Áp dụng chủ đề và kiểu trải của thẻ mà người dùng vừa chọn.
   useEffect(() => {

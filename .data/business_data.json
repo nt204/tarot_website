@@ -3,15 +3,15 @@
     "period": "Dữ liệu 30 ngày qua (Minh họa vận hành thực tế)",
     "visitors": 10000,
     "readings": 3000,
-    "paidOrders": 151,
-    "grossRevenue": 4379000,
+    "paidOrders": 152,
+    "grossRevenue": 4408000,
     "aiCost": 2400000,
     "estimatedProfit": 319500,
     "funnel": {
       "visitors": 10000,
       "started": 4000,
       "completed": 3000,
-      "paid": 151
+      "paid": 152
     },
     "kpis": [
       {
@@ -94,6 +94,18 @@
     ]
   },
   "orders": [
+    {
+      "id": "ord_1791721316686_0s34",
+      "code": "TAROT-4961",
+      "packageId": "deep",
+      "packageName": "Chuyên sâu (29.000 đ)",
+      "amount": 29000,
+      "status": "completed",
+      "customerEmail": "te***@tarot.me",
+      "paymentMethod": "vietqr",
+      "createdAt": "2026-10-11T12:21:56.686Z",
+      "completedAt": "2026-10-11T12:22:00.263Z"
+    },
     {
       "id": "ord_1791719927359_b6rv",
       "code": "TAROT-8579",
@@ -202,6 +214,22 @@
     "errorRatePct": 0.4
   },
   "auditLogs": [
+    {
+      "id": "log_1791721320263",
+      "timestamp": "2026-10-11T12:22:00.263Z",
+      "action": "PAYMENT_CONFIRMED",
+      "module": "Order & Payment",
+      "status": "success",
+      "message": "Đơn TAROT-4961 đã xác nhận thanh toán thành công (29.000 đ)"
+    },
+    {
+      "id": "log_1791721316687",
+      "timestamp": "2026-10-11T12:21:56.687Z",
+      "action": "ORDER_CREATED",
+      "module": "Order & Payment",
+      "status": "info",
+      "message": "Đơn mới TAROT-4961 (Chuyên sâu - 29.000 đ) được khởi tạo"
+    },
     {
       "id": "log_1791719927360",
       "timestamp": "2026-10-11T11:58:47.360Z",

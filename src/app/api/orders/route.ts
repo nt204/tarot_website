@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createOrder, getRecentOrders } from '@/lib/server/businessStore';
 import { BANK_CONFIG } from '@/data/pricingData';
 import { PricingPackageId } from '@/types/business';
+import { isAdminAuthenticated } from '@/lib/server/adminAuth';
 
 export async function POST(req: NextRequest) {
   try {
@@ -62,7 +63,15 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ success: true, hasPaid: Boolean(order), order });
     }
 
-    return NextResponse.json({ success: true, orders: orders.slice(0, 10) });
+    // Bảo mật: Chỉ admin mới được xem toàn bộ danh sách đơn hàng
+    if (!isAdminAuthenticated(req)) {
+      return NextResponse.json(
+        { success: false, error: 'Yêu cầu quyền quản trị viên hoặc cung cấp mã đơn hàng cụ thể.' },
+        { status: 401 }
+      );
+    }
+
+    return NextResponse.json({ success: true, orders: orders.slice(0, 50) });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }

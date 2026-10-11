@@ -718,8 +718,14 @@ export default function AdminBlogsPage() {
         {activeTab === 'users' && <UserManagementView realUsers={realStats?.realUsers} />}
 
         {/* 4. Module AI Management */}
-        {activeTab === 'ai' && aiStats && (
-          <AiManagementView aiStats={aiStats} realStats={realStats || undefined} />
+        {activeTab === 'ai' && (
+          aiStats ? (
+            <AiManagementView aiStats={aiStats} realStats={realStats || undefined} />
+          ) : (
+            <div className="py-20 text-center text-slate-500 bg-white rounded-2xl border border-slate-200">
+              Đang tải dữ liệu mô hình AI...
+            </div>
+          )
         )}
 
         {/* 5. Module System & Security */}

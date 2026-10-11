@@ -14,6 +14,7 @@ import { FooterSection } from '@/components/FooterSection';
 import { CardCatalogModal } from '@/components/CardCatalogModal';
 import { ConstellationEffect } from '@/components/ConstellationEffect';
 import { SpreadType, TopicType } from '@/types/tarot';
+import { Order } from '@/types/business';
 
 const QUESTION_PROMPT_DELAY_MS = 300;
 const QUESTION_PROMPT_FADE_IN_MS = 800;
@@ -24,9 +25,20 @@ export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState<TopicType>('general');
   const [selectedSpread, setSelectedSpread] = useState<SpreadType>('three_cards');
   const [resetKey, setResetKey] = useState(0);
+  const [isDeepUnlocked, setIsDeepUnlocked] = useState(false);
+  const [paymentToast, setPaymentToast] = useState<string | null>(null);
   const questionPromptAudioRef = React.useRef<HTMLAudioElement>(null);
   const questionPromptTimerRef = React.useRef<number | null>(null);
   const questionPromptFadeFrameRef = React.useRef<number | null>(null);
+
+  const handlePaymentSuccess = (order: Order) => {
+    setIsDeepUnlocked(true);
+    setPaymentToast(`✦ Đã thanh toán thành công gói ${order.packageName}! Bạn đã có quyền trải bài chuyên sâu.`);
+    handleStartReading('general', 'three_cards');
+    setTimeout(() => {
+      setPaymentToast(null);
+    }, 6000);
+  };
 
   const stopQuestionPromptAudio = () => {
     if (questionPromptTimerRef.current !== null) {
@@ -148,6 +160,8 @@ export default function Home() {
           selectedSpread={selectedSpread}
           resetKey={resetKey}
           onGoHome={handleGoHome}
+          isDeepUnlocked={isDeepUnlocked}
+          onDeepUnlockedChange={setIsDeepUnlocked}
         />
 
         {/* 6. Section HÀNH TRÌNH CÁC LÁ BÀI (Bài viết tiêu biểu & kiến thức Tarot) */}
@@ -157,11 +171,22 @@ export default function Home() {
         <BenefitsSection onStartReading={handleStartReading} />
 
         {/* 7.5 Bảng giá & Gói dịch vụ Trạm Tarot (Billing / Freemium Model) */}
-        <PricingSection onScrollToTable={handleStartReading} />
+        <PricingSection
+          onScrollToTable={handleStartReading}
+          onPaymentSuccess={handlePaymentSuccess}
+        />
 
         {/* 8. Section CÂU HỎI THƯỜNG GẶP (Accordion) */}
         <FAQSection />
       </main>
+
+      {/* Thông báo thanh toán thành công */}
+      {paymentToast && (
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] px-5 sm:px-7 py-3 rounded-xl bg-gradient-to-r from-[#1E1810] via-[#2A2114] to-[#1E1810] border-2 border-[#C9A85C] text-[#EEE6D8] font-medium text-xs sm:text-sm shadow-[0_10px_35px_rgba(0,0,0,0.85)] flex items-center gap-3">
+          <span className="text-[#C9A85C] text-base">✦</span>
+          <span>{paymentToast}</span>
+        </div>
+      )}
 
       {/* 9. Footer chuẩn */}
       <FooterSection
