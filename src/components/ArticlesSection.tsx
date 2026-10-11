@@ -34,9 +34,9 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
 
   // Kéo chuột ngang (Drag to scroll)
   const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollStart, setScrollStart] = useState(0);
-  const [hasMoved, setHasMoved] = useState(false);
+  const startXRef = useRef(0);
+  const scrollStartRef = useRef(0);
+  const hasMovedRef = useRef(false);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -103,28 +103,42 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
     el.scrollTo({ left: index * step, behavior: 'smooth' });
   };
 
-  // Drag-to-scroll bằng chuột
+  // Drag-to-scroll bằng chuột (xử lý trên toàn window khi đang kéo)
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollContainerRef.current) return;
+    if (e.button !== 0 || !scrollContainerRef.current) return;
     setIsDragging(true);
-    setHasMoved(false);
-    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-    setScrollStart(scrollContainerRef.current.scrollLeft);
+    hasMovedRef.current = false;
+    startXRef.current = e.clientX;
+    scrollStartRef.current = scrollContainerRef.current.scrollLeft;
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollContainerRef.current) return;
-    const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 1.2;
-    if (Math.abs(walk) > 4) {
-      setHasMoved(true);
-      scrollContainerRef.current.scrollLeft = scrollStart - walk;
-    }
-  };
+  useEffect(() => {
+    if (!isDragging) return;
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+    const handleWindowMouseMove = (e: MouseEvent) => {
+      if (!scrollContainerRef.current) return;
+      const walk = (e.clientX - startXRef.current) * 1.25;
+      if (Math.abs(walk) > 4) {
+        hasMovedRef.current = true;
+        scrollContainerRef.current.scrollLeft = scrollStartRef.current - walk;
+      }
+    };
+
+    const handleWindowMouseUp = () => {
+      setIsDragging(false);
+      // Giữ flag hasMoved một khoảng ngắn để chặn sự kiện onClick của thẻ Link nếu vừa kéo chuột
+      setTimeout(() => {
+        hasMovedRef.current = false;
+      }, 60);
+    };
+
+    window.addEventListener('mousemove', handleWindowMouseMove);
+    window.addEventListener('mouseup', handleWindowMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', handleWindowMouseMove);
+      window.removeEventListener('mouseup', handleWindowMouseUp);
+    };
+  }, [isDragging]);
 
   return (
     <section id="articles" className="scroll-mt-20 py-10 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#070506] border-t border-[#26201A] overflow-hidden">
@@ -187,16 +201,17 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
             ref={scrollContainerRef}
             onScroll={checkScroll}
             onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            className={`flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-2 px-[11vw] sm:px-0 snap-x snap-mandatory scrollbar-none touch-pan-y select-none scroll-smooth ${
-              isDragging ? 'cursor-grabbing' : 'cursor-grab'
+            onDragStart={(e) => e.preventDefault()}
+            className={`flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-2 px-[11vw] sm:px-0 scrollbar-none select-none ${
+              isDragging
+                ? 'cursor-grabbing scroll-auto snap-none'
+                : 'cursor-grab scroll-smooth snap-x snap-mandatory'
             }`}
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
               WebkitOverflowScrolling: 'touch',
+              touchAction: 'pan-x pan-y',
             }}
           >
             {visibleArticles.map((art, idx) => (
@@ -210,22 +225,26 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
               >
                 <Link
                   href={`/blog/${art.id}`}
+                  draggable={false}
+                  onDragStart={(e) => e.preventDefault()}
                   onClick={(e) => {
-                    if (hasMoved) {
+                    if (hasMovedRef.current) {
                       e.preventDefault();
+                      e.stopPropagation();
                     }
                   }}
-                  className="group w-full rounded-2xl overflow-hidden border border-[#2B231B] hover:border-[#C9A85C] transition-all duration-300 hover:shadow-[0_12px_36px_rgba(201,168,92,0.18)] hover:-translate-y-1 bg-[#0E0C12] flex flex-col h-full cursor-pointer"
+                  className="group w-full rounded-2xl overflow-hidden border border-[#2B231B] hover:border-[#C9A85C] transition-all duration-300 hover:shadow-[0_12px_36px_rgba(201,168,92,0.18)] hover:-translate-y-1 bg-[#0E0C12] flex flex-col h-full cursor-pointer select-none"
                 >
                   {/* 1. Ảnh đầu vào chuẩn 16:9 */}
-                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#16121B]">
+                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#16121B] select-none">
                     {art.image ? (
                       <Image
                         src={art.image}
                         alt={art.title}
                         fill
+                        draggable={false}
                         sizes="(max-width: 640px) 80vw, (max-width: 1024px) 345px, 365px"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none select-none"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-[#181420] text-[#C9A85C]/40 text-xs">
