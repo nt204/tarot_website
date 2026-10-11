@@ -38,6 +38,8 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
   const [scrollStart, setScrollStart] = useState(0);
   const [hasMoved, setHasMoved] = useState(false);
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
     fetch('/api/admin/blogs')
       .then((res) => res.json())
@@ -57,6 +59,13 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
     if (!el) return;
     setCanScrollLeft(el.scrollLeft > 10);
     setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 10);
+
+    const firstCard = el.firstElementChild as HTMLElement;
+    if (firstCard) {
+      const step = firstCard.offsetWidth + 16;
+      const index = Math.round(el.scrollLeft / step);
+      setCurrentIndex(Math.max(0, Math.min(visibleArticles.length - 1, index)));
+    }
   };
 
   useEffect(() => {
@@ -65,16 +74,33 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
     return () => window.removeEventListener('resize', checkScroll);
   }, [visibleArticles]);
 
+  const getScrollStep = () => {
+    const el = scrollContainerRef.current;
+    if (!el) return 320;
+    const firstCard = el.firstElementChild as HTMLElement;
+    if (firstCard) {
+      return firstCard.offsetWidth + 16;
+    }
+    return 320;
+  };
+
   const handleScrollPrev = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -390, behavior: 'smooth' });
+      scrollContainerRef.current.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
     }
   };
 
   const handleScrollNext = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 390, behavior: 'smooth' });
+      scrollContainerRef.current.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
     }
+  };
+
+  const handleScrollToSlide = (index: number) => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const step = getScrollStep();
+    el.scrollTo({ left: index * step, behavior: 'smooth' });
   };
 
   // Drag-to-scroll bằng chuột
@@ -102,8 +128,8 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
 
   return (
     <section id="articles" className="scroll-mt-20 py-10 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#070506] border-t border-[#26201A] overflow-hidden">
-      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10">
-        {/* Section Header & Navigation Controls */}
+      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-10">
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
@@ -123,9 +149,9 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
             </p>
           </motion.div>
 
-          {/* Nút lướt sang trái / phải kiểu cổ kính */}
-          <div className="flex items-center gap-3 shrink-0 self-start md:self-end">
-            <span className="text-xs text-[#8C7A65] font-mono mr-2 hidden sm:inline-block">
+          {/* Nút lướt sang trái / phải trên Desktop */}
+          <div className="hidden md:flex items-center gap-3 shrink-0 self-end">
+            <span className="text-xs text-[#8C7A65] font-mono mr-2">
               Lướt ngang để đọc tiếp
             </span>
 
@@ -155,11 +181,8 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
           </div>
         </div>
 
-        {/* Danh sách bài viết lướt ngang tự nhiên:
-            - touch-pan-y cho phép cuộn dọc trang mượt mà không bao giờ bị kẹt chuột
-            - scrollbar-none ẩn thanh cuộn thô
-            - Click chuột vào bài viết sẽ chuyển thẳng sang trang blog riêng */}
-        <div className="relative">
+        {/* Danh sách bài viết: Trên mobile thẻ căn giữa, chờm 2 bên mép màn hình */}
+        <div className="relative -mx-4 sm:mx-0">
           <div
             ref={scrollContainerRef}
             onScroll={checkScroll}
@@ -167,7 +190,7 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            className={`flex gap-6 overflow-x-auto pb-6 pt-2 scrollbar-none touch-pan-y select-none ${
+            className={`flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-2 px-[11vw] sm:px-0 snap-x snap-mandatory scrollbar-none touch-pan-y select-none scroll-smooth ${
               isDragging ? 'cursor-grabbing' : 'cursor-grab'
             }`}
             style={{
@@ -176,100 +199,147 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
               WebkitOverflowScrolling: 'touch',
             }}
           >
-            {visibleArticles.map((art) => (
-              <Link
+            {visibleArticles.map((art, idx) => (
+              <motion.div
                 key={art.id}
-                href={`/blog/${art.id}`}
-                onClick={(e) => {
-                  if (hasMoved) {
-                    e.preventDefault();
-                  }
-                }}
-                className="group w-[300px] sm:w-[345px] lg:w-[365px] shrink-0 rounded-2xl overflow-hidden border border-[#2B231B] hover:border-[#C9A85C] transition-all duration-300 hover:shadow-[0_12px_36px_rgba(201,168,92,0.18)] hover:-translate-y-1 bg-[#0E0C12] flex flex-col h-full cursor-pointer"
+                initial={{ opacity: 0, y: 32, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.55, delay: Math.min(idx * 0.08, 0.32), ease: [0.22, 1, 0.36, 1] }}
+                className="shrink-0 snap-center w-[78vw] max-w-[320px] sm:w-[345px] lg:w-[365px]"
               >
-                {/* 1. Ảnh đầu vào chuẩn 16:9 */}
-                <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#16121B]">
-                  {art.image ? (
-                    <Image
-                      src={art.image}
-                      alt={art.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 365px"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-[#181420] text-[#C9A85C]/40 text-xs">
-                      ✦ Trạm Tarot ✦
-                    </div>
-                  )}
-                  {/* Gradient nhẹ ở chân ảnh */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E0C12] via-transparent to-transparent opacity-75 pointer-events-none" />
+                <Link
+                  href={`/blog/${art.id}`}
+                  onClick={(e) => {
+                    if (hasMoved) {
+                      e.preventDefault();
+                    }
+                  }}
+                  className="group w-full rounded-2xl overflow-hidden border border-[#2B231B] hover:border-[#C9A85C] transition-all duration-300 hover:shadow-[0_12px_36px_rgba(201,168,92,0.18)] hover:-translate-y-1 bg-[#0E0C12] flex flex-col h-full cursor-pointer"
+                >
+                  {/* 1. Ảnh đầu vào chuẩn 16:9 */}
+                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#16121B]">
+                    {art.image ? (
+                      <Image
+                        src={art.image}
+                        alt={art.title}
+                        fill
+                        sizes="(max-width: 640px) 80vw, (max-width: 1024px) 345px, 365px"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-[#181420] text-[#C9A85C]/40 text-xs">
+                        ✦ Trạm Tarot ✦
+                      </div>
+                    )}
+                    {/* Gradient nhẹ ở chân ảnh */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E0C12] via-transparent to-transparent opacity-75 pointer-events-none" />
 
-                  {/* Badge danh mục trên ảnh */}
-                  <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#08070A]/85 border border-[#C9A85C]/50 text-[10px] text-[#C9A85C] uppercase tracking-wider font-heading backdrop-blur-md">
-                    {art.category}
-                  </span>
-                </div>
-
-                {/* 2. Nội dung bên dưới: Chia rõ ràng từng section độc lập, không đè chữ */}
-                <div className="p-5 flex flex-col justify-between flex-1 text-left bg-[#0E0C12]">
-                  <div className="space-y-3">
-                    {/* Ngày đăng */}
-                    <span className="text-[11px] text-[#8C7A65] font-mono block tracking-wider">
-                      {art.date}
+                    {/* Badge danh mục trên ảnh */}
+                    <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#08070A]/85 border border-[#C9A85C]/50 text-[10px] text-[#C9A85C] uppercase tracking-wider font-heading backdrop-blur-md">
+                      {art.category}
                     </span>
-
-                    {/* Section Tiêu đề bài viết: Khóa chiều cao ổn định, không bao giờ đè lên tóm tắt */}
-                    <div className="min-h-[50px] flex items-start">
-                      <h3
-                        className="font-heading text-base sm:text-[17px] text-[#EEE6D8] group-hover:text-[#C9A85C] uppercase tracking-[0.03em] leading-[1.38] transition-colors"
-                        style={{
-                          display: '-webkit-box',
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical',
-                          overflow: 'hidden',
-                        }}
-                      >
-                        {art.title}
-                      </h3>
-                    </div>
-
-                    {/* Section Tóm tắt bài viết: Riêng biệt hoàn toàn, giới hạn 2 dòng */}
-                    <div className="min-h-[42px]">
-                      <p
-                        className="text-xs sm:text-[13px] leading-[1.65] text-[#A89882] font-body"
-                        style={{
-                          display: '-webkit-box',
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical',
-                          overflow: 'hidden',
-                        }}
-                      >
-                        {art.excerpt}
-                      </p>
-                    </div>
                   </div>
 
-                  {/* Section Read more sang trọng:
-                      - Giữ nguyên vị trí (không xoay lắc, không giật phè)
-                      - Hover có dòng kẻ vàng chạy ra dưới chữ Read more
-                      - Icon ngôi sao kim cương ✦ chuẩn phong cách Trạm Tarot */}
-                  <div className="pt-4 mt-3 border-t border-[#221A13] flex items-center justify-between">
-                    <div className="relative inline-flex items-center gap-2">
-                      <span className="relative text-xs font-heading font-medium tracking-wider text-[#C9A85C] pb-0.5">
-                        Read more
-                        {/* Dòng kẻ vàng chạy ra mượt mà ở dưới chữ Read more khi hover */}
-                        <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#C9A85C] transition-all duration-300 ease-out group-hover:w-full" />
+                  {/* 2. Nội dung bên dưới */}
+                  <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 text-left bg-[#0E0C12]">
+                    <div className="space-y-2.5 sm:space-y-3">
+                      {/* Ngày đăng */}
+                      <span className="text-[10px] sm:text-[11px] text-[#8C7A65] font-mono block tracking-wider">
+                        {art.date}
                       </span>
-                      {/* Icon ngôi sao 4 cánh chuẩn Trạm Tarot ✦ */}
-                      <span className="text-[#C9A85C] text-sm leading-none select-none">
-                        ✦
-                      </span>
+
+                      {/* Section Tiêu đề bài viết */}
+                      <div className="min-h-[46px] sm:min-h-[50px] flex items-start">
+                        <h3
+                          className="font-heading text-sm sm:text-[17px] text-[#EEE6D8] group-hover:text-[#C9A85C] uppercase tracking-[0.03em] leading-[1.38] transition-colors"
+                          style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
+                          }}
+                        >
+                          {art.title}
+                        </h3>
+                      </div>
+
+                      {/* Section Tóm tắt bài viết */}
+                      <div className="min-h-[38px] sm:min-h-[42px]">
+                        <p
+                          className="text-xs sm:text-[13px] leading-[1.65] text-[#A89882] font-body"
+                          style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
+                          }}
+                        >
+                          {art.excerpt}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Section Read more sang trọng */}
+                    <div className="pt-3 sm:pt-4 mt-2 sm:mt-3 border-t border-[#221A13] flex items-center justify-between">
+                      <div className="relative inline-flex items-center gap-2">
+                        <span className="relative text-xs font-heading font-medium tracking-wider text-[#C9A85C] pb-0.5">
+                          Read more
+                          <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#C9A85C] transition-all duration-300 ease-out group-hover:w-full" />
+                        </span>
+                        <span className="text-[#C9A85C] text-sm leading-none select-none">
+                          ✦
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </motion.div>
             ))}
+          </div>
+
+          {/* Navigation Controls bên dưới trên Mobile */}
+          <div className="flex md:hidden items-center justify-center gap-4 pt-3 pb-1">
+            <button
+              type="button"
+              onClick={handleScrollPrev}
+              disabled={!canScrollLeft}
+              aria-label="Bài viết trước"
+              className="w-10 h-10 rounded-full border border-[#3A3022] active:border-[#C9A85C] bg-[#110F15] text-[#CA9D75] active:text-[#EEE6D8] disabled:opacity-30 disabled:border-[#231C16] disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 active:scale-95 shadow-md cursor-pointer"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Dots indicator */}
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#110F15]/90 border border-[#26201A]">
+              {visibleArticles.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => handleScrollToSlide(i)}
+                  aria-label={`Chuyển tới bài viết ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    i === currentIndex
+                      ? 'w-5 bg-[#C9A85C]'
+                      : 'w-1.5 bg-[#4A3E31] hover:bg-[#7C6339]'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={handleScrollNext}
+              disabled={!canScrollRight}
+              aria-label="Bài viết tiếp theo"
+              className="w-10 h-10 rounded-full border border-[#3A3022] active:border-[#C9A85C] bg-[#110F15] text-[#CA9D75] active:text-[#EEE6D8] disabled:opacity-30 disabled:border-[#231C16] disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 active:scale-95 shadow-md cursor-pointer"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
