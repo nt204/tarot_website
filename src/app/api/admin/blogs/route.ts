@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAllBlogs, createBlog, updateBlog, deleteBlog, toggleBlogHidden, reorderBlogs } from '@/lib/server/blogStore';
+import { isAdminAuthenticated } from '@/lib/server/adminAuth';
 
 export async function GET() {
   try {
@@ -15,6 +16,13 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
+    if (!isAdminAuthenticated(req)) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized. Vui lòng đăng nhập quyền quản trị viên.' },
+        { status: 401 }
+      );
+    }
+
     const body = await req.json();
     if (!body.title || !body.title.trim()) {
       return NextResponse.json(
@@ -48,6 +56,13 @@ export async function POST(req: Request) {
 
 export async function PUT(req: Request) {
   try {
+    if (!isAdminAuthenticated(req)) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized. Vui lòng đăng nhập quyền quản trị viên.' },
+        { status: 401 }
+      );
+    }
+
     const body = await req.json();
 
     // Sắp xếp lại thứ tự bài viết (Kéo thả)
@@ -96,6 +111,13 @@ export async function PUT(req: Request) {
 
 export async function DELETE(req: Request) {
   try {
+    if (!isAdminAuthenticated(req)) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized. Vui lòng đăng nhập quyền quản trị viên.' },
+        { status: 401 }
+      );
+    }
+
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('id');
 

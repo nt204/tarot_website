@@ -17,6 +17,15 @@ interface BlogItem {
 }
 
 export default function AdminBlogsPage() {
+  // Auth state
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [adminUser, setAdminUser] = useState<string | null>(null);
+  const [loginUsername, setLoginUsername] = useState('ndtri2004');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
   const [blogs, setBlogs] = useState<BlogItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -58,6 +67,10 @@ export default function AdminBlogsPage() {
     try {
       setLoading(true);
       const res = await fetch('/api/admin/blogs');
+      if (res.status === 401) {
+        setIsAuthenticated(false);
+        return;
+      }
       const data = await res.json();
       if (data.success && Array.isArray(data.blogs)) {
         setBlogs(data.blogs);
@@ -70,9 +83,68 @@ export default function AdminBlogsPage() {
     }
   };
 
+  const checkAuth = async () => {
+    try {
+      const res = await fetch('/api/admin/auth');
+      const data = await res.json();
+      if (data.authenticated) {
+        setIsAuthenticated(true);
+        setAdminUser(data.user || 'ndtri2004');
+        fetchBlogs();
+      } else {
+        setIsAuthenticated(false);
+      }
+    } catch {
+      setIsAuthenticated(false);
+    }
+  };
+
   useEffect(() => {
-    fetchBlogs();
+    checkAuth();
   }, []);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginError(null);
+    setLoginLoading(true);
+
+    try {
+      const res = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: loginUsername.trim(),
+          password: loginPassword
+        })
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setIsAuthenticated(true);
+        setAdminUser(data.user);
+        showToast('Đăng nhập thành công! Chào mừng ' + data.user);
+        fetchBlogs();
+      } else {
+        setLoginError(data.error || 'Tên đăng nhập hoặc mật khẩu không chính xác.');
+      }
+    } catch {
+      setLoginError('Lỗi kết nối tới máy chủ. Vui lòng thử lại.');
+    } finally {
+      setLoginLoading(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/admin/auth', { method: 'DELETE' });
+    } catch {
+      // ignore
+    }
+    setIsAuthenticated(false);
+    setAdminUser(null);
+    setLoginPassword('');
+    showToast('Đã đăng xuất.');
+  };
 
   const openCreateModal = () => {
     setIsEditing(false);
@@ -319,9 +391,134 @@ export default function AdminBlogsPage() {
 
   const visibleCount = blogs.filter((b) => !b.hidden).length;
 
+  // 1. Màn hình đang kiểm tra đăng nhập
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen bg-[#080708] flex items-center justify-center p-4 text-[#EEE6D8] font-sans">
+        <div className="flex flex-col items-center gap-3.5">
+          <div className="w-8 h-8 rounded-full border-2 border-[#C9A85C]/30 border-t-[#C9A85C] animate-spin" />
+          <span className="text-xs text-[#A89882] font-mono tracking-wider">
+            Đang xác thực quyền quản trị viên...
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  // 2. Màn hình Đăng nhập Quản trị viên
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#080708] text-[#EEE6D8] flex items-center justify-center p-4 relative overflow-hidden font-sans">
+        {/* Vầng hào quang nền dịu nhẹ */}
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,rgba(201,168,92,0.08),rgba(0,0,0,0))] -z-10" />
+
+        <div className="w-full max-w-md bg-[#100E13]/95 border border-[#2D2319] rounded-2xl p-7 sm:p-9 shadow-[0_20px_60px_rgba(0,0,0,0.9)] backdrop-blur-md space-y-6 text-left relative z-10">
+          {/* Logo & Tiêu đề */}
+          <div className="text-center space-y-2">
+            <Link href="/" className="inline-flex items-center gap-2.5 group">
+              <img
+                src="/logo/logo_icon.png"
+                alt="Logo Trạm Tarot"
+                className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
+              />
+              <span className="font-heading tracking-[0.12em] text-xl font-normal text-[#EEE6D8] group-hover:text-[#C9A85C] transition-colors uppercase">
+                Trạm Tarot
+              </span>
+            </Link>
+            <h1 className="text-sm font-semibold tracking-wider uppercase text-[#C9A85C] font-mono pt-1">
+              Đăng nhập quản trị viên
+            </h1>
+            <p className="text-xs text-[#8C7A65]">
+              Hệ thống quản lý nội dung bài viết & blog
+            </p>
+          </div>
+
+          {/* Form đăng nhập */}
+          <form onSubmit={handleLogin} className="space-y-4">
+            {loginError && (
+              <div className="p-3 rounded-lg bg-red-950/60 border border-red-800/80 text-red-200 text-xs leading-relaxed flex items-center gap-2">
+                <span className="text-red-400">⚠</span>
+                <span>{loginError}</span>
+              </div>
+            )}
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-[#C5B8A8] block">
+                Tài khoản
+              </label>
+              <input
+                type="text"
+                required
+                autoFocus
+                value={loginUsername}
+                onChange={(e) => setLoginUsername(e.target.value)}
+                placeholder="Tên đăng nhập admin"
+                className="w-full px-3.5 py-2.5 bg-[#17131D] border border-[#3A2F22] rounded-lg text-sm text-[#EEE6D8] placeholder-[#6A5A48] focus:border-[#C9A85C] focus:outline-none transition-colors font-mono"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-[#C5B8A8] block">
+                Mật khẩu
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  required
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                  placeholder="Nhập mật khẩu"
+                  className="w-full px-3.5 py-2.5 pr-12 bg-[#17131D] border border-[#3A2F22] rounded-lg text-sm text-[#EEE6D8] placeholder-[#6A5A48] focus:border-[#C9A85C] focus:outline-none transition-colors"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#8C7A65] hover:text-[#C9A85C] transition-colors cursor-pointer select-none"
+                >
+                  {showPassword ? 'Ẩn' : 'Hiện'}
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loginLoading}
+              className="w-full py-3 bg-[#C9A85C] hover:bg-[#D8B96E] disabled:opacity-50 text-[#14100D] font-medium text-sm rounded-lg transition-all shadow-[0_2px_15px_rgba(201,168,92,0.3)] hover:shadow-[0_4px_25px_rgba(201,168,92,0.5)] flex items-center justify-center gap-2 cursor-pointer mt-2"
+            >
+              {loginLoading ? (
+                <>
+                  <div className="w-4 h-4 rounded-full border-2 border-[#14100D]/30 border-t-[#14100D] animate-spin" />
+                  <span>Đang xác thực...</span>
+                </>
+              ) : (
+                <>
+                  <span>✦</span>
+                  <span>Đăng nhập</span>
+                </>
+              )}
+            </button>
+          </form>
+
+          {/* Quay về trang chủ */}
+          <div className="pt-2 border-t border-[#221B15] text-center">
+            <Link
+              href="/"
+              className="text-xs text-[#8C7A65] hover:text-[#C9A85C] transition-colors inline-flex items-center gap-1.5"
+            >
+              <span>←</span>
+              <span>Trở về trang chủ Trạm Tarot</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 3. Màn hình Bảng điều khiển Quản trị Blog (Đã đăng nhập)
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
-      {/* Top Header Navbar - Trắng xanh chuyên nghiệp */}
+      {/* Top Header Navbar */}
       <header className="sticky top-0 z-30 w-full bg-white border-b border-slate-200 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xs">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 group">
@@ -336,6 +533,12 @@ export default function AdminBlogsPage() {
         </div>
 
         <div className="flex items-center gap-2.5">
+          {/* Huy hiệu Admin User */}
+          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 rounded-md border border-slate-200 text-xs text-slate-700">
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span className="font-mono text-[11px] font-semibold">{adminUser || 'ndtri2004'}</span>
+          </div>
+
           <Link
             href="/"
             className="px-3.5 py-1.5 text-xs font-medium text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-300 rounded-md transition-colors"
@@ -345,9 +548,17 @@ export default function AdminBlogsPage() {
           <button
             type="button"
             onClick={openCreateModal}
-            className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs rounded-md shadow-xs transition-colors"
+            className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs rounded-md shadow-xs transition-colors cursor-pointer"
           >
             Thêm bài viết
+          </button>
+          <button
+            type="button"
+            onClick={handleLogout}
+            title="Đăng xuất khỏi trang quản trị"
+            className="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 border border-red-200 rounded-md transition-colors cursor-pointer"
+          >
+            Đăng xuất
           </button>
         </div>
       </header>

@@ -1,9 +1,17 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { isAdminAuthenticated } from '@/lib/server/adminAuth';
 
 export async function POST(req: Request) {
   try {
+    if (!isAdminAuthenticated(req)) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized. Vui lòng đăng nhập quyền quản trị viên.' },
+        { status: 401 }
+      );
+    }
+
     const formData = await req.formData();
     const file = formData.get('file') as File | null;
 
