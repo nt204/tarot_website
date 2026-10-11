@@ -209,6 +209,16 @@ export const TarotTable: React.FC<TarotTableProps> = ({
   const [fanDealt, setFanDealt] = useState<boolean>(false);
   const isSelectingRef = useRef<boolean>(false);
   const [isZoomingIn, setIsZoomingIn] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(typeof window !== 'undefined' && window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const requiredCount = spread === 'daily' ? 1 : 3;
 
@@ -723,9 +733,9 @@ export const TarotTable: React.FC<TarotTableProps> = ({
 
       // Góc nghiêng ban đầu của lá bài trên quạt
       const totalCards = fanCards.length;
-      const maxAngle = 54;
-      const stepAngle = totalCards > 1 ? maxAngle / (totalCards - 1) : 0;
-      const cardAngle = -maxAngle / 2 + cardIndex * stepAngle;
+      const currentMaxAngle = isMobile ? 42 : 54;
+      const stepAngle = totalCards > 1 ? currentMaxAngle / (totalCards - 1) : 0;
+      const cardAngle = -currentMaxAngle / 2 + cardIndex * stepAngle;
 
       const cardWidth = targetRect.width;
       const cardHeight = targetRect.height;
@@ -1248,7 +1258,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
             {/* ================= 3 Ô MỤC TIÊU (NÉT LIỀN HOÀN TOÀN, VIỀN KÉP ÁNH KIM SANG TRỌNG) ================= */}
             <div
               ref={targetSlotsContainerRef}
-              className="flex items-center justify-center gap-3 sm:gap-5 py-2 will-change-transform"
+              className="flex items-center justify-center gap-2 sm:gap-5 py-2 will-change-transform"
             >
               {Array.from({ length: requiredCount }).map((_, idx) => {
                 const isPicked = selectedSlotIds.length > idx;
@@ -1256,23 +1266,23 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                   <div
                     key={idx}
                     ref={(el) => { slotTargetRefs.current[idx] = el; }}
-                    className={`relative w-26 sm:w-30 md:w-34 h-38 sm:h-44 md:h-50 rounded-xl transition-all duration-500 flex flex-col items-center justify-center overflow-hidden ${isPicked
+                    className={`relative w-24 sm:w-30 md:w-34 h-36 sm:h-44 md:h-50 rounded-xl transition-all duration-500 flex flex-col items-center justify-center overflow-hidden ${isPicked
                         ? 'border border-[#C9A85C] bg-[#121016] shadow-[0_0_25px_rgba(201,168,92,0.4)]'
                         : 'border border-[#5A4732] bg-[#0E0C10]/85 shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]'
                       }`}
                   >
                     {!isPicked && (
-                      <div className="flex flex-col items-center justify-center p-3 text-center space-y-2 w-full h-full select-none">
+                      <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 text-center space-y-1.5 sm:space-y-2 w-full h-full select-none">
                         {/* Viền trang trí kép bên trong - hoàn toàn liền nét */}
-                        <div className="absolute inset-2 border border-[#C9A85C]/20 rounded-lg pointer-events-none" />
-                        <div className="w-6 h-6 rounded-full border border-[#7C6339] bg-[#181410] flex items-center justify-center text-xs text-[#C9A85C] font-heading font-medium">
+                        <div className="absolute inset-1.5 sm:inset-2 border border-[#C9A85C]/20 rounded-lg pointer-events-none" />
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-[#7C6339] bg-[#181410] flex items-center justify-center text-[10px] sm:text-xs text-[#C9A85C] font-heading font-medium">
                           {idx + 1}
                         </div>
-                        <span className="text-[11px] sm:text-xs text-[#E0D2C0] font-heading uppercase tracking-widest px-1">
+                        <span className="text-[10px] sm:text-xs text-[#E0D2C0] font-heading uppercase tracking-wider sm:tracking-widest px-0.5 truncate max-w-full">
                           {getPositionDisplay(idx)}
                         </span>
-                        <div className="w-8 h-[1px] bg-[#5A4732]" />
-                        <span className="text-[10px] text-[#8C7A65] font-body">
+                        <div className="w-6 sm:w-8 h-[1px] bg-[#5A4732]" />
+                        <span className="text-[9px] sm:text-[10px] text-[#8C7A65] font-body truncate">
                           {idx === 0 ? 'Hiện tại' : idx === 1 ? 'Thử thách' : 'Lời khuyên'}
                         </span>
                       </div>
@@ -1295,7 +1305,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
             {/* ================= QUẠT BÀI CĂN GIỮA CHUẨN XÁC, XÒE CÁNH CUNG TUYỆT ĐẸP ================= */}
             <div
               ref={fanContainerRef}
-              className="relative w-full max-w-4xl h-76 sm:h-84 md:h-92 flex items-center justify-center px-4 overflow-visible mt-4 sm:mt-6 will-change-transform"
+              className="relative w-full max-w-4xl h-56 sm:h-80 md:h-92 flex items-center justify-center px-2 sm:px-4 overflow-visible mt-2 sm:mt-6 will-change-transform"
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 {fanCards.map((slot, index) => {
@@ -1308,12 +1318,14 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                     !isZoomingIn &&
                     selectedSlotIds.length < requiredCount;
                   const isHovered = isFanInteractive && hoveredCardIndex === index && !isSelected;
-                  const maxAngle = 54;
+                  const maxAngle = isMobile ? 42 : 54;
                   const stepAngle = maxAngle / (total - 1);
                   const angle = -maxAngle / 2 + index * stepAngle;
                   const normalized = (index - (total - 1) / 2) / ((total - 1) / 2);
-                  const offsetY = Math.pow(normalized, 2) * 26;
-                  const offsetX = (index - (total - 1) / 2) * 28;
+                  const arcHeight = isMobile ? 14 : 26;
+                  const offsetY = Math.pow(normalized, 2) * arcHeight;
+                  const spacing = isMobile ? 14.5 : 28;
+                  const offsetX = (index - (total - 1) / 2) * spacing;
 
                   return (
                     <motion.div
@@ -1340,7 +1352,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                         rotate: angle,
                         opacity: isSelected ? 0 : 1
                       }}
-                      whileTap={{ scale: 0.97 }}
+                      whileTap={{ scale: 0.96 }}
                       transition={
                         fanDealt
                           ? {
@@ -1366,17 +1378,17 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                       {/* Vùng nhận diện chuột chỉ mở rộng nhẹ phía trên để bắt đầu nhô của lá bài */}
                       <div className="absolute -top-7 inset-x-0 bottom-0 pointer-events-auto" />
 
-                      {/* Nhấc vừa vặn theo khe quạt bài (-25px), rõ nét nhưng vẫn giữ nguyên lớp tự nhiên */}
+                      {/* Nhấc vừa vặn theo khe quạt bài (-18px trên mobile / -25px trên desktop) */}
                       <motion.div
                         animate={{
-                          y: isHovered ? -25 : 0
+                          y: isHovered ? (isMobile ? -18 : -25) : 0
                         }}
                         transition={{
                           type: 'spring',
                           stiffness: 450,
                           damping: 32
                         }}
-                        className={`w-28 sm:w-32 md:w-36 h-44 sm:h-50 md:h-56 rounded-xl border bg-[#0C0B0E] overflow-hidden shadow-2xl transition-colors duration-150 relative ${
+                        className={`w-20 sm:w-30 md:w-36 h-32 sm:h-46 md:h-56 rounded-lg sm:rounded-xl border bg-[#0C0B0E] overflow-hidden shadow-2xl transition-colors duration-150 relative ${
                           isHovered ? 'border-[#C9A85C]' : 'border-[#7C6339]'
                         }`}
                       >

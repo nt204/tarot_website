@@ -89614,5 +89614,2447 @@
       "model_used": "gemini-3.7-flash",
       "generated_at": "2026-10-11T09:54:02.033Z"
     }
+  },
+  "c88fce71-5865-48b8-86a9-4524895509d0": {
+    "reading_id": "c88fce71-5865-48b8-86a9-4524895509d0",
+    "created_at": "2026-10-11T09:59:25.883Z",
+    "updated_at": "2026-10-11T09:59:25.883Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "general",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "ok",
+    "context": "Lời băn khoăn của người xem: ok",
+    "status": "selecting",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_ff802c16",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_da44a9f6",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_696dc528",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_66e62cb7",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_eec4e304",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_ad5fe059",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_eba210b4",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_7874816a",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_dae3d7a3",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_f9b322e6",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_ae49fd9c",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_584383ac",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_4bc940ab",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_47c8d6fa",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_a25a0a5d",
+        "card_id": 55,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_77a76684",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_1156d6c0",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_e9badeae",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_a7ccf14f",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_4ba98ac8",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_55cfd9a6",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_9b8ff507",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_e1cc598b",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_f0a0714f",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_b1496da1",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_7cea2c77",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_589fc264",
+        "card_id": 3,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_58557c94",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_064d39e3",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_fdf9b4f1",
+        "card_id": 41,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_8604d40f",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_4f6e20ce",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_00609ecd",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_b7270cad",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_66126eb4",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_06765273",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_b9a0c9c5",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_172a3df9",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_96fb5170",
+        "card_id": 45,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_72114123",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_7caf28d8",
+        "card_id": 64,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_094f71e9",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_b3c222b3",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_d7513b1a",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_21357d13",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_f1737523",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_2ee4c10e",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_ae021acf",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_81ad851f",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_5539f923",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_9e411678",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_b2c65fc3",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_201a9344",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_897f68f6",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_71ed0c19",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_cd7e2039",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_651229ea",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_72990038",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_fce7df8d",
+        "card_id": 54,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_ecd9f4b9",
+        "card_id": 42,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_c97d4a0d",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_6db72b37",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_b7497166",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_1e62a9f9",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_f19eb3bf",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_d5408cae",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_f534480e",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_c51e9533",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_c7aeca09",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_33b08259",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_798c993a",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_d46e0236",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_639a1ba1",
+        "card_id": 33,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_2a777331",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_2b48e8c8",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_14716764",
+        "card_id": 40,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_091436f3",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_17a874f8",
+        "card_id": 16,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [],
+    "retry_count": 0
+  },
+  "fdfd2947-8244-4418-87bc-050f147ba35d": {
+    "reading_id": "fdfd2947-8244-4418-87bc-050f147ba35d",
+    "created_at": "2026-10-11T09:59:26.096Z",
+    "updated_at": "2026-10-11T09:59:26.096Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "general",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "ok",
+    "context": "Lời băn khoăn của người xem: ok",
+    "status": "selecting",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_6ef102ef",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_613454fd",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_1c550365",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_c733fcf8",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_a897a035",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_9330e7c8",
+        "card_id": 64,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_30060d3a",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_0c9855da",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_200199c0",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_c230670e",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_01230de9",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_858bc986",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_e562aba4",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_ff66fa50",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_a7ce692a",
+        "card_id": 55,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_b6c8ec72",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_94220611",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_053a5a0c",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_8268cf4e",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_f2b766c4",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_f9376b2e",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_8c849398",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_582987f9",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_84ceb4ca",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_8eb2b178",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_5e834627",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_e5a4f2c8",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_b97565d5",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_02fded6e",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_292b33a6",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_a41457ee",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_eacd2bda",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_a2991290",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_d66d08f1",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_9e70dca8",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_d5ac4cb2",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_660530a0",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_7e825902",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_e31aea31",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_f0f81310",
+        "card_id": 16,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_f407a2b3",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_265b948c",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_3fdd9751",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_d8bec5dd",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_44f9c7ab",
+        "card_id": 33,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_ab673974",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_e4a0d3a5",
+        "card_id": 40,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_c95803a6",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_cc44d1ab",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_df8e3014",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_7b0fb613",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_53848cc1",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_82acac71",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_a9990bf2",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_3778fa31",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_4338d503",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_6c104531",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_231743cf",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_ba99cc85",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_9a5dce35",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_d18d3719",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_8731995e",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_2b638629",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_85994345",
+        "card_id": 3,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_bfe56523",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_4f13927a",
+        "card_id": 42,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_debdf9e0",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_90c6d7a9",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_768b5f7a",
+        "card_id": 45,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_920691c8",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_1daf9725",
+        "card_id": 54,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_bbfa23c7",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_937b22c1",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_13de4f85",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_4b3a4fbc",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_bd3e0646",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_137ad29e",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_173078a0",
+        "card_id": 41,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [],
+    "retry_count": 0
+  },
+  "7f4292fa-4e37-4c60-9c0b-323f8c1e832b": {
+    "reading_id": "7f4292fa-4e37-4c60-9c0b-323f8c1e832b",
+    "created_at": "2026-10-11T10:00:05.922Z",
+    "updated_at": "2026-10-11T10:00:05.922Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "general",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "ok",
+    "context": "Lời băn khoăn của người xem: ok",
+    "status": "selecting",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_c4d76e10",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_12ecf0b7",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_9cc6ac61",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_c0f8b6ba",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_affe93f0",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_7c530771",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_796685d2",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_a017e6cb",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_0f166a95",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_9baa7f56",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_41f082cf",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_416f5ee9",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_6c93de62",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_fea9e45f",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_64e452ec",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_57fbf79a",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_0357169b",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_25da97ee",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_aa67a05d",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_06fa4dd3",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_697f4330",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_f5008ab2",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_5c396582",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_1cfa7360",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_195daacc",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_c6dde6aa",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_f8c6e4f4",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_125076ec",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_b7c7bc72",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_a979d07c",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_97c02d90",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_414e5dcf",
+        "card_id": 42,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_b2526045",
+        "card_id": 16,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_50952c56",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_e8f8c6b1",
+        "card_id": 3,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_1aac9e46",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_496d61c3",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_c13af6ad",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_8a5983a4",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_50021144",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_24430c2f",
+        "card_id": 54,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_ded46b8a",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_6b6c5cf2",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_0b55b32d",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_f1a89990",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_2dcdc423",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_7fd8dbf5",
+        "card_id": 41,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_184dc1af",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_b1f6c95f",
+        "card_id": 55,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_3a50677e",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_2620d94d",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_5824862f",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_6542f6df",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_2cf02fb5",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_a0a51e71",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_728c2da8",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_2ae6eb11",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_9df4e5f8",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_af618c7d",
+        "card_id": 45,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_1917a530",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_9ad4ff62",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_a1848470",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_530a6bf9",
+        "card_id": 33,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_3a888698",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_cc5086fa",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_2cd137ed",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_ec4a2d85",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_d7003092",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_bba43560",
+        "card_id": 64,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_c3f310ce",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_f06fb9ad",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_842b1cbc",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_9195ec83",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_062529b3",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_71e28185",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_ef9e8d28",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_967ae463",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_12ef2f17",
+        "card_id": 40,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [],
+    "retry_count": 0
+  },
+  "d3a8955e-f796-4273-87eb-6518f6a71cb6": {
+    "reading_id": "d3a8955e-f796-4273-87eb-6518f6a71cb6",
+    "created_at": "2026-10-11T10:00:14.580Z",
+    "updated_at": "2026-10-11T10:00:14.580Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "general",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "ok",
+    "context": "Lời băn khoăn của người xem: ok",
+    "status": "selecting",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_95f72eac",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_17472736",
+        "card_id": 42,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_4bdf06cf",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_030bff87",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_a659d2fc",
+        "card_id": 55,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_13caa5a1",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_92742ea7",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_451d41d7",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_6fd4921e",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_923e6171",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_3a5904a1",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_455cb1ae",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_b5ecc778",
+        "card_id": 40,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_56f61ac8",
+        "card_id": 3,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_1718026b",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_061f8ad7",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_4df7caf7",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_f0fa218c",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_bbc734b2",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_068a90e7",
+        "card_id": 45,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_a2eb0439",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_6197e512",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_5b766dba",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_cf0f1ce9",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_9e4b357d",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_62dceb66",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_9048eb8e",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_f5cc7a7c",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_b0354cce",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_3f85e1aa",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_e7d52180",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_c1ec506f",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_dfa20588",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_1d156c4f",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_607f6e06",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_047d01ec",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_f3a01ca0",
+        "card_id": 41,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_720be698",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_11ffba17",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_6c20ba95",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_5348e889",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_86163abe",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_ccc5155d",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_bcf43f8a",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_2a45f1bb",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_afbedc32",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_9cdf5f8c",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_b06502f0",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_45aa6fe1",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_d5e25b6c",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_8db9f3b1",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_209b32be",
+        "card_id": 33,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_29a07374",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_5110c83d",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_b4c8bd29",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_47f62d75",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_826b9964",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_54f69365",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_c19ee2cb",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_ec0f1732",
+        "card_id": 64,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_ea7cab80",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_31380f84",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_ae2bcf49",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_516f144b",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_21092001",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_163803c1",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_be8e5d6e",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_9e2f3d7b",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_6d05d9d9",
+        "card_id": 16,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_7e87b20b",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_db0dcfb2",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_12051cc7",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_20d4d8d1",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_2a7aad6c",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_d4e8fc6f",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_27472e71",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_79719256",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_f31d4bcb",
+        "card_id": 54,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [],
+    "retry_count": 0
+  },
+  "d2672be8-8df8-4d48-b8b6-da9eca44bb08": {
+    "reading_id": "d2672be8-8df8-4d48-b8b6-da9eca44bb08",
+    "created_at": "2026-10-11T10:02:22.068Z",
+    "updated_at": "2026-10-11T10:02:22.068Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "general",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "ok",
+    "context": "Lời băn khoăn của người xem: ok",
+    "status": "selecting",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_df9bccb3",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_9946ac81",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_1a3cee5c",
+        "card_id": 42,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_7a33eb2d",
+        "card_id": 33,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_2c35c4a5",
+        "card_id": 41,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_8f9d291a",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_894afead",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_c1e8a9c0",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_8698717f",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_db55271f",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_6407e7c7",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_5c74282d",
+        "card_id": 54,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_641736d3",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_b2a3706f",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_f052a60e",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_0c7545ab",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_a035a887",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_61a1a226",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_81c18fc1",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_037311a5",
+        "card_id": 64,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_e73183ab",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_4553d30a",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_4f90a894",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_810168ef",
+        "card_id": 55,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_59a4abb2",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_128d53d8",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_1e0525c1",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_ed54131f",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_9241d34b",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_ef63715e",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_c45039d3",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_250ab05b",
+        "card_id": 3,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_d002f775",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_1d168b3e",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_c3a11c1e",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_af817a9e",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_8c911ae7",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_16c899b8",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_9f5cfaa4",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_2ed14d95",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_e0a0e2c9",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_a9ce6bb7",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_88f54531",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_cb7e016c",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_a9be9baf",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_d352af13",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_17e43fd2",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_1b9ee892",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_fe64dd95",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_05fe6c59",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_947c8c80",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_1f81f87f",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_5b333a5d",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_7c40bf8a",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_37bcf966",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_422b16ff",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_1fd22fd0",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_70fc1f79",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_a5e113fe",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_951c3477",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_1d624a0c",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_74e27a3f",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_d7c4832f",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_ba301581",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_392a3815",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_f0994cfa",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_145b2cb3",
+        "card_id": 40,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_656dfc63",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_bb9d5df5",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_747aec23",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_2de7a59a",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_805e8e38",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_b50532c0",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_7349ae58",
+        "card_id": 16,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_b583a463",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_6e2cebbd",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_7e77b620",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_d4975639",
+        "card_id": 45,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [],
+    "retry_count": 0
+  },
+  "6b844a43-2ffd-42d8-a5da-47f3b385212f": {
+    "reading_id": "6b844a43-2ffd-42d8-a5da-47f3b385212f",
+    "created_at": "2026-10-11T10:02:22.487Z",
+    "updated_at": "2026-10-11T10:02:22.487Z",
+    "user_fingerprint": "fp_snor5dwj",
+    "topic": "general",
+    "spread": "three_cards",
+    "allow_reversed": false,
+    "tone": "gentle",
+    "question": "ok",
+    "context": "Lời băn khoăn của người xem: ok",
+    "status": "selecting",
+    "shuffled_slots": [
+      {
+        "slot_id": "slot_0_e503339d",
+        "card_id": 22,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_1_15d1ab70",
+        "card_id": 18,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_2_e1970a17",
+        "card_id": 66,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_3_ad2c40b2",
+        "card_id": 76,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_4_b9a18560",
+        "card_id": 27,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_5_aebc994c",
+        "card_id": 47,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_6_eb806892",
+        "card_id": 11,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_7_0f540653",
+        "card_id": 7,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_8_d0e01867",
+        "card_id": 40,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_9_49819569",
+        "card_id": 45,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_10_b8de2253",
+        "card_id": 17,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_11_4f142da0",
+        "card_id": 16,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_12_f8a62337",
+        "card_id": 28,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_13_6d65972c",
+        "card_id": 13,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_14_20a42679",
+        "card_id": 29,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_15_efc71dc5",
+        "card_id": 1,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_16_8d67a867",
+        "card_id": 61,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_17_d72c5d94",
+        "card_id": 23,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_18_b1e0d310",
+        "card_id": 59,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_19_f05498cb",
+        "card_id": 70,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_20_904952dd",
+        "card_id": 12,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_21_002f75ef",
+        "card_id": 38,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_22_97ed40ae",
+        "card_id": 26,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_23_51a1a35f",
+        "card_id": 24,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_24_871931f0",
+        "card_id": 69,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_25_1fd671c4",
+        "card_id": 39,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_26_3a42efcf",
+        "card_id": 46,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_27_3f9134df",
+        "card_id": 43,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_28_adc7b543",
+        "card_id": 68,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_29_12f057ca",
+        "card_id": 67,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_30_ca60fa1a",
+        "card_id": 37,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_31_a872f9ae",
+        "card_id": 56,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_32_9fb86471",
+        "card_id": 10,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_33_072a1a43",
+        "card_id": 53,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_34_04271e3b",
+        "card_id": 9,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_35_03863bad",
+        "card_id": 2,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_36_cf0e358d",
+        "card_id": 72,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_37_14d794d5",
+        "card_id": 51,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_38_798a0f06",
+        "card_id": 0,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_39_deda270f",
+        "card_id": 52,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_40_61e5ca41",
+        "card_id": 62,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_41_b2b07bf5",
+        "card_id": 30,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_42_506e481d",
+        "card_id": 42,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_43_4ff1bdf4",
+        "card_id": 60,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_44_603efeb4",
+        "card_id": 48,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_45_d075fd7c",
+        "card_id": 41,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_46_85372c48",
+        "card_id": 21,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_47_f6f4d615",
+        "card_id": 34,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_48_07b78c17",
+        "card_id": 8,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_49_cf7a95b6",
+        "card_id": 25,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_50_a9e86481",
+        "card_id": 71,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_51_c00698b3",
+        "card_id": 36,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_52_ae9be589",
+        "card_id": 55,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_53_3cdda86f",
+        "card_id": 20,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_54_25d42c97",
+        "card_id": 50,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_55_ec47becf",
+        "card_id": 15,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_56_c727d7e3",
+        "card_id": 33,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_57_18b89f3a",
+        "card_id": 35,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_58_0642eff4",
+        "card_id": 4,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_59_2c6ce588",
+        "card_id": 65,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_60_e934e98d",
+        "card_id": 49,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_61_f28da27e",
+        "card_id": 44,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_62_c27a100e",
+        "card_id": 6,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_63_f8d0153b",
+        "card_id": 73,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_64_503c7908",
+        "card_id": 32,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_65_1ff3d625",
+        "card_id": 74,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_66_68dd2d48",
+        "card_id": 31,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_67_efabe794",
+        "card_id": 5,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_68_7414768f",
+        "card_id": 58,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_69_914b41f0",
+        "card_id": 75,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_70_e16c5eeb",
+        "card_id": 3,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_71_5124fa65",
+        "card_id": 63,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_72_4c60a62c",
+        "card_id": 54,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_73_b10f39d2",
+        "card_id": 14,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_74_632d0aab",
+        "card_id": 57,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_75_e78b0248",
+        "card_id": 19,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_76_f9217308",
+        "card_id": 77,
+        "orientation": "upright"
+      },
+      {
+        "slot_id": "slot_77_1f4d98a3",
+        "card_id": 64,
+        "orientation": "upright"
+      }
+    ],
+    "drawn_cards": [],
+    "retry_count": 0
   }
 }
