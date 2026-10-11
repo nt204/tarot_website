@@ -146,10 +146,10 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="space-y-3 max-w-2xl text-left"
           >
             <span className="text-xs uppercase tracking-[0.25em] text-[#C9A85C] font-heading block">
@@ -164,7 +164,13 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
           </motion.div>
 
           {/* Nút lướt sang trái / phải trên Desktop */}
-          <div className="hidden md:flex items-center gap-3 shrink-0 self-end">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden md:flex items-center gap-3 shrink-0 self-end"
+          >
             <span className="text-xs text-[#8C7A65] font-mono mr-2">
               Lướt ngang để đọc tiếp
             </span>
@@ -192,7 +198,7 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </button>
-          </div>
+          </motion.div>
         </div>
 
         {/* Danh sách bài viết: Trên mobile thẻ căn giữa, chờm 2 bên mép màn hình */}
@@ -219,11 +225,11 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
             {visibleArticles.map((art, idx) => (
               <motion.div
                 key={art.id}
-                initial={{ opacity: 0, y: 32, scale: 0.95 }}
+                initial={{ opacity: 0, y: 28, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-30px' }}
-                transition={{ duration: 0.55, delay: Math.min(idx * 0.08, 0.32), ease: [0.22, 1, 0.36, 1] }}
-                className="shrink-0 snap-center w-[78vw] max-w-[320px] sm:w-[345px] lg:w-[365px]"
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ duration: 0.6, delay: Math.min(idx * 0.08, 0.32), ease: [0.16, 1, 0.3, 1] }}
+                className="shrink-0 snap-center w-[78vw] max-w-[320px] sm:w-[345px] lg:w-[365px] will-change-transform"
               >
                 <Link
                   href={`/blog/${art.id}`}
@@ -320,7 +326,13 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
           </div>
 
           {/* Navigation Controls bên dưới trên Mobile */}
-          <div className="flex md:hidden items-center justify-center gap-4 pt-3 pb-1">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-20px' }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex md:hidden items-center justify-center gap-4 pt-3 pb-1"
+          >
             <button
               type="button"
               onClick={handleScrollPrev}
@@ -361,7 +373,7 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
