@@ -259,9 +259,9 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     }
   }, [resetKey]);
 
-  // Khóa cuộn trang khi hộp thoại tâm sự đang mở để tránh bị đè hoặc cuộn lệch
+  // Khóa cuộn trang khi hộp thoại tâm sự đang mở hoặc khi đang ở màn hình kết quả riêng biệt
   useEffect(() => {
-    if (isDialogueOpen) {
+    if (isDialogueOpen || step === 'drawn') {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -269,7 +269,7 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isDialogueOpen]);
+  }, [isDialogueOpen, step]);
 
 
 
@@ -1643,7 +1643,7 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
 
         {/* ================= STAGE 3: MÀN HÌNH KẾT QUẢ RIÊNG BIỆT ================= */}
         {step === 'drawn' && (
-          <div className="fixed inset-0 z-50 overflow-y-auto bg-[#080708] text-[#EEE6D8] animate-fade-in selection:bg-[#C9A85C]/30 selection:text-[#EEE6D8]">
+          <div className="fixed inset-0 z-[80] overflow-y-auto bg-[#080708] text-[#EEE6D8] animate-fade-in selection:bg-[#C9A85C]/30 selection:text-[#EEE6D8]">
             {/* Header bar cố định của màn hình kết quả riêng */}
             <header className="sticky top-0 z-40 w-full bg-[#080708]/95 backdrop-blur-md border-b border-[#2A231C]">
               <div className="max-w-4xl sm:max-w-5xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
