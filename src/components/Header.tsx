@@ -67,7 +67,6 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="font-heading tracking-[0.05em] text-2xl sm:text-[27px] font-normal text-[#EEE6D8] group-hover:text-[#C9A85C] transition-colors">
             Trạm Tarot
           </span>
-          <span className="text-[#C9A85C] text-base">✦</span>
         </a>
 
         {/* Điều hướng bám đúng trình tự các phần trên trang. */}

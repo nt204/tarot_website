@@ -9,6 +9,35 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onStartReading }) => {
+  const renderZodiacWheel = () => (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, ease: 'easeOut' }}
+      className="relative w-[250px] h-[250px] sm:w-[340px] sm:h-[340px] lg:w-[460px] lg:h-[460px]"
+    >
+      {/* Subtle outer glowing rings */}
+      <div className="absolute inset-0 rounded-full border border-[#C9A85C]/20 scale-105 animate-pulse" />
+      <div className="absolute inset-0 rounded-full border border-[#8C6D34]/30 scale-110" />
+
+      {/* Rotating Celestial Zodiac Image - 100% GPU Compositor animation */}
+      <div
+        className="w-full h-full relative rounded-full overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8),0_0_20px_rgba(201,168,92,0.15)] cursor-pointer animate-[spin_160s_linear_infinite] will-change-transform"
+        onClick={onStartReading}
+        title="Bấm để bắt đầu trải bài Tarot"
+      >
+        <Image
+          src="/zodiac_wheel.jpg"
+          alt="Vòng Hoàng Đạo Thiên Thể Cổ Điển"
+          fill
+          sizes="(max-width: 768px) 250px, (max-width: 1024px) 340px, 460px"
+          className="object-cover rounded-full select-none"
+          priority
+        />
+      </div>
+    </motion.div>
+  );
+
   return (
     <section className="relative overflow-hidden pt-12 pb-16 lg:py-24 bg-transparent">
       {/* Background radial gradient glow - Zero GPU blur cost */}
@@ -46,6 +75,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartReading }) => {
               </p>
             </motion.div>
 
+            {/* Mobile & Tablet only: La bàn xuất hiện ngay trước đoạn văn bản */}
+            <div className="flex lg:hidden justify-center py-2 sm:py-4">
+              {renderZodiacWheel()}
+            </div>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,34 +109,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartReading }) => {
             </motion.div>
           </div>
 
-          {/* Right Column: Celestial Zodiac Wheel (Giữ nguyên quả cầu) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: 'easeOut' }}
-              className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] lg:w-[460px] lg:h-[460px]"
-            >
-              {/* Subtle outer glowing rings */}
-              <div className="absolute inset-0 rounded-full border border-[#C9A85C]/20 scale-105 animate-pulse" />
-              <div className="absolute inset-0 rounded-full border border-[#8C6D34]/30 scale-110" />
-
-              {/* Rotating Celestial Zodiac Image - 100% GPU Compositor animation */}
-              <div
-                className="w-full h-full relative rounded-full overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8),0_0_20px_rgba(201,168,92,0.15)] cursor-pointer animate-[spin_160s_linear_infinite] will-change-transform"
-                onClick={onStartReading}
-                title="Bấm để bắt đầu trải bài Tarot"
-              >
-                <Image
-                  src="/zodiac_wheel.jpg"
-                  alt="Vòng Hoàng Đạo Thiên Thể Cổ Điển"
-                  fill
-                  sizes="(max-width: 768px) 320px, (max-width: 1024px) 420px, 460px"
-                  className="object-cover rounded-full select-none"
-                  priority
-                />
-              </div>
-            </motion.div>
+          {/* Desktop Right Column: Celestial Zodiac Wheel */}
+          <div className="hidden lg:flex lg:col-span-5 justify-end relative">
+            {renderZodiacWheel()}
           </div>
         </div>
       </div>
