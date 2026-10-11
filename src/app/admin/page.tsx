@@ -2,6 +2,18 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { BusinessOverviewView } from '@/components/admin/BusinessOverviewView';
+import { OrdersManagementView } from '@/components/admin/OrdersManagementView';
+import { UserManagementView } from '@/components/admin/UserManagementView';
+import { AiManagementView } from '@/components/admin/AiManagementView';
+import { SystemSecurityView } from '@/components/admin/SystemSecurityView';
+import {
+  BusinessMetrics,
+  Order,
+  AiServiceStat,
+  SystemAuditLog,
+  OrderStatus
+} from '@/types/business';
 
 interface BlogItem {
   id: string;
@@ -25,6 +37,18 @@ export default function AdminBlogsPage() {
   const [loginError, setLoginError] = useState<string | null>(null);
   const [loginLoading, setLoginLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  // Active admin tab (6 modules)
+  const [activeTab, setActiveTab] = useState<
+    'overview' | 'orders' | 'users' | 'ai' | 'blogs' | 'security'
+  >('overview');
+
+  // Business state
+  const [businessMetrics, setBusinessMetrics] = useState<BusinessMetrics | null>(null);
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [aiStats, setAiStats] = useState<AiServiceStat | null>(null);
+  const [auditLogs, setAuditLogs] = useState<SystemAuditLog[]>([]);
+  const [loadingBusiness, setLoadingBusiness] = useState(false);
 
   const [blogs, setBlogs] = useState<BlogItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -83,6 +107,45 @@ export default function AdminBlogsPage() {
     }
   };
 
+  const fetchBusinessData = async () => {
+    try {
+      setLoadingBusiness(true);
+      const res = await fetch('/api/admin/business');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success) {
+          setBusinessMetrics(data.metrics);
+          setOrders(data.orders);
+          setAiStats(data.aiStats);
+          setAuditLogs(data.auditLogs);
+        }
+      }
+    } catch (err) {
+      console.error('Error fetching business data:', err);
+    } finally {
+      setLoadingBusiness(false);
+    }
+  };
+
+  const handleUpdateOrderStatus = async (orderId: string, status: OrderStatus) => {
+    try {
+      const res = await fetch('/api/admin/orders', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderId, status })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast(`Đã cập nhật trạng thái đơn hàng: ${status}`);
+        fetchBusinessData();
+      } else {
+        showToast(data.error || 'Cập nhật đơn hàng thất bại');
+      }
+    } catch {
+      showToast('Có lỗi xảy ra khi cập nhật đơn hàng');
+    }
+  };
+
   const checkAuth = async () => {
     try {
       const res = await fetch('/api/admin/auth');
@@ -91,6 +154,7 @@ export default function AdminBlogsPage() {
         setIsAuthenticated(true);
         setAdminUser(data.user || 'ndtri2004');
         fetchBlogs();
+        fetchBusinessData();
       } else {
         setIsAuthenticated(false);
       }
@@ -124,6 +188,7 @@ export default function AdminBlogsPage() {
         setAdminUser(data.user);
         showToast('Đăng nhập thành công! Chào mừng ' + data.user);
         fetchBlogs();
+        fetchBusinessData();
       } else {
         setLoginError(data.error || 'Tên đăng nhập hoặc mật khẩu không chính xác.');
       }
@@ -528,8 +593,18 @@ export default function AdminBlogsPage() {
             </span>
           </Link>
           <span className="text-slate-300">/</span>
-          <span className="text-xs uppercase tracking-wider font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
-            Quản trị Blog
+          <span className="text-xs uppercase tracking-wider font-semibold text-slate-700 bg-slate-100 px-2.5 py-1 rounded">
+            {activeTab === 'overview'
+              ? 'Business Overview'
+              : activeTab === 'orders'
+              ? 'Đơn hàng & Thanh toán'
+              : activeTab === 'users'
+              ? 'Người dùng & Quota'
+              : activeTab === 'ai'
+              ? 'Quản lý AI'
+              : activeTab === 'blogs'
+              ? 'Quản trị Blog'
+              : 'Bảo mật & Riêng tư'}
           </span>
         </div>
 
@@ -546,13 +621,15 @@ export default function AdminBlogsPage() {
           >
             Về trang chủ
           </Link>
-          <button
-            type="button"
-            onClick={openCreateModal}
-            className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs rounded-md shadow-xs transition-colors cursor-pointer"
-          >
-            Thêm bài viết
-          </button>
+          {activeTab === 'blogs' && (
+            <button
+              type="button"
+              onClick={openCreateModal}
+              className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs rounded-md shadow-xs transition-colors cursor-pointer"
+            >
+              Thêm bài viết
+            </button>
+          )}
           <button
             type="button"
             onClick={handleLogout}
@@ -565,13 +642,86 @@ export default function AdminBlogsPage() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-8 py-8 space-y-4">
+      <main className="max-w-6xl mx-auto px-4 sm:px-8 py-8 space-y-6">
         {/* Toast Notification */}
         {toastMessage && (
           <div className="fixed top-5 right-5 z-50 px-4 py-2.5 bg-slate-900 text-white text-xs font-medium rounded-md shadow-lg">
             {toastMessage}
           </div>
         )}
+
+        {/* 6 Phân hệ Tabs Bar */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200">
+          {[
+            { id: 'overview', label: '📊 Business Overview' },
+            {
+              id: 'orders',
+              label: `💳 Đơn hàng & Thanh toán${
+                orders.filter((o) => o.status === 'pending').length > 0
+                  ? ` (${orders.filter((o) => o.status === 'pending').length})`
+                  : ''
+              }`
+            },
+            { id: 'users', label: '👥 Người dùng & Quota' },
+            { id: 'ai', label: '🤖 AI & Chi phí' },
+            { id: 'blogs', label: '📝 Quản trị Blog' },
+            { id: 'security', label: '🛡️ Bảo mật & Riêng tư' }
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id as any)}
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
+                activeTab === tab.id
+                  ? 'bg-slate-900 text-white shadow-sm'
+                  : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* 1. Module Business Overview */}
+        {activeTab === 'overview' && (
+          <div>
+            {loadingBusiness && !businessMetrics ? (
+              <div className="py-20 text-center text-slate-400 text-xs">
+                Đang tải dữ liệu kinh doanh...
+              </div>
+            ) : businessMetrics ? (
+              <BusinessOverviewView
+                metrics={businessMetrics}
+                onRefresh={fetchBusinessData}
+              />
+            ) : (
+              <div className="py-20 text-center text-slate-400 text-xs">
+                Không thể tải dữ liệu kinh doanh.
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* 2. Module Orders */}
+        {activeTab === 'orders' && (
+          <OrdersManagementView
+            orders={orders}
+            onUpdateOrderStatus={handleUpdateOrderStatus}
+            onRefresh={fetchBusinessData}
+          />
+        )}
+
+        {/* 3. Module Users */}
+        {activeTab === 'users' && <UserManagementView />}
+
+        {/* 4. Module AI Management */}
+        {activeTab === 'ai' && aiStats && <AiManagementView aiStats={aiStats} />}
+
+        {/* 5. Module System & Security */}
+        {activeTab === 'security' && <SystemSecurityView auditLogs={auditLogs} />}
+
+        {/* 6. Module Blogs Management */}
+        {activeTab === 'blogs' && (
+          <div className="space-y-4">
 
         {/* Toolbar: Tìm kiếm, Lọc danh mục & Thống kê hiển thị */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 bg-white border border-slate-200 p-3.5 rounded-lg shadow-xs">
@@ -838,6 +988,8 @@ export default function AdminBlogsPage() {
             </div>
           )}
         </div>
+      </div>
+    )}
       </main>
 
       {/* Modal Thêm / Chỉnh sửa bài viết */}

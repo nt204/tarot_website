@@ -6,6 +6,7 @@ import { HeroSection } from '@/components/HeroSection';
 import { AboutTarotSection } from '@/components/AboutTarotSection';
 import { TopicsSection } from '@/components/TopicsSection';
 import { TarotTable } from '@/components/TarotTable';
+import { PricingSection } from '@/components/PricingSection';
 import { ArticlesSection } from '@/components/ArticlesSection';
 import { BenefitsSection } from '@/components/BenefitsSection';
 import { FAQSection } from '@/components/FAQSection';
@@ -148,6 +149,9 @@ export default function Home() {
           resetKey={resetKey}
           onGoHome={handleGoHome}
         />
+
+        {/* 5.5 Bảng giá & Gói dịch vụ Trạm Tarot (Freemium Model) */}
+        <PricingSection onScrollToTable={handleStartReading} />
 
         {/* 6. Section HÀNH TRÌNH CÁC LÁ BÀI (Bài viết tiêu biểu & kiến thức Tarot) */}
         <ArticlesSection />

@@ -10,6 +10,7 @@ import {
   AIReadingResult
 } from '@/types/tarot';
 import { Card3D } from '@/components/Card3D';
+import { DeepReadingPaywallCard } from '@/components/DeepReadingPaywallCard';
 
 interface OpaqueSlot {
   slot_id: string;
@@ -102,6 +103,7 @@ export const TarotTable: React.FC<TarotTableProps> = ({
     setIsZoomingIn(false);
     setUserConcern('');
     setSavedToast(false);
+    setIsDeepUnlocked(false);
     if (externalOnCloseDialogue) {
       externalOnCloseDialogue();
     } else {
@@ -182,6 +184,7 @@ export const TarotTable: React.FC<TarotTableProps> = ({
   const [readingStatus, setReadingStatus] = useState<'idle' | 'generating' | 'completed' | 'failed'>('idle');
   const [aiResult, setAiResult] = useState<AIReadingResult | null>(null);
   const [readingError, setReadingError] = useState<string | null>(null);
+  const [isDeepUnlocked, setIsDeepUnlocked] = useState<boolean>(false);
 
   // Áp dụng chủ đề và kiểu trải của thẻ mà người dùng vừa chọn.
   useEffect(() => {
@@ -1761,6 +1764,14 @@ HAI ĐIỀU BẠN CÓ THỂ THỬ:
                             </p>
                           </motion.div>
                         )}
+
+                        {/* 6.5. MỞ KHÓA BẢN PHÂN TÍCH CHUYÊN SÂU (FREEMIUM UPGRADE) */}
+                        <DeepReadingPaywallCard
+                          readingId={readingId || undefined}
+                          isUnlocked={isDeepUnlocked}
+                          onUnlocked={() => setIsDeepUnlocked(true)}
+                          question={userConcern || selectedTopic}
+                        />
 
                         {/* 7. LƯU TRẢI BÀI & TRẢI BÀI MỚI */}
                         <motion.div
