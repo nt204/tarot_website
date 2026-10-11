@@ -7,7 +7,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     subtitle: 'Trải nghiệm lần đầu',
     tagline: 'Cảm nhận giá trị và sự đồng điệu cùng những thông điệp khởi nguyên',
     price: 0,
-    priceUnit: 'trải nghiệm',
+    priceUnit: 'lần',
     features: [
       'Trải bài 3 lá kinh điển hoặc 1 lá ngày',
       'Giải nghĩa cơ bản có chiều sâu',
@@ -15,7 +15,14 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       'Không giới hạn lượt trải nghiệm cơ bản',
       'Giao diện tương tác 3D tĩnh tâm'
     ],
-    ctaText: 'Trải bài miễn phí'
+    featuresMobile: [
+      'Trải bài 3 lá kinh điển',
+      'Giải nghĩa cơ bản',
+      'Câu hỏi chiêm nghiệm',
+      'Miễn phí 100%'
+    ],
+    ctaText: 'Trải bài miễn phí',
+    ctaTextMobile: 'Trải bài'
   },
   {
     id: 'deep',
@@ -23,8 +30,9 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     subtitle: 'Mỗi lượt trải bài',
     tagline: 'Gỡ rối từng nút thắt, phân tích đa chiều bám sát câu chuyện của bạn',
     price: 29000,
-    priceUnit: 'mỗi lượt',
+    priceUnit: 'lượt',
     badge: 'Được chọn nhiều nhất',
+    badgeMobile: 'Nổi bật',
     highlight: true,
     features: [
       'Tất cả quyền lợi của gói Khám phá',
@@ -34,7 +42,14 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       'Hỏi thêm câu hỏi gợi mở tiếp theo',
       'Lưu kết quả & xuất bản ghi chiêm nghiệm'
     ],
-    ctaText: 'Mở khóa chuyên sâu'
+    featuresMobile: [
+      'Tất cả gói Khám phá',
+      'Phân tích câu chuyện riêng',
+      'Kế hoạch hành động',
+      'Lưu kết quả trọn đời'
+    ],
+    ctaText: 'Mở khóa chuyên sâu',
+    ctaTextMobile: 'Mở khóa'
   },
   {
     id: 'companion',
@@ -42,8 +57,9 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     subtitle: 'Gói thành viên tháng',
     tagline: 'Lắng nghe nội tâm đều đặn và theo dõi hành trình trưởng thành cá nhân',
     price: 99000,
-    priceUnit: 'mỗi tháng',
+    priceUnit: 'tháng',
     badge: 'Tiết kiệm 65%',
+    badgeMobile: '-65%',
     features: [
       '10 lượt trải bài chuyên sâu chất lượng cao',
       'Nhật ký cá nhân & lưu trữ trọn đời',
@@ -52,7 +68,14 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       'Không giới hạn câu hỏi đối thoại làm rõ',
       'Hỗ trợ đối soát và tư vấn 1-1 khi cần'
     ],
-    ctaText: 'Đăng ký đồng hành'
+    featuresMobile: [
+      '10 lượt chuyên sâu VIP',
+      'Nhật ký cá nhân trọn đời',
+      'Ưu tiên AI siêu tốc',
+      'Tư vấn đối soát 1-1'
+    ],
+    ctaText: 'Đăng ký đồng hành',
+    ctaTextMobile: 'Đăng ký'
   }
 ];
 

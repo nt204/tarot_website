@@ -5,11 +5,14 @@ export interface PricingPackage {
   name: string;
   subtitle: string;
   badge?: string;
+  badgeMobile?: string;
   price: number; // in VND (e.g. 0, 29000, 99000)
   priceUnit: string; // 'trải nghiệm', 'mỗi lượt', 'mỗi tháng'
   highlight?: boolean;
   features: string[];
+  featuresMobile?: string[];
   ctaText: string;
+  ctaTextMobile?: string;
   tagline: string;
 }
 
